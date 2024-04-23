@@ -504,7 +504,11 @@ export const ProductCard = ({
       key={id}
       className='recommended-product'
       to={`/products/${handle}`}
-      style={{ textDecoration: 'none' }}
+      style={{
+        textDecoration: 'none',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
     >
       <Column
         centered

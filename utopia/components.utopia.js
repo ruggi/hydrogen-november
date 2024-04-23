@@ -170,7 +170,6 @@ const ColumnVariants = [
   },
 ]
 
-// TrippyButton,
 // SpecialRow,
 // TwoFeatureCallout,
 // QuoteWithRating,

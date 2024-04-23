@@ -84,6 +84,7 @@ export default function LandingPage() {
     <Column>
       <div
         style={{
+          display: 'none',
           opacity: 0.5,
           position: 'absolute',
           zIndex: -1,

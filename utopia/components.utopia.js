@@ -7,6 +7,8 @@ import {
   SearchAside,
   MobileMenuAside,
 } from '../app/components/Layout'
+import { Header } from '../app/components/Header'
+import { Footer } from '../app/components/Footer'
 
 import { RecommendedProducts } from '../app/routes/_index'
 

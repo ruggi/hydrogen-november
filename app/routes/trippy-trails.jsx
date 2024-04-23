@@ -106,14 +106,22 @@ export default function LandingPage() {
               <WomanSeeking />
             </Column>
           }
-          right={<div>Placeholder</div>}
+          right={
+            <Row>
+              <Column centerV>colors</Column>
+              <Column centerV grow>
+                backpack
+              </Column>
+              <Column centerV>emblems</Column>
+            </Row>
+          }
         />
       </Section>
       <Section padded>
         <Spacer height={220} />
       </Section>
       <Section padded>
-        <Column centered>
+        <Column centerH>
           <SectionSubtitle>
             And in comfort binds them
           </SectionSubtitle>
@@ -438,7 +446,7 @@ export default function LandingPage() {
       <Section
         style={{ background: 'white', paddingTop: 100 }}
       >
-        <Column centered>
+        <Column centerH>
           <Column
             centered
             style={{

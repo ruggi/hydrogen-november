@@ -510,10 +510,7 @@ export const ProductCard = ({
         flexDirection: 'column',
       }}
     >
-      <Column
-        centered
-        style={{ contain: 'layout', width: 288 }}
-      >
+      <Column centered style={{ contain: 'layout' }}>
         <div
           style={{
             position: 'absolute',

@@ -17,6 +17,8 @@ import {
   Stars,
   PageTitle,
   SubsectionTitle,
+  ColorOptionsColumn,
+  BadgesColumn,
 } from '~/components/Components'
 import {
   LANDING_PAGE_QUERY,
@@ -108,11 +110,62 @@ export default function LandingPage() {
           }
           right={
             <Row>
-              <Column centerV>colors</Column>
-              <Column centerV centerH grow>
-                backpack
+              <Column centerV>
+                <ColorOptionsColumn />
               </Column>
-              <Column centerV>emblems</Column>
+              <Column centerV centerH grow>
+                <div
+                  style={{
+                    position: 'absolute',
+                    width: '100%',
+                    height: '40%',
+                    bottom: '15%',
+                    borderRadius: 30,
+                    backgroundColor: 'var(--yellow)',
+                    zIndex: -1,
+                  }}
+                >
+                  <img
+                    data-label='decorative cloud'
+                    srcSet='decorative/cloud_topright@2x.png 2x'
+                    alt=''
+                    style={{
+                      position: 'absolute',
+                      top: -12,
+                      right: -12,
+                    }}
+                  />
+                  <img
+                    data-label='decorative cloud'
+                    srcSet='decorative/cloud_topright@2x.png 2x'
+                    alt=''
+                    style={{
+                      position: 'absolute',
+                      rotate: '180deg',
+                      bottom: -20,
+                      left: -20,
+                    }}
+                  />
+                  <img
+                    data-label='decorative cloud'
+                    srcSet='decorative/cloud_topright@2x.png 2x'
+                    alt=''
+                    style={{
+                      position: 'absolute',
+                      rotate: '90deg',
+                      bottom: -20,
+                      right: -20,
+                    }}
+                  />
+                </div>
+                <img
+                  alt=''
+                  srcSet='merchandise/bag-hero@2x.png 2x'
+                />
+              </Column>
+              <Column centerV>
+                <BadgesColumn />
+              </Column>
             </Row>
           }
         />

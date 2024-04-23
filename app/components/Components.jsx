@@ -638,6 +638,24 @@ export const ColorOptions = () => (
   </Row>
 )
 
+export const ColorOptionsColumn = () => (
+  <Column gap={10}>
+    <ColorOption color='var(--yellow)' />
+    <ColorOption color='var(--orange)' />
+    <ColorOption color='var(--green)' />
+    <ColorOption color='var(--purple)' />
+  </Column>
+)
+
+export const BadgesColumn = () => (
+  <Column gap={10}>
+    <img alt='' srcSet='badge_01@2x.png 2x' />
+    <img alt='' srcSet='badge_02@2x.png 2x' />
+    <img alt='' srcSet='badge_03@2x.png 2x' />
+    <img alt='' srcSet='badge_04@2x.png 2x' />
+  </Column>
+)
+
 export const CircleButton = ({ children }) => (
   <Row
     centered

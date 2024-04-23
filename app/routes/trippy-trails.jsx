@@ -19,6 +19,7 @@ import {
   SubsectionTitle,
   ColorOptionsColumn,
   BadgesColumn,
+  DecorativeClouds,
 } from '~/components/Components'
 import {
   LANDING_PAGE_QUERY,
@@ -125,38 +126,7 @@ export default function LandingPage() {
                     zIndex: -1,
                   }}
                 >
-                  <img
-                    data-label='decorative cloud'
-                    srcSet='decorative/cloud_topright@2x.png 2x'
-                    alt=''
-                    style={{
-                      position: 'absolute',
-                      top: -12,
-                      right: -12,
-                    }}
-                  />
-                  <img
-                    data-label='decorative cloud'
-                    srcSet='decorative/cloud_topright@2x.png 2x'
-                    alt=''
-                    style={{
-                      position: 'absolute',
-                      rotate: '180deg',
-                      bottom: -20,
-                      left: -20,
-                    }}
-                  />
-                  <img
-                    data-label='decorative cloud'
-                    srcSet='decorative/cloud_topright@2x.png 2x'
-                    alt=''
-                    style={{
-                      position: 'absolute',
-                      rotate: '90deg',
-                      bottom: -20,
-                      right: -20,
-                    }}
-                  />
+                  <DecorativeClouds />
                 </div>
                 <img
                   alt=''
@@ -196,38 +166,7 @@ export default function LandingPage() {
       </Section>
       <Section style={{ padding: '5em 9em' }}>
         <Column>
-          <img
-            data-label='decorative cloud'
-            srcSet='decorative/cloud_topright@2x.png 2x'
-            alt=''
-            style={{
-              position: 'absolute',
-              top: -12,
-              right: -12,
-            }}
-          />
-          <img
-            data-label='decorative cloud'
-            srcSet='decorative/cloud_topright@2x.png 2x'
-            alt=''
-            style={{
-              position: 'absolute',
-              rotate: '180deg',
-              bottom: -20,
-              left: -20,
-            }}
-          />
-          <img
-            data-label='decorative cloud'
-            srcSet='decorative/cloud_topright@2x.png 2x'
-            alt=''
-            style={{
-              position: 'absolute',
-              rotate: '90deg',
-              bottom: -20,
-              right: -20,
-            }}
-          />
+          <DecorativeClouds />
           <SpecialRow
             style={{
               background: 'var(--purple)',

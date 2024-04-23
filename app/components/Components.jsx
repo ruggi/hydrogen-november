@@ -689,3 +689,40 @@ export const QuantitySelector = () => (
     <CircleButton>+</CircleButton>
   </Row>
 )
+
+export const DecorativeClouds = () => (
+  <>
+    <img
+      data-label='decorative cloud'
+      srcSet='decorative/cloud_topright@2x.png 2x'
+      alt=''
+      style={{
+        position: 'absolute',
+        top: -12,
+        right: -12,
+      }}
+    />
+    <img
+      data-label='decorative cloud'
+      srcSet='decorative/cloud_topright@2x.png 2x'
+      alt=''
+      style={{
+        position: 'absolute',
+        rotate: '180deg',
+        bottom: -20,
+        left: -20,
+      }}
+    />
+    <img
+      data-label='decorative cloud'
+      srcSet='decorative/cloud_topright@2x.png 2x'
+      alt=''
+      style={{
+        position: 'absolute',
+        rotate: '90deg',
+        bottom: -20,
+        right: -20,
+      }}
+    />
+  </>
+)

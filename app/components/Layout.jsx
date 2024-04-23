@@ -38,7 +38,7 @@ export function Layout({
   isLoggedIn,
 }) {
   return (
-    <div id='shop-main'>
+    <>
       <CartAside cart={cart} />
       <SearchAside />
       <MobileMenuAside
@@ -59,7 +59,7 @@ export function Layout({
           )}
         </Await>
       </Suspense> */}
-    </div>
+    </>
   )
 }
 

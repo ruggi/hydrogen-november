@@ -461,6 +461,10 @@ export const QuoteWithRating = ({
         color: 'var(--color-light)',
         padding: '1em',
         borderRadius: 12,
+        fontFamily: 'Amiko',
+        fontStyle: 'normal',
+        fontWeight: 700,
+        fontSize: '14px',
       }}
     >
       {quote}
@@ -696,11 +700,7 @@ export const DecorativeClouds = () => (
       data-label='decorative cloud'
       srcSet='decorative/cloud_topright@2x.png 2x'
       alt=''
-      style={{
-        position: 'absolute',
-        top: -12,
-        right: -12,
-      }}
+      style={{ position: 'absolute', top: -12, right: -12 }}
     />
     <img
       data-label='decorative cloud'

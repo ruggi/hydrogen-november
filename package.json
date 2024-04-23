@@ -52,8 +52,7 @@
     "featuredRoutes": [
       "/",
       "/blogs/news",
-      "/blogs/news/making-liquid",
-      "/trippy-trails"
+      "/blogs/news/making-liquid"
     ],
     "pageTemplates": [
       {

@@ -1,35 +1,33 @@
 import * as Utopia from 'utopia-api'
 import {
-  RecommendedProductsGrid,
-  BlogComponent,
-  Layout,
-  CartAside,
-  SearchAside,
-  MobileMenuAside,
-} from '../app/components/Layout'
-import { Header } from '../app/components/Header'
-import { Footer } from '../app/components/Footer'
-
-import { RecommendedProducts } from '../app/routes/_index'
-
-import {
-  Grid,
-  Section,
-  Row,
   Column,
+  DuplicatedImageWithBackground,
+  Grid,
   HalfAndHalf,
-  Spacer,
-  Text,
-  Stars,
   Placeholder,
-  SectionTitle,
+  QuoteWithRating,
+  Row,
+  Section,
   SectionSubtitle,
+  SectionTitle,
+  Spacer,
   SpecialRow,
+  Stars,
+  Text,
   TrippyButton,
   TwoFeatureCallout,
-  QuoteWithRating,
-  DuplicatedImageWithBackground,
 } from '../app/components/Components'
+import { Footer } from '../app/components/Footer'
+import { Header } from '../app/components/Header'
+import {
+  BlogComponent,
+  CartAside,
+  Layout,
+  MobileMenuAside,
+  RecommendedProductsGrid,
+  SearchAside,
+} from '../app/components/Layout'
+import { RecommendedProducts } from '../app/components/RecommendedProducts'
 
 import { ReviewCard } from '../app/routes/_index'
 
@@ -78,7 +76,7 @@ const ColumnVariants = [
 // SectionTitle,
 
 const Components = {
-  '/app/routes/trippy-trails': {
+  '/app/routes/_index': {
     ReviewCard: {
       component: ReviewCard,
       properties: {
@@ -92,7 +90,7 @@ const Components = {
       inspector: [],
       variants: {
         label: 'ReviewCard',
-        imports: `import { ReviewCard } from '/app/routes/trippy-trails';`,
+        imports: `import { ReviewCard } from '/app/routes/_index';`,
         code: `<ReviewCard
           rating={4}
           title='A good backpack is like a true friend'
@@ -103,7 +101,7 @@ const Components = {
       },
     },
   },
-  '/app/routes/_index': {
+  '/app/components/RecommendedProducts': {
     RecommendedProducts: {
       component: RecommendedProducts,
       properties: {},

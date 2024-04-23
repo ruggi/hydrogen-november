@@ -1,5 +1,5 @@
 import * as Utopia from 'utopia-api'
-import { ReviewCard } from '../app/routes/trippy-trails'
+import { ReviewCard } from '../app/routes/_index'
 
 const Annotations = {
   '/app/routes/trippy-trails': {

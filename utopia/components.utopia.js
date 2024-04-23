@@ -31,7 +31,7 @@ import {
   DuplicatedImageWithBackground,
 } from '../app/components/Components'
 
-import { ReviewCard } from '../app/routes/trippy-trails'
+import { ReviewCard } from '../app/routes/_index'
 
 const PlaceholderContent = {
   component: 'Placeholder',

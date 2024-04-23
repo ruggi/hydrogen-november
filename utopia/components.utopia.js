@@ -26,6 +26,7 @@ import {
   SectionSubtitle,
   SpecialRow,
   TrippyButton,
+  TwoFeatureCallout,
 } from '../app/components/Components'
 
 const PlaceholderContent = {
@@ -294,6 +295,28 @@ const Components = {
     },
   },
   '/app/components/Components': {
+    TwoFeatureCallout: {
+      component: TwoFeatureCallout,
+      properties: {
+        left: {
+          control: 'jsx',
+          preferredContents: PlaceholderContent,
+        },
+        right: {
+          control: 'jsx',
+          preferredContents: PlaceholderContent,
+        },
+      },
+      variants: {
+        label: 'TwoFeatureCallout',
+        imports: `import { TwoFeatureCallout, Placeholder } from "/app/components/Components"`,
+        code: `<TwoFeatureCallout
+            style={{ gap: 10 }}
+            left={<Placeholder />}
+            right={<Placeholder />}
+          />`,
+      },
+    },
     SpecialRow: {
       component: SpecialRow,
       properties: {
@@ -312,6 +335,7 @@ const Components = {
           label: 'SpecialRow',
           imports: `import { SpecialRow, Placeholder } from "/app/components/Components"`,
           code: `<SpecialRow
+            style={{ gap: 10 }}
             inverted={false}
             left={<Placeholder />}
             right={<Placeholder />}
@@ -321,6 +345,7 @@ const Components = {
           label: 'SpecialRow inverted',
           imports: `import { SpecialRow, Placeholder } from "/app/components/Components"`,
           code: `<SpecialRow
+          style={{ gap: 10 }}
           inverted={true}
           left={<Placeholder />}
           right={<Placeholder />}
@@ -341,6 +366,15 @@ const Components = {
         },
         padded: Utopia.checkboxControl(),
         gap: Utopia.numberControl(),
+      },
+      variants: {
+        label: 'HalfAndHalf',
+        imports: `import { HalfAndHalf, Placeholder } from "/app/components/Components"`,
+        code: `<HalfAndHalf
+            style={{ gap: 10 }}
+            left={<Placeholder />}
+            right={<Placeholder />}
+          />`,
       },
     },
     TrippyButton: {

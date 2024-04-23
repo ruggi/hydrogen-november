@@ -40,6 +40,8 @@ export const PageTitle = ({ style, children }) => (
       fontFamily: 'Amiko',
       fontSize: 60,
       lineHeight: '120%',
+      fontWeight: 700,
+      margin: '2rem 0',
       ...style,
     }}
   >

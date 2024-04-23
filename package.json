@@ -51,10 +51,9 @@
   "utopia": {
     "featuredRoutes": [
       "/",
-      "/collections/unisex",
-      "/products/beanie?Color=Green",
       "/blogs/news",
-      "/blogs/news/making-liquid"
+      "/blogs/news/making-liquid",
+      "/trippy-trails"
     ],
     "pageTemplates": [
       {

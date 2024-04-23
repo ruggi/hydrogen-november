@@ -231,10 +231,12 @@ export const Section = ({
 
 export const Row = ({
   padded,
-  centered,
+  centerH,
+  centerV,
   scrollable,
   wrap,
   gap,
+  grow,
   style,
   children,
 }) => (
@@ -243,9 +245,12 @@ export const Row = ({
       display: 'flex',
       flexDirection: 'row',
       padding: padded ? '1em' : null,
-      justifyContent: centered ? 'center' : null,
+      flexGrow: grow ? 1 : null,
       gap: gap ?? null,
+      alignItems: centerV ? 'center' : null,
+      justifyContent: centerH ? 'center' : null,
       flexWrap: wrap ? 'wrap' : 'no-wrap',
+      contain: 'layout',
       maxWidth: scrollable ? '100%' : null,
       overflow: scrollable ? 'scroll' : null,
       scrollSnapType: 'x mandatory',
@@ -259,9 +264,12 @@ export const Row = ({
 
 export const Column = ({
   padded,
-  centered,
+  centerH,
+  centerV,
+  scrollable,
   wrap,
   gap,
+  grow,
   style,
   children,
 }) => (
@@ -270,9 +278,16 @@ export const Column = ({
       display: 'flex',
       flexDirection: 'column',
       padding: padded ? '1em' : null,
+      flexGrow: grow ? 1 : null,
       gap: gap ?? null,
-      alignItems: centered ? 'center' : null,
+      alignItems: centerH ? 'center' : null,
+      justifyContent: centerV ? 'center' : null,
+      flexWrap: wrap ? 'wrap' : 'no-wrap',
       contain: 'layout',
+      maxHeight: scrollable ? '100%' : null,
+      overflow: scrollable ? 'scroll' : null,
+      scrollSnapType: 'y mandatory',
+      scrollPadding: '20px',
       ...style,
     }}
   >

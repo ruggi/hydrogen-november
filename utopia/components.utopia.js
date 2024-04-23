@@ -543,7 +543,6 @@ const Components = {
     },
     Column: {
       component: Column,
-      inspector: ['typography'],
       properties: {
         padded: Utopia.checkboxControl(),
         centered: Utopia.checkboxControl(),
@@ -567,6 +566,8 @@ const Components = {
       properties: {
         height: Utopia.stringControl(),
       },
+      focus: 'never',
+      inspector: [],
       variants: {
         label: 'Spacer',
         imports:

@@ -501,7 +501,6 @@ const Components = {
         ],
       },
       variants: [...SectionVariants],
-      focus: 'never',
     },
     Row: {
       component: Row,
@@ -522,7 +521,6 @@ const Components = {
           },
         ],
       },
-      focus: 'never',
       variants: RowVariants,
     },
     Column: {
@@ -544,7 +542,6 @@ const Components = {
           },
         ],
       },
-      focus: 'never',
       variants: ColumnVariants,
     },
     Spacer: {

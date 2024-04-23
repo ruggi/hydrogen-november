@@ -109,7 +109,7 @@ export default function LandingPage() {
           right={
             <Row>
               <Column centerV>colors</Column>
-              <Column centerV grow>
+              <Column centerV centerH grow>
                 backpack
               </Column>
               <Column centerV>emblems</Column>

@@ -21,21 +21,10 @@ import {
   BadgesColumn,
   DecorativeClouds,
 } from '~/components/Components'
-import {
-  LANDING_PAGE_QUERY,
-  processReviews,
-} from './trippy-trails-template'
+import { loader as loaderTemplate } from './trippy-trails-template'
+import { RecommendedProducts } from './_index'
 
-export async function loader({ params, context }) {
-  const { reviews } = await context.storefront.query(
-    LANDING_PAGE_QUERY,
-    {
-      variables: {},
-    },
-  )
-
-  return json({ reviews: processReviews(reviews) })
-}
+export const loader = loaderTemplate
 
 export const ReviewCard = ({
   children,
@@ -79,7 +68,7 @@ export const ReviewCard = ({
 )
 
 export default function LandingPage() {
-  const { reviews } = useLoaderData()
+  const { reviews, recommendedProducts } = useLoaderData()
   return (
     <Column>
       <div
@@ -548,6 +537,13 @@ export default function LandingPage() {
               name='D. Alighieri'
             />
           </Row>
+        </Column>
+      </Section>
+      <Section>
+        <Column centerH>
+          <RecommendedProducts
+            products={recommendedProducts}
+          />
         </Column>
       </Section>
     </Column>

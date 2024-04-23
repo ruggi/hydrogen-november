@@ -534,7 +534,7 @@ export const ProductCard = ({
         flexDirection: 'column',
       }}
     >
-      <Column centered style={{ contain: 'layout' }}>
+      <Column centerH style={{ contain: 'layout' }}>
         <div
           style={{
             position: 'absolute',
@@ -570,7 +570,7 @@ export const ProductCard = ({
       <Column
         gap='1.5em'
         padded
-        centered
+        centerH
         style={{
           borderRadius: '0 0 12px 12px',
           border: '1px solid var(--stroke-light)',
@@ -658,7 +658,7 @@ export const BadgesColumn = () => (
 
 export const CircleButton = ({ children }) => (
   <Row
-    centered
+    centerH
     style={{
       width: 25,
       height: 25,
@@ -675,7 +675,7 @@ export const CircleButton = ({ children }) => (
 
 export const QuantitySelector = () => (
   <Row
-    centered
+    centerV
     gap={15}
     style={{
       border: '1px solid var(--color-dark)',

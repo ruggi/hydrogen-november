@@ -1,5 +1,5 @@
 import { useLoaderData } from '@remix-run/react'
-import { json } from '@shopify/remix-oxygen'
+import { defer, json } from '@shopify/remix-oxygen'
 import { Column, PageTitle } from '../components/Components'
 
 export function processReviews(reviews) {
@@ -21,11 +21,18 @@ export async function loader({ params, context }) {
     },
   )
 
-  return json({ reviews: processReviews(reviews) })
+  const recommendedProducts = context.storefront.query(
+    RECOMMENDED_PRODUCTS_QUERY,
+  )
+
+  return defer({
+    reviews: processReviews(reviews),
+    recommendedProducts,
+  })
 }
 
 export default function LandingPage() {
-  const { reviews } = useLoaderData()
+  const { reviews, recommendedProducts } = useLoaderData()
   return (
     <Column>
       <PageTitle>Hi!</PageTitle>
@@ -59,5 +66,36 @@ export const LANDING_PAGE_QUERY = `#graphql
       }
     }
   }
+  }
+`
+
+export const RECOMMENDED_PRODUCTS_QUERY = `#graphql
+  fragment RecommendedProduct on Product {
+    id
+    title
+    handle
+    priceRange {
+      minVariantPrice {
+        amount
+        currencyCode
+      }
+    }
+    images(first: 1) {
+      nodes {
+        id
+        url
+        altText
+        width
+        height
+      }
+    }
+  }
+  query RecommendedProducts ($country: CountryCode, $language: LanguageCode)
+    @inContext(country: $country, language: $language) {
+    products(first: 6, sortKey: UPDATED_AT, reverse: true) {
+      nodes {
+        ...RecommendedProduct
+      }
+    }
   }
 `

@@ -21,7 +21,7 @@ export function BlogComponent({ title, children }) {
 
 export function RecommendedProductsGrid({ children }) {
   return (
-    <Row gap='3em' style={{ overflowX: 'scroll' }}>
+    <Row centerH gap='3em' style={{ overflowX: 'scroll' }}>
       {children}
     </Row>
   )

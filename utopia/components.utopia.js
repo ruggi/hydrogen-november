@@ -422,7 +422,10 @@ const Components = {
       inspector: ['visual', 'typography'],
       properties: {
         padded: Utopia.checkboxControl(),
-        centered: Utopia.checkboxControl(),
+        centerH: Utopia.checkboxControl(),
+        centerV: Utopia.checkboxControl(),
+        grow: Utopia.checkboxControl(),
+        scrollable: Utopia.checkboxControl(),
         wrap: Utopia.checkboxControl(),
         gap: Utopia.numberControl(),
       },

@@ -132,6 +132,15 @@ export default function LandingPage() {
       </Section>
       <Section style={{ padding: '5em 9em' }}>
         <Column>
+          <img
+            srcSet='decorative/cloud_topright@2x.png 2x'
+            alt=''
+            style={{
+              position: 'absolute',
+              top: -12,
+              right: -12,
+            }}
+          />
           <SpecialRow
             style={{
               background: 'var(--purple)',

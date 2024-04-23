@@ -41,6 +41,7 @@ export const PageTitle = ({ style, children }) => (
       fontSize: 60,
       lineHeight: '120%',
       fontWeight: 700,
+      padding: 0,
       margin: '2rem 0',
       ...style,
     }}
@@ -57,6 +58,7 @@ export const SectionTitle = ({ style, children }) => (
       padding: 0,
       margin: 0,
       textAlign: 'center',
+      fontWeight: 700,
       ...style,
     }}
   >

@@ -22,7 +22,7 @@ import {
   DecorativeClouds,
 } from '~/components/Components'
 import { loader as loaderTemplate } from './trippy-trails-template'
-import { RecommendedProducts } from '~/components/FeaturedProducts'
+import { RecommendedProducts } from '~/components/RecommendedProducts'
 
 export const loader = loaderTemplate
 

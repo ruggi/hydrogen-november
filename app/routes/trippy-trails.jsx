@@ -441,7 +441,8 @@ export default function LandingPage() {
       >
         <Column centerH>
           <Column
-            centered
+            centerH
+            centerV
             style={{
               paddingLeft: '21em',
               paddingRight: '21em',
@@ -460,6 +461,7 @@ export default function LandingPage() {
                   top: -55,
                   left: -55,
                   transform: 'scale(.5)',
+                  zIndex: -1,
                 }}
                 src='decorative/swirl_black_02@2x.png'
                 alt='decorative swirl'
@@ -470,17 +472,14 @@ export default function LandingPage() {
                   top: 0,
                   right: -80,
                   transform: 'scale(.5)',
+                  zIndex: -1,
                 }}
                 src='decorative/underline_01@2x.png'
                 alt='decorative swirl'
               />
-              <span
-                style={{
-                  position: 'relative',
-                }}
-              >
+              <SectionTitle>
                 some of our happy faces
-              </span>
+              </SectionTitle>
             </SectionTitle>
             <Text
               level='large'

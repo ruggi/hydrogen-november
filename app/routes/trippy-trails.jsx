@@ -18,7 +18,10 @@ import {
   PageTitle,
   SubsectionTitle,
 } from '~/components/Components'
-import { LANDING_PAGE_QUERY } from './trippy-trails-template'
+import {
+  LANDING_PAGE_QUERY,
+  processReviews,
+} from './trippy-trails-template'
 
 export async function loader({ params, context }) {
   const { reviews } = await context.storefront.query(
@@ -28,7 +31,7 @@ export async function loader({ params, context }) {
     },
   )
 
-  return json({ reviews })
+  return json({ reviews: processReviews(reviews) })
 }
 
 export const ReviewCard = ({
@@ -497,6 +500,18 @@ export default function LandingPage() {
             scrollable
             style={{ marginBottom: 36 }}
           >
+            {reviews.map((review) => {
+              return (
+                <ReviewCard
+                  key={review.id}
+                  rating={review.rating}
+                  title={review.title}
+                  text={review.summary}
+                  country={review.countryEmoji}
+                  name={review.reviewerName}
+                />
+              )
+            })}
             <ReviewCard
               rating={4}
               title='A good backpack is like a true friend'
@@ -532,27 +547,6 @@ export default function LandingPage() {
               country='🇮🇹'
               name='D. Alighieri'
             />
-          </Row>
-
-          <Row scrollable gap={27}>
-            <ReviewCard
-              style={{ scrollSnapAlign: 'start' }}
-            ></ReviewCard>
-            <ReviewCard
-              style={{ scrollSnapAlign: 'start' }}
-            ></ReviewCard>
-            <ReviewCard
-              style={{ scrollSnapAlign: 'start' }}
-            ></ReviewCard>
-            <ReviewCard
-              style={{ scrollSnapAlign: 'start' }}
-            ></ReviewCard>
-            <ReviewCard
-              style={{ scrollSnapAlign: 'start' }}
-            ></ReviewCard>
-            <ReviewCard
-              style={{ scrollSnapAlign: 'start' }}
-            ></ReviewCard>
           </Row>
         </Column>
       </Section>

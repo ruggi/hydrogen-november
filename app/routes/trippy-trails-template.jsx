@@ -2,6 +2,17 @@ import { useLoaderData } from '@remix-run/react'
 import { json } from '@shopify/remix-oxygen'
 import { Column, PageTitle } from '../components/Components'
 
+export function processReviews(reviews) {
+  return reviews.nodes.map((review) => ({
+    id: review.id,
+    rating: JSON.parse(review.rating.value).value,
+    summary: review.summary.value,
+    reviewerName: review.reviewerName.value,
+    countryEmoji: review.countryEmoji.value,
+    title: review.title.value,
+  }))
+}
+
 export async function loader({ params, context }) {
   const { reviews } = await context.storefront.query(
     LANDING_PAGE_QUERY,
@@ -10,7 +21,7 @@ export async function loader({ params, context }) {
     },
   )
 
-  return json({ reviews })
+  return json({ reviews: processReviews(reviews) })
 }
 
 export default function LandingPage() {
@@ -34,13 +45,16 @@ export const LANDING_PAGE_QUERY = `#graphql
       rating: field(key: "rating") {
         value
       }
-      reviewSummary: field(key: "review_summary") {
+      summary: field(key: "review_summary") {
         value
       }
       reviewerName: field(key: "reviewer_name") {
         value
       }
       countryEmoji: field(key: "country_emoji") {
+        value
+      }
+      title: field(key: "review_title") {
         value
       }
     }

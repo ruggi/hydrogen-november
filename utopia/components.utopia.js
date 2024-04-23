@@ -314,6 +314,7 @@ const Components = {
           preferredContents: PlaceholderContent,
         },
       },
+      focus: 'never',
       variants: {
         label: 'TwoFeatureCallout',
         imports: `import { TwoFeatureCallout, Placeholder } from "/app/components/Components"`,
@@ -329,14 +330,15 @@ const Components = {
       properties: {
         left: {
           control: 'jsx',
-          preferredContents: PlaceholderContent,
+          preferredContents: [PlaceholderContent],
         },
         right: {
           control: 'jsx',
-          preferredContents: PlaceholderContent,
+          preferredContents: [PlaceholderContent],
         },
         inverted: Utopia.checkboxControl(),
       },
+      focus: 'never',
       variants: [
         {
           label: 'SpecialRow',
@@ -347,16 +349,6 @@ const Components = {
             left={<Placeholder />}
             right={<Placeholder />}
           />`,
-        },
-        {
-          label: 'SpecialRow inverted',
-          imports: `import { SpecialRow, Placeholder } from "/app/components/Components"`,
-          code: `<SpecialRow
-          style={{ gap: 10 }}
-          inverted={true}
-          left={<Placeholder />}
-          right={<Placeholder />}
-        />`,
         },
       ],
     },
@@ -374,6 +366,7 @@ const Components = {
         padded: Utopia.checkboxControl(),
         gap: Utopia.numberControl(),
       },
+      focus: 'never',
       variants: {
         label: 'HalfAndHalf',
         imports: `import { HalfAndHalf, Placeholder } from "/app/components/Components"`,

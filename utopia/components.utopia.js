@@ -88,6 +88,19 @@ const Components = {
         country: Utopia.stringControl(),
         name: Utopia.stringControl(),
       },
+      focus: 'never',
+      inspector: [],
+      variants: {
+        label: 'ReviewCard',
+        imports: `import { ReviewCard } from '/app/routes/trippy-trails';`,
+        code: `<ReviewCard
+          rating={4}
+          title='A good backpack is like a true friend'
+          text='A friend should always underestimate your virtues and an enemy overestimate your faults.'
+          country='🇮🇹'
+          name='M Puzo'
+        />`,
+      },
     },
   },
   '/app/routes/_index': {

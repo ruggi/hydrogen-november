@@ -130,7 +130,7 @@ export default function LandingPage() {
           </SubsectionTitle>
         </Column>
       </Section>
-      <Section style={{ padding: '3em 9em' }}>
+      <Section style={{ padding: '5em 9em' }}>
         <Column>
           <SpecialRow
             style={{

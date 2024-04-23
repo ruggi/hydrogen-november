@@ -185,7 +185,6 @@ const ColumnVariants = [
   },
 ]
 
-// QuoteWithRating,
 // DuplicatedImageWithBackground,
 // SectionSubtitle,
 // SectionTitle,
@@ -300,6 +299,15 @@ const Components = {
       properties: {
         quote: Utopia.jsxControl(),
         rating: Utopia.sliderControl(0, 5, 1),
+      },
+      focus: 'never',
+      variants: {
+        label: 'QuoteWithRating',
+        imports: `import { QuoteWithRating, Placeholder } from "/app/components/Components"`,
+        code: `<QuoteWithRating
+            quote={'I love this!'}
+            rating={5}
+          />`,
       },
     },
     TwoFeatureCallout: {

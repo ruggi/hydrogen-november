@@ -31,6 +31,8 @@ import {
   DuplicatedImageWithBackground,
 } from '../app/components/Components'
 
+import { ReviewCard } from '../app/routes/trippy-trails'
+
 const PlaceholderContent = {
   component: 'Placeholder',
   moduleName: '/app/components/Components',
@@ -76,6 +78,18 @@ const ColumnVariants = [
 // SectionTitle,
 
 const Components = {
+  '/app/routes/trippy-trails': {
+    ReviewCard: {
+      component: ReviewCard,
+      properties: {
+        rating: Utopia.sliderControl(0, 5, 1, 'stars'),
+        title: Utopia.stringControl(),
+        text: Utopia.stringControl(),
+        country: Utopia.stringControl(),
+        name: Utopia.stringControl(),
+      },
+    },
+  },
   '/app/routes/_index': {
     RecommendedProducts: {
       component: RecommendedProducts,
@@ -201,7 +215,7 @@ const Components = {
       component: QuoteWithRating,
       properties: {
         quote: Utopia.jsxControl(),
-        rating: Utopia.sliderControl(0, 5, 1),
+        rating: Utopia.sliderControl(0, 5, 1, 'stars'),
       },
       focus: 'never',
       variants: {
@@ -483,7 +497,7 @@ const Components = {
     Stars: {
       component: Stars,
       properties: {
-        rating: Utopia.sliderControl(0, 5, 1),
+        rating: Utopia.sliderControl(0, 5, 1, 'stars'),
         style: Utopia.styleControl(),
       },
       variants: {

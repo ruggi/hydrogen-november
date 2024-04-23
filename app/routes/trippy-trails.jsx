@@ -81,7 +81,7 @@ export default function LandingPage() {
           opacity: 0.5,
           position: 'absolute',
           zIndex: -1,
-          top: 0,
+          top: -64,
           width: 1440,
           height: 9599,
           backgroundImage:

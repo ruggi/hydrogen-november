@@ -212,6 +212,7 @@ export const Section = ({
       minHeight: minHeight ? '85vh' : null,
       display: 'flex',
       flexDirection: 'column',
+      contain: 'layout',
       ...style,
     }}
   >
@@ -262,6 +263,7 @@ export const Column = ({
       padding: padded ? '1em' : null,
       gap: gap ?? null,
       alignItems: centered ? 'center' : null,
+      contain: 'layout',
       ...style,
     }}
   >

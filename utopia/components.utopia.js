@@ -32,7 +32,7 @@ const RowVariants = [
     label: 'Row with Placeholders',
     imports:
       'import { Row, Placeholder } from "/app/components/Components"',
-    code: `<Row>
+    code: `<Row style={{ gap: 10 }} padded={true} >
   <Placeholder />
   <Placeholder />
 </Row>`,
@@ -169,7 +169,7 @@ const ColumnVariants = [
     label: 'Column with Placeholders',
     imports:
       "import { Column, Placeholder } from '/app/components/Components'",
-    code: `<Column>
+    code: `<Column style={{ gap: 10 }} padded={true} >
   <Placeholder />
   <Placeholder />
 </Column>`,
@@ -322,11 +322,11 @@ const Components = {
           control: 'jsx',
           preferredContents: [
             {
-              component: 'Price',
+              component: 'Money',
               moduleName: '@shopify/hydrogen',
               variants: [
                 {
-                  label: 'Price with Money component',
+                  label: 'Money',
                   imports:
                     'import { Money } from "@shopify/hydrogen"',
                   code: `<Money data={{
@@ -339,19 +339,12 @@ const Components = {
           ],
         },
       },
+      children: {
+        preferredContents: 'text',
+      },
       focus: 'never',
       inspector: ['typography'],
       variants: [
-        {
-          label: 'TrippyButton',
-          imports: `import { TrippyButton } from "/app/components/Components"`,
-          code: '<TrippyButton />',
-        },
-        {
-          label: 'TrippyButton with number price',
-          imports: `import { TrippyButton } from "/app/components/Components"`,
-          code: `<TrippyButton price={'59.00'} />`,
-        },
         {
           label: 'TrippyButton with Money price',
           imports: `import { TrippyButton } from "/app/components/Components"
@@ -362,7 +355,7 @@ const Components = {
                 data={{ amount: '59', currencyCode: 'HUF' }}
               />
             }
-          />`,
+          >Buy now</TrippyButton>`,
         },
       ],
     },

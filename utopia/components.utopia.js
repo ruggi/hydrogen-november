@@ -184,7 +184,6 @@ const ColumnVariants = [
   },
 ]
 
-// TwoFeatureCallout,
 // QuoteWithRating,
 // DuplicatedImageWithBackground,
 // SectionSubtitle,

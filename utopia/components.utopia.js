@@ -27,6 +27,7 @@ import {
   SpecialRow,
   TrippyButton,
   TwoFeatureCallout,
+  QuoteWithRating,
 } from '../app/components/Components'
 
 const PlaceholderContent = {
@@ -294,6 +295,13 @@ const Components = {
     },
   },
   '/app/components/Components': {
+    QuoteWithRating: {
+      component: QuoteWithRating,
+      properties: {
+        quote: Utopia.jsxControl(),
+        rating: Utopia.sliderControl(0, 5, 1),
+      },
+    },
     TwoFeatureCallout: {
       component: TwoFeatureCallout,
       properties: {
@@ -589,7 +597,7 @@ const Components = {
     Stars: {
       component: Stars,
       properties: {
-        rating: Utopia.numberControl(),
+        rating: Utopia.sliderControl(0, 5, 1),
         style: Utopia.styleControl(),
       },
       variants: {

@@ -236,7 +236,7 @@ export default function LandingPage() {
               >
                 <DuplicatedImageWithBackground
                   backgroundColor={'var(--dark-orange)'}
-                  image={'merchandise/bag-black@2x.png'}
+                  image={'merchandise/bag-silver@2x.png'}
                 />
                 <QuoteWithRating
                   quote={
@@ -325,7 +325,7 @@ export default function LandingPage() {
               >
                 <DuplicatedImageWithBackground
                   backgroundColor={'var(--light-green)'}
-                  image={'merchandise/bag-black@2x.png'}
+                  image={'merchandise/bag-army@2x.png'}
                 />
                 <QuoteWithRating
                   quote={'The best hiking backpack! 💪'}

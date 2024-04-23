@@ -382,7 +382,7 @@ const Components = {
       component: Section,
       properties: {
         padded: Utopia.checkboxControl(),
-        minHight: Utopia.checkboxControl(),
+        minHeight: Utopia.checkboxControl(),
       },
       focus: 'never',
       children: {
@@ -392,7 +392,7 @@ const Components = {
     },
     Row: {
       component: Row,
-      inspector: ['layout-system'],
+      inspector: ['visual', 'typography'],
       properties: {
         padded: Utopia.checkboxControl(),
         centered: Utopia.checkboxControl(),

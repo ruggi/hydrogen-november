@@ -158,7 +158,17 @@ export const SpecialRow = ({
       ...style,
     }}
   >
-    {inverted ? [right, left] : [left, right]}
+    {inverted ? (
+      <>
+        {right}
+        {left}
+      </>
+    ) : (
+      <>
+        {left}
+        {right}
+      </>
+    )}
   </div>
 )
 

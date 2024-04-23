@@ -24,8 +24,15 @@ import {
   Placeholder,
   SectionTitle,
   SectionSubtitle,
+  SpecialRow,
   TrippyButton,
 } from '../app/components/Components'
+
+const PlaceholderContent = {
+  component: 'Placeholder',
+  moduleName: '/app/components/Components',
+  variants: [],
+}
 
 const RowVariants = [
   {
@@ -176,7 +183,6 @@ const ColumnVariants = [
   },
 ]
 
-// SpecialRow,
 // TwoFeatureCallout,
 // QuoteWithRating,
 // DuplicatedImageWithBackground,
@@ -288,28 +294,50 @@ const Components = {
     },
   },
   '/app/components/Components': {
+    SpecialRow: {
+      component: SpecialRow,
+      properties: {
+        left: {
+          control: 'jsx',
+          preferredContents: PlaceholderContent,
+        },
+        right: {
+          control: 'jsx',
+          preferredContents: PlaceholderContent,
+        },
+        inverted: Utopia.checkboxControl(),
+      },
+      variants: [
+        {
+          label: 'SpecialRow',
+          imports: `import { SpecialRow, Placeholder } from "/app/components/Components"`,
+          code: `<SpecialRow
+            inverted={false}
+            left={<Placeholder />}
+            right={<Placeholder />}
+          />`,
+        },
+        {
+          label: 'SpecialRow inverted',
+          imports: `import { SpecialRow, Placeholder } from "/app/components/Components"`,
+          code: `<SpecialRow
+          inverted={true}
+          left={<Placeholder />}
+          right={<Placeholder />}
+        />`,
+        },
+      ],
+    },
     HalfAndHalf: {
       component: HalfAndHalf,
       properties: {
         left: {
           control: 'jsx',
-          preferredContents: [
-            {
-              component: 'Placeholder',
-              moduleName: '/app/components/Components',
-              variants: [],
-            },
-          ],
+          preferredContents: PlaceholderContent,
         },
         right: {
           control: 'jsx',
-          preferredContents: [
-            {
-              component: 'Placeholder',
-              moduleName: '/app/components/Components',
-              variants: [],
-            },
-          ],
+          preferredContents: PlaceholderContent,
         },
         padded: Utopia.checkboxControl(),
         gap: Utopia.numberControl(),

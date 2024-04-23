@@ -28,6 +28,7 @@ import {
   TrippyButton,
   TwoFeatureCallout,
   QuoteWithRating,
+  DuplicatedImageWithBackground,
 } from '../app/components/Components'
 
 const PlaceholderContent = {
@@ -185,7 +186,6 @@ const ColumnVariants = [
   },
 ]
 
-// DuplicatedImageWithBackground,
 // SectionSubtitle,
 // SectionTitle,
 
@@ -294,6 +294,23 @@ const Components = {
     },
   },
   '/app/components/Components': {
+    DuplicatedImageWithBackground: {
+      component: DuplicatedImageWithBackground,
+      properties: {
+        image: Utopia.stringControl(),
+        backgroundColor: Utopia.colorControl(),
+      },
+      focus: 'never',
+      inspector: [],
+      variants: {
+        label: 'DuplicatedImageWithBackground',
+        imports: `import { DuplicatedImageWithBackground } from '/app/components/Components';`,
+        code: `<DuplicatedImageWithBackground
+          backgroundColor={'var(--lihgt-purple)'}
+          image={'merchandise/bag-black@2x.png'}
+        />`,
+      },
+    },
     QuoteWithRating: {
       component: QuoteWithRating,
       properties: {

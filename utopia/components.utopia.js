@@ -42,7 +42,7 @@ const RowVariants = [
     label: 'Row with Placeholders',
     imports:
       'import { Row, Placeholder } from "/app/components/Components"',
-    code: `<Row style={{ gap: 10 }} padded={true} >
+    code: `<Row style={{ gap: 10 }} padded >
   <Placeholder />
   <Placeholder />
 </Row>`,
@@ -51,125 +51,11 @@ const RowVariants = [
 
 const SectionVariants = [
   {
-    label: 'Section with Rows',
+    label: 'Section',
     imports:
-      'import { Section, Row } from "/app/components/Components"',
-    code: `<Section
-  style={{
-    width: 653,
-    height: 374,
-    contain: 'layout',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    gap: 11,
-    backgroundColor: '#0074ff',
-    borderRadius: 21,
-    overflow: 'hidden',
-  }}
->
-  <Row
-    style={{
-      width: '100%',
-      height: 408,
-      padding: '10px 10px 10px 10px',
-      borderRadius: 13,
-      overflow: 'hidden',
-    }}
-  >
-    <div
-      style={{
-        backgroundColor: '#5956d6',
-        contain: 'layout',
-        height: '100%',
-        flexGrow: 1,
-        borderRadius: 25,
-        overflow: 'hidden',
-      }}
-    />
-  </Row>
-  <Row
-    style={{
-      padding: '10px 10px 10px 10px',
-      width: '100%',
-      height: 408,
-    }}
-  >
-    <div
-      style={{
-        backgroundColor: '#5956d6',
-        contain: 'layout',
-        height: '100%',
-        flexGrow: 1,
-        borderRadius: 25,
-        overflow: 'hidden',
-      }}
-    />
-  </Row>
-</Section>`,
-  },
-  {
-    label: 'Section with Columns',
-    imports:
-      'import { Section, Column } from "/app/components/Components"',
-    code: `<Section
-  style={{
-    width: 688,
-    height: 348,
-    contain: 'layout',
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    gap: 40,
-    borderRadius: 54,
-    overflow: 'hidden',
-    backgroundColor: '#5956d6',
-  }}
->
-  <Column
-    style={{
-      padding: '60px 60px 60px 60px',
-      contain: 'layout',
-      alignItems: 'center',
-      justifyContent: 'center',
-      height: '100%',
-      flexGrow: 1,
-    }}
-  >
-    <div
-      style={{
-        backgroundColor: '#0074ff',
-        contain: 'layout',
-        width: 192,
-        height: 276,
-        borderRadius: 40,
-        overflow: 'hidden',
-      }}
-    />
-  </Column>
-  <Column
-    style={{
-      padding: '60px 60px 60px 60px',
-      contain: 'layout',
-      alignItems: 'center',
-      justifyContent: 'center',
-      height: '100%',
-      flexGrow: 1,
-    }}
-  >
-    <div
-      style={{
-        backgroundColor: '#0074ff',
-        contain: 'layout',
-        width: 192,
-        height: 276,
-        borderRadius: 42,
-        overflow: 'hidden',
-      }}
-    />
-  </Column>
+      'import { Section, Placeholder } from "/app/components/Components"',
+    code: `<Section padded minHeight>
+    <Placeholder />
 </Section>`,
   },
 ]
@@ -179,7 +65,7 @@ const ColumnVariants = [
     label: 'Column with Placeholders',
     imports:
       "import { Column, Placeholder } from '/app/components/Components'",
-    code: `<Column style={{ gap: 10 }} padded={true} >
+    code: `<Column style={{ gap: 10 }} padded >
   <Placeholder />
   <Placeholder />
 </Column>`,
@@ -496,29 +382,13 @@ const Components = {
       component: Section,
       properties: {
         padded: Utopia.checkboxControl(),
+        minHight: Utopia.checkboxControl(),
       },
-      inspector: ['layout', 'layout-system'],
       focus: 'never',
       children: {
-        preferredContents: [
-          {
-            component: 'Row',
-            moduleName: '/app/components/Components',
-            variants: RowVariants,
-          },
-          {
-            component: 'Column',
-            moduleName: '/app/components/Components',
-            variants: { name: 'Column' },
-          },
-          {
-            component: 'Section',
-            moduleName: '/app/components/Components',
-            variants: { name: 'Section' },
-          },
-        ],
+        preferredContents: PlaceholderContent,
       },
-      variants: [...SectionVariants],
+      variants: SectionVariants,
     },
     Row: {
       component: Row,

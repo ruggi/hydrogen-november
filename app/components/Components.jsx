@@ -36,7 +36,12 @@ export const Placeholder = ({
 
 export const PageTitle = ({ style, children }) => (
   <h1
-    style={{ fontSize: 60, lineHeight: '120%', ...style }}
+    style={{
+      fontFamily: 'Amiko',
+      fontSize: 60,
+      lineHeight: '120%',
+      ...style,
+    }}
   >
     {children}
   </h1>

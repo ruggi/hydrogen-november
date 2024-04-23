@@ -2,6 +2,10 @@ import * as Utopia from 'utopia-api'
 import {
   RecommendedProductsGrid,
   BlogComponent,
+  Layout,
+  CartAside,
+  SearchAside,
+  MobileMenuAside,
 } from '../app/components/Layout'
 
 import { RecommendedProducts } from '../app/routes/_index'
@@ -186,7 +190,53 @@ const Components = {
       inspector: [],
     },
   },
+  '/app/components/Header': {
+    Header: {
+      component: Header,
+      supportsChildren: false,
+      properties: {},
+      variants: [],
+      emphasis: 'emphasized',
+    },
+  },
+  '/app/components/Footer': {
+    Footer: {
+      component: Footer,
+      supportsChildren: false,
+      properties: {},
+      variants: [],
+      emphasis: 'emphasized',
+    },
+  },
   '/app/components/Layout': {
+    Layout: {
+      component: Layout,
+      supportsChildren: true,
+      properties: {},
+      variants: [],
+      emphasis: 'regular',
+    },
+    CartAside: {
+      component: CartAside,
+      supportsChildren: true,
+      properties: {},
+      variants: [],
+      emphasis: 'subdued',
+    },
+    SearchAside: {
+      component: SearchAside,
+      supportsChildren: true,
+      properties: {},
+      variants: [],
+      emphasis: 'subdued',
+    },
+    MobileMenuAside: {
+      component: MobileMenuAside,
+      supportsChildren: true,
+      properties: {},
+      variants: [],
+      emphasis: 'subdued',
+    },
     RecommendedProductsGrid: {
       component: RecommendedProductsGrid,
       supportsChildren: true,

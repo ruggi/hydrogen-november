@@ -66,7 +66,7 @@ export function Layout({
 /**
  * @param {{cart: LayoutProps['cart']}}
  */
-function CartAside({ cart }) {
+export function CartAside({ cart }) {
   return (
     <Aside id='cart-aside' heading='CART'>
       <Suspense fallback={<p>Loading cart ...</p>}>
@@ -80,7 +80,7 @@ function CartAside({ cart }) {
   )
 }
 
-function SearchAside() {
+export function SearchAside() {
   return (
     <Aside id='search-aside' heading='SEARCH'>
       <div className='predictive-search'>
@@ -113,7 +113,7 @@ function SearchAside() {
  *   shop: HeaderQuery['shop'];
  * }}
  */
-function MobileMenuAside({ menu, shop }) {
+export function MobileMenuAside({ menu, shop }) {
   return (
     <Aside id='mobile-menu-aside' heading='MENU'>
       <HeaderMenu

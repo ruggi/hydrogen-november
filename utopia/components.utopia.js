@@ -49,13 +49,44 @@ const RowVariants = [
   <Placeholder />
 </Row>`,
   },
+  {
+    label: 'Row - empty',
+    imports:
+      'import { Row } from "/app/components/Components"',
+    code: `<Row />`,
+  },
 ]
 
 const SectionVariants = [
   {
-    label: 'Section',
+    label: 'Section with Placeholder',
     imports:
       'import { Section, Placeholder } from "/app/components/Components"',
+    code: `<Section padded minHeight>
+    <Placeholder />
+</Section>`,
+  },
+  {
+    label: 'Section - empty',
+    imports:
+      'import { Section } from "/app/components/Components"',
+    code: `<Section />`,
+  },
+  {
+    label: 'Section with Row',
+    imports:
+      'import { Section, Row, Placeholder } from "/app/components/Components"',
+    code: `<Section padded minHeight>
+    <Row>
+      <Placeholder />
+      <Placeholder />
+    </Row>
+</Section>`,
+  },
+  {
+    label: 'Section with Column',
+    imports:
+      'import { Section, Placeholder, Column } from "/app/components/Components"',
     code: `<Section padded minHeight>
     <Placeholder />
 </Section>`,
@@ -71,6 +102,12 @@ const ColumnVariants = [
   <Placeholder />
   <Placeholder />
 </Column>`,
+  },
+  {
+    label: 'Column - empty',
+    imports:
+      "import { Column } from '/app/components/Components'",
+    code: `<Column />`,
   },
 ]
 

@@ -345,7 +345,7 @@ const Components = {
       inspector: ['typography'],
       variants: [
         {
-          label: 'TrippyButton with Money price',
+          label: 'TrippyButton',
           imports: `import { TrippyButton } from "/app/components/Components"
             import { Money } from "@shopify/hydrogen"`,
           code: `<TrippyButton
@@ -412,8 +412,19 @@ const Components = {
       },
       focus: 'never',
       children: {
-        preferredContents: PlaceholderContent,
-      },
+        preferredContents: [
+          {
+            component: 'Row',
+            moduleName: '/app/components/Components',
+            variants: RowVariants,
+          },
+          {
+            component: 'Column',
+            moduleName: '/app/components/Components',
+            variants: ColumnVariants,
+          },
+        ],
+      }, // row with placeholders, column with placeholders
       variants: SectionVariants,
     },
     Row: {
@@ -429,15 +440,7 @@ const Components = {
         gap: Utopia.numberControl(),
       },
       focus: 'never',
-      children: {
-        preferredContents: [
-          {
-            component: 'Placeholder',
-            moduleName: '/app/components/Components',
-            variants: [],
-          },
-        ],
-      },
+      children: 'supported',
       variants: RowVariants,
     },
     Column: {
@@ -517,7 +520,6 @@ const Components = {
       component: Stars,
       properties: {
         rating: Utopia.sliderControl(0, 5, 1, 'stars'),
-        style: Utopia.styleControl(),
       },
       focus: 'never',
       variants: {
@@ -529,7 +531,7 @@ const Components = {
     SectionSubtitle: {
       component: SectionSubtitle,
       properties: { style: Utopia.styleControl() },
-      children: { preferredContents: 'text' },
+      children: 'supported',
       focus: 'never',
       variants: {
         label: 'Section subtitle',

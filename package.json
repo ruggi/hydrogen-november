@@ -56,12 +56,8 @@
     ],
     "pageTemplates": [
       {
-        "label": "Trippy Trails",
+        "label": "Empty Page",
         "path": "/app/routes/trippy-trails-template.jsx"
-      },
-      {
-        "label": "Promo Article",
-        "path": "/app/routes/promotions.spring.jsx"
       }
     ]
   }

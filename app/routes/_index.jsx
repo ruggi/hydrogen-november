@@ -38,7 +38,7 @@ export const ReviewCard = ({
   <div
     style={{
       width: 372,
-      height: 200,
+      height: 232,
       flexShrink: 0,
       borderRadius: 17,
       border: '1px solid #c5c5c5',

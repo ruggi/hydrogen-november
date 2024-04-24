@@ -170,9 +170,11 @@ const Components = {
     Layout: {
       component: Layout,
       supportsChildren: true,
+      inspector: [],
       properties: {},
       variants: [],
-      emphasis: 'regular',
+      focus: 'never',
+      emphasis: 'subdued',
     },
     CartAside: {
       component: CartAside,

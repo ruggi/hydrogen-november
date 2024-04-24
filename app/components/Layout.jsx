@@ -8,19 +8,22 @@ import {
   PredictiveSearchForm,
   PredictiveSearchResults,
 } from '~/components/Search'
+import { Row } from './Components'
 
 export function BlogComponent({ title, children }) {
-  return <div className="blog">
+  return (
+    <div className='blog'>
       {title}
       {children}
     </div>
+  )
 }
 
 export function RecommendedProductsGrid({ children }) {
   return (
-    <div className='recommended-products-grid'>
+    <Row centerH gap='3em' style={{ overflowX: 'scroll' }}>
       {children}
-    </div>
+    </Row>
   )
 }
 
@@ -48,13 +51,14 @@ export function Layout({
         isLoggedIn={isLoggedIn}
       />
       <main>{children}</main>
-      <Suspense>
+      {/* TODO Fix Footer */}
+      {/* <Suspense>
         <Await resolve={footer}>
           {(footer) => (
             <Footer menu={footer.menu} shop={header.shop} />
           )}
         </Await>
-      </Suspense>
+      </Suspense> */}
     </>
   )
 }
@@ -62,7 +66,7 @@ export function Layout({
 /**
  * @param {{cart: LayoutProps['cart']}}
  */
-function CartAside({ cart }) {
+export function CartAside({ cart }) {
   return (
     <Aside id='cart-aside' heading='CART'>
       <Suspense fallback={<p>Loading cart ...</p>}>
@@ -76,7 +80,7 @@ function CartAside({ cart }) {
   )
 }
 
-function SearchAside() {
+export function SearchAside() {
   return (
     <Aside id='search-aside' heading='SEARCH'>
       <div className='predictive-search'>
@@ -109,7 +113,7 @@ function SearchAside() {
  *   shop: HeaderQuery['shop'];
  * }}
  */
-function MobileMenuAside({ menu, shop }) {
+export function MobileMenuAside({ menu, shop }) {
   return (
     <Aside id='mobile-menu-aside' heading='MENU'>
       <HeaderMenu

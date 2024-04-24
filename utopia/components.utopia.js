@@ -1,189 +1,94 @@
 import * as Utopia from 'utopia-api'
 import {
-  RecommendedProductsGrid,
-  BlogComponent,
-} from '../app/components/Layout'
-
-import { RecommendedProducts } from '../app/routes/_index'
-
-import {
-  Grid,
-  Section,
-  Row,
   Column,
+  DuplicatedImageWithBackground,
+  Grid,
+  HalfAndHalf,
+  Placeholder,
+  QuoteWithRating,
+  Row,
+  Section,
+  SectionSubtitle,
+  SectionTitle,
+  Spacer,
+  SpecialRow,
+  Stars,
+  Text,
+  TrippyButton,
+  TwoFeatureCallout,
+  PageTitle,
+  SubsectionTitle,
 } from '../app/components/Components'
+import { Footer } from '../app/components/Footer'
+import { Header } from '../app/components/Header'
+import {
+  BlogComponent,
+  CartAside,
+  Layout,
+  MobileMenuAside,
+  RecommendedProductsGrid,
+  SearchAside,
+} from '../app/components/Layout'
+import { RecommendedProducts } from '../app/components/RecommendedProducts'
+
+import { ReviewCard } from '../app/routes/_index'
+
+const PlaceholderContent = {
+  component: 'Placeholder',
+  moduleName: '/app/components/Components',
+  variants: [],
+}
 
 const RowVariants = [
   {
     label: 'Row with Placeholders',
     imports:
-      'import { Row } from "/app/components/Components"',
-    code: `    <Row
-  style={{
-    width: 533,
-    height: 150,
-    padding: '10px 10px 10px 10px',
-    borderRadius: 13,
-    overflow: 'hidden',
-    gap: 20,
-    contain: 'layout',
-  }}
->
-  <div
-    style={{
-      backgroundColor: '#5956d6',
-      contain: 'layout',
-      borderRadius: 25,
-      overflow: 'hidden',
-      height: 130,
-      flexGrow: 1,
-    }}
-  />
-  <div
-    style={{
-      backgroundColor: '#5956d6',
-      contain: 'layout',
-      borderRadius: 25,
-      overflow: 'hidden',
-      height: 130,
-      flexGrow: 1,
-    }}
-  />
-  <div
-    style={{
-      backgroundColor: '#5956d6',
-      contain: 'layout',
-      borderRadius: 25,
-      overflow: 'hidden',
-      height: 130,
-      flexGrow: 1,
-    }}
-  />
+      'import { Row, Placeholder } from "/app/components/Components"',
+    code: `<Row style={{ gap: 10 }} padded >
+  <Placeholder />
+  <Placeholder />
 </Row>`,
+  },
+  {
+    label: 'Row - empty',
+    imports:
+      'import { Row } from "/app/components/Components"',
+    code: `<Row />`,
   },
 ]
 
 const SectionVariants = [
   {
-    label: 'Section with Rows',
+    label: 'Section with Placeholder',
     imports:
-      'import { Section, Row } from "/app/components/Components"',
-    code: `<Section
-  style={{
-    width: 653,
-    height: 374,
-    contain: 'layout',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    gap: 11,
-    backgroundColor: '#0074ff',
-    borderRadius: 21,
-    overflow: 'hidden',
-  }}
->
-  <Row
-    style={{
-      width: '100%',
-      height: 408,
-      padding: '10px 10px 10px 10px',
-      borderRadius: 13,
-      overflow: 'hidden',
-    }}
-  >
-    <div
-      style={{
-        backgroundColor: '#5956d6',
-        contain: 'layout',
-        height: '100%',
-        flexGrow: 1,
-        borderRadius: 25,
-        overflow: 'hidden',
-      }}
-    />
-  </Row>
-  <Row
-    style={{
-      padding: '10px 10px 10px 10px',
-      width: '100%',
-      height: 408,
-    }}
-  >
-    <div
-      style={{
-        backgroundColor: '#5956d6',
-        contain: 'layout',
-        height: '100%',
-        flexGrow: 1,
-        borderRadius: 25,
-        overflow: 'hidden',
-      }}
-    />
-  </Row>
+      'import { Section, Placeholder } from "/app/components/Components"',
+    code: `<Section padded minHeight>
+    <Placeholder />
 </Section>`,
   },
   {
-    label: 'Section with Columns',
+    label: 'Section - empty',
     imports:
-      'import { Section, Column } from "/app/components/Components"',
-    code: `<Section
-  style={{
-    width: 688,
-    height: 348,
-    contain: 'layout',
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    gap: 40,
-    borderRadius: 54,
-    overflow: 'hidden',
-    backgroundColor: '#5956d6',
-  }}
->
-  <Column
-    style={{
-      padding: '60px 60px 60px 60px',
-      contain: 'layout',
-      alignItems: 'center',
-      justifyContent: 'center',
-      height: '100%',
-      flexGrow: 1,
-    }}
-  >
-    <div
-      style={{
-        backgroundColor: '#0074ff',
-        contain: 'layout',
-        width: 192,
-        height: 276,
-        borderRadius: 40,
-        overflow: 'hidden',
-      }}
-    />
-  </Column>
-  <Column
-    style={{
-      padding: '60px 60px 60px 60px',
-      contain: 'layout',
-      alignItems: 'center',
-      justifyContent: 'center',
-      height: '100%',
-      flexGrow: 1,
-    }}
-  >
-    <div
-      style={{
-        backgroundColor: '#0074ff',
-        contain: 'layout',
-        width: 192,
-        height: 276,
-        borderRadius: 42,
-        overflow: 'hidden',
-      }}
-    />
-  </Column>
+      'import { Section } from "/app/components/Components"',
+    code: `<Section />`,
+  },
+  {
+    label: 'Section with Row',
+    imports:
+      'import { Section, Row, Placeholder } from "/app/components/Components"',
+    code: `<Section padded minHeight>
+    <Row>
+      <Placeholder />
+      <Placeholder />
+    </Row>
+</Section>`,
+  },
+  {
+    label: 'Section with Column',
+    imports:
+      'import { Section, Placeholder, Column } from "/app/components/Components"',
+    code: `<Section padded minHeight>
+    <Placeholder />
 </Section>`,
   },
 ]
@@ -192,53 +97,50 @@ const ColumnVariants = [
   {
     label: 'Column with Placeholders',
     imports:
-      "import { Column } from '/app/components/Components'",
-    code: `<Column
-  style={{
-    width: 176,
-    height: 464,
-    backgroundColor: '#237893',
-    padding: '10px 10px 10px 10px',
-    gap: 10,
-    contain: 'layout',
-  }}
->
-  <div
-    style={{
-      backgroundColor: '#0074ff',
-      contain: 'layout',
-      width: '100%',
-      borderRadius: 10,
-      overflow: 'hidden',
-      flexGrow: 1,
-    }}
-  />
-  <div
-    style={{
-      backgroundColor: '#0074ff',
-      contain: 'layout',
-      width: '100%',
-      borderRadius: 10,
-      overflow: 'hidden',
-      flexGrow: 1,
-    }}
-  />
-  <div
-    style={{
-      backgroundColor: '#0074ff',
-      contain: 'layout',
-      width: '100%',
-      borderRadius: 10,
-      overflow: 'hidden',
-      flexGrow: 1,
-    }}
-  />
+      "import { Column, Placeholder } from '/app/components/Components'",
+    code: `<Column style={{ gap: 10 }} padded >
+  <Placeholder />
+  <Placeholder />
 </Column>`,
+  },
+  {
+    label: 'Column - empty',
+    imports:
+      "import { Column } from '/app/components/Components'",
+    code: `<Column />`,
   },
 ]
 
+// SectionSubtitle,
+// SectionTitle,
+
 const Components = {
   '/app/routes/_index': {
+    ReviewCard: {
+      component: ReviewCard,
+      properties: {
+        rating: Utopia.sliderControl(0, 5, 1, 'stars'),
+        title: Utopia.stringControl(),
+        text: Utopia.stringControl(),
+        country: Utopia.stringControl(),
+        name: Utopia.stringControl(),
+      },
+      focus: 'never',
+      inspector: [],
+      variants: {
+        label: 'ReviewCard',
+        imports: `import { ReviewCard } from '/app/routes/_index';`,
+        code: `<ReviewCard
+          rating={4}
+          title='A good backpack is like a true friend'
+          text='A friend should always underestimate your virtues and an enemy overestimate your faults.'
+          country='🇮🇹'
+          name='M Puzo'
+        />`,
+      },
+    },
+  },
+  '/app/components/RecommendedProducts': {
     RecommendedProducts: {
       component: RecommendedProducts,
       properties: {},
@@ -246,7 +148,55 @@ const Components = {
       inspector: [],
     },
   },
+  '/app/components/Header': {
+    Header: {
+      component: Header,
+      supportsChildren: false,
+      properties: {},
+      variants: [],
+      emphasis: 'emphasized',
+    },
+  },
+  '/app/components/Footer': {
+    Footer: {
+      component: Footer,
+      supportsChildren: false,
+      properties: {},
+      variants: [],
+      emphasis: 'emphasized',
+    },
+  },
   '/app/components/Layout': {
+    Layout: {
+      component: Layout,
+      supportsChildren: true,
+      inspector: [],
+      properties: {},
+      variants: [],
+      focus: 'never',
+      emphasis: 'subdued',
+    },
+    CartAside: {
+      component: CartAside,
+      supportsChildren: true,
+      properties: {},
+      variants: [],
+      emphasis: 'subdued',
+    },
+    SearchAside: {
+      component: SearchAside,
+      supportsChildren: true,
+      properties: {},
+      variants: [],
+      emphasis: 'subdued',
+    },
+    MobileMenuAside: {
+      component: MobileMenuAside,
+      supportsChildren: true,
+      properties: {},
+      variants: [],
+      emphasis: 'subdued',
+    },
     RecommendedProductsGrid: {
       component: RecommendedProductsGrid,
       supportsChildren: true,
@@ -296,6 +246,168 @@ const Components = {
     },
   },
   '/app/components/Components': {
+    DuplicatedImageWithBackground: {
+      component: DuplicatedImageWithBackground,
+      properties: {
+        image: Utopia.stringControl(),
+        backgroundColor: Utopia.colorControl(),
+      },
+      focus: 'never',
+      inspector: [],
+      variants: {
+        label: 'DuplicatedImageWithBackground',
+        imports: `import { DuplicatedImageWithBackground } from '/app/components/Components';`,
+        code: `<DuplicatedImageWithBackground
+          backgroundColor={'var(--lihgt-purple)'}
+          image={'merchandise/bag-black@2x.png'}
+        />`,
+      },
+    },
+    QuoteWithRating: {
+      component: QuoteWithRating,
+      properties: {
+        quote: Utopia.jsxControl(),
+        rating: Utopia.sliderControl(0, 5, 1, 'stars'),
+      },
+      focus: 'never',
+      variants: {
+        label: 'QuoteWithRating',
+        imports: `import { QuoteWithRating, Placeholder } from "/app/components/Components"`,
+        code: `<QuoteWithRating
+            quote={'I love this!'}
+            rating={5}
+          />`,
+      },
+    },
+    TwoFeatureCallout: {
+      component: TwoFeatureCallout,
+      properties: {
+        left: {
+          control: 'jsx',
+          preferredContents: PlaceholderContent,
+        },
+        right: {
+          control: 'jsx',
+          preferredContents: PlaceholderContent,
+        },
+      },
+      focus: 'never',
+      variants: {
+        label: 'TwoFeatureCallout',
+        imports: `import { TwoFeatureCallout, Placeholder } from "/app/components/Components"`,
+        code: `<TwoFeatureCallout
+            style={{ gap: 10 }}
+            left={<Placeholder />}
+            right={<Placeholder />}
+          />`,
+      },
+    },
+    SpecialRow: {
+      component: SpecialRow,
+      properties: {
+        left: {
+          control: 'jsx',
+          preferredContents: [PlaceholderContent],
+        },
+        right: {
+          control: 'jsx',
+          preferredContents: [PlaceholderContent],
+        },
+        inverted: Utopia.checkboxControl(),
+      },
+      focus: 'never',
+      variants: [
+        {
+          label: 'SpecialRow',
+          imports: `import { SpecialRow, Placeholder } from "/app/components/Components"`,
+          code: `<SpecialRow
+            style={{ gap: 10 }}
+            inverted={false}
+            left={<Placeholder />}
+            right={<Placeholder />}
+          />`,
+        },
+      ],
+    },
+    HalfAndHalf: {
+      component: HalfAndHalf,
+      properties: {
+        left: {
+          control: 'jsx',
+          preferredContents: PlaceholderContent,
+        },
+        right: {
+          control: 'jsx',
+          preferredContents: PlaceholderContent,
+        },
+        padded: Utopia.checkboxControl(),
+        gap: Utopia.numberControl(),
+      },
+      focus: 'never',
+      variants: {
+        label: 'HalfAndHalf',
+        imports: `import { HalfAndHalf, Placeholder } from "/app/components/Components"`,
+        code: `<HalfAndHalf
+            style={{ gap: 10 }}
+            left={<Placeholder />}
+            right={<Placeholder />}
+          />`,
+      },
+    },
+    TrippyButton: {
+      component: TrippyButton,
+      properties: {
+        price: {
+          control: 'jsx',
+          preferredContents: [
+            {
+              component: 'Money',
+              moduleName: '@shopify/hydrogen',
+              variants: [
+                {
+                  label: 'Money',
+                  imports:
+                    'import { Money } from "@shopify/hydrogen"',
+                  code: `<Money data={{
+                    amount: '59',
+                    currencyCode: 'HUF',
+                  }} />`,
+                },
+              ],
+            },
+          ],
+        },
+      },
+      children: {
+        preferredContents: 'text',
+      },
+      focus: 'never',
+      inspector: ['typography'],
+      variants: [
+        {
+          label: 'TrippyButton',
+          imports: `import { TrippyButton } from "/app/components/Components"
+            import { Money } from "@shopify/hydrogen"`,
+          code: `<TrippyButton
+            price={
+              <Money
+                data={{ amount: '59', currencyCode: 'HUF' }}
+              />
+            }
+          >Buy now</TrippyButton>`,
+        },
+      ],
+    },
+    Placeholder: {
+      component: Placeholder,
+      properties: {
+        margin: Utopia.numberControl(),
+        fill: Utopia.colorControl(),
+        fixed: Utopia.checkboxControl(),
+      },
+      focus: 'never',
+      inspector: [],
+    },
     Grid: {
       component: Grid,
       properties: {
@@ -336,39 +448,7 @@ const Components = {
       component: Section,
       properties: {
         padded: Utopia.checkboxControl(),
-      },
-      inspector: ['layout', 'layout-system'],
-      focus: 'never',
-      children: {
-        preferredContents: [
-          {
-            component: 'Row',
-            moduleName: '/app/components/Components',
-            variants: RowVariants,
-          },
-          {
-            component: 'Column',
-            moduleName: '/app/components/Components',
-            variants: { name: 'Column' },
-          },
-          {
-            component: 'Section',
-            moduleName: '/app/components/Components',
-            variants: { name: 'Section' },
-          },
-        ],
-      },
-      variants: [...SectionVariants],
-      focus: 'never',
-    },
-    Row: {
-      component: Row,
-      inspector: ['layout-system'],
-      properties: {
-        padded: Utopia.checkboxControl(),
-        centered: Utopia.checkboxControl(),
-        wrap: Utopia.checkboxControl(),
-        gap: Utopia.numberControl(),
+        minHeight: Utopia.checkboxControl(),
       },
       focus: 'never',
       children: {
@@ -383,22 +463,34 @@ const Components = {
             moduleName: '/app/components/Components',
             variants: ColumnVariants,
           },
-          {
-            component: 'Section',
-            moduleName: '/app/components/Components',
-            variants: SectionVariants,
-          },
         ],
+      }, // row with placeholders, column with placeholders
+      variants: SectionVariants,
+    },
+    Row: {
+      component: Row,
+      inspector: ['visual', 'typography'],
+      properties: {
+        padded: Utopia.checkboxControl(),
+        centerH: Utopia.checkboxControl(),
+        centerV: Utopia.checkboxControl(),
+        grow: Utopia.checkboxControl(),
+        scrollable: Utopia.checkboxControl(),
+        wrap: Utopia.checkboxControl(),
+        gap: Utopia.numberControl(),
       },
       focus: 'never',
+      children: 'supported',
       variants: RowVariants,
     },
     Column: {
       component: Column,
-      inspector: ['typography'],
       properties: {
         padded: Utopia.checkboxControl(),
-        centered: Utopia.checkboxControl(),
+        centerH: Utopia.checkboxControl(),
+        centerV: Utopia.checkboxControl(),
+        grow: Utopia.checkboxControl(),
+        scrollable: Utopia.checkboxControl(),
         wrap: Utopia.checkboxControl(),
         gap: Utopia.numberControl(),
       },
@@ -406,24 +498,125 @@ const Components = {
       children: {
         preferredContents: [
           {
-            component: 'Row',
+            component: 'Placeholder',
             moduleName: '/app/components/Components',
-            variants: RowVariants,
-          },
-          {
-            component: 'Column',
-            moduleName: '/app/components/Components',
-            variants: { name: 'Column' },
-          },
-          {
-            component: 'Section',
-            moduleName: '/app/components/Components',
-            variants: { name: 'Section' },
+            variants: [],
           },
         ],
       },
-      focus: 'never',
       variants: ColumnVariants,
+    },
+    Spacer: {
+      component: Spacer,
+      properties: {
+        height: Utopia.stringControl(),
+      },
+      focus: 'never',
+      inspector: [],
+      variants: {
+        label: 'Spacer',
+        imports:
+          'import { Spacer } from "/app/components/Components"',
+        code: `<Spacer height={50} />`,
+      },
+    },
+    Text: {
+      component: Text,
+      properties: {
+        level: Utopia.popupListControl([
+          {
+            label: 'large',
+            value: 'large',
+          },
+          {
+            label: 'embiggened',
+            value: 'embiggened',
+          },
+          {
+            label: 'regular',
+            value: 'regular',
+          },
+          {
+            label: 'smaller',
+            value: 'smaller',
+          },
+        ]),
+        deemphasized: Utopia.checkboxControl(),
+        emboldened: Utopia.checkboxControl(),
+        style: Utopia.styleControl(),
+      },
+      children: { preferredContents: 'text' },
+      focus: 'never',
+      variants: [
+        {
+          label: 'Text, embiggened',
+          imports:
+            'import { Text } from "/app/components/Components"',
+          code: `<Text level='embiggened'>Embiggened text</Text>`,
+        },
+      ],
+    },
+    Stars: {
+      component: Stars,
+      properties: {
+        rating: Utopia.sliderControl(0, 5, 1, 'stars'),
+      },
+      focus: 'never',
+      variants: {
+        label: 'Stars',
+        imports: `import { Stars } from '/app/components/Components'`,
+        code: `<Stars rating={5} />`,
+      },
+    },
+    SectionSubtitle: {
+      component: SectionSubtitle,
+      properties: { style: Utopia.styleControl() },
+      children: 'supported',
+      focus: 'never',
+      variants: {
+        label: 'Section Subtitle',
+        imports: `import { SectionSubtitle } from "/app/components/Components"`,
+        code: `<SectionSubtitle>Section subtitle</SectionSubtitle>`,
+      },
+    },
+    SectionTitle: {
+      component: SectionTitle,
+      properties: {
+        style: Utopia.styleControl(),
+      },
+      children: 'supported',
+      focus: 'never',
+      variants: {
+        label: 'Section Title',
+        imports: `import { SectionTitle } from "/app/components/Components"`,
+        code: `<SectionTitle>Section title</SectionTitle>`,
+      },
+    },
+    SubsectionTitle: {
+      component: SubsectionTitle,
+      properties: {
+        style: Utopia.styleControl(),
+      },
+      children: 'supported',
+      focus: 'never',
+      variants: {
+        label: 'Subsection Title',
+        imports: `import { SubsectionTitle } from "/app/components/Components"`,
+        code: `<SubsectionTitle>Section title</SubsectionTitle>`,
+      },
+    },
+    PageTitle: {
+      component: PageTitle,
+      properties: {
+        style: Utopia.styleControl(),
+      },
+      focus: 'never',
+      children: 'supported',
+      variants: {
+        label: 'Page Title',
+        imports: `import { PageTitle } from "/app/components/Components"`,
+        code: `<PageTitle>Page title</PageTitle>`,
+      },
     },
   },
 }

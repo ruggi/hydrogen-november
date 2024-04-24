@@ -1,15 +1,18 @@
-import {NavLink} from '@remix-run/react';
-import {useRootLoaderData} from '~/root';
+import { NavLink } from '@remix-run/react'
+import { useRootLoaderData } from '~/root'
 
 /**
  * @param {FooterQuery & {shop: HeaderQuery['shop']}}
  */
-export function Footer({menu, shop}) {
+export function Footer({ menu, shop }) {
   return (
-    <footer className="footer">
-      <FooterMenu menu={menu} primaryDomainUrl={shop.primaryDomain.url} />
+    <footer className='footer'>
+      <FooterMenu
+        menu={menu}
+        primaryDomainUrl={shop.primaryDomain.url}
+      />
     </footer>
-  );
+  )
 }
 
 /**
@@ -18,39 +21,44 @@ export function Footer({menu, shop}) {
  *   primaryDomainUrl: HeaderQuery['shop']['primaryDomain']['url'];
  * }}
  */
-function FooterMenu({menu, primaryDomainUrl}) {
-  const {publicStoreDomain} = useRootLoaderData();
+function FooterMenu({ menu, primaryDomainUrl }) {
+  const { publicStoreDomain } = useRootLoaderData()
 
   return (
-    <nav className="footer-menu" role="navigation">
+    <nav className='footer-menu' role='navigation'>
       {(menu || FALLBACK_FOOTER_MENU).items.map((item) => {
-        if (!item.url) return null;
+        if (!item.url) return null
         // if the url is internal, we strip the domain
         const url =
           item.url.includes('myshopify.com') ||
           item.url.includes(publicStoreDomain) ||
           item.url.includes(primaryDomainUrl)
             ? new URL(item.url).pathname
-            : item.url;
-        const isExternal = !url.startsWith('/');
+            : item.url
+        const isExternal = !url.startsWith('/')
         return isExternal ? (
-          <a href={url} key={item.id} rel="noopener noreferrer" target="_blank">
+          <a
+            href={url}
+            key={item.id}
+            rel='noopener noreferrer'
+            target='_blank'
+          >
             {item.title}
           </a>
         ) : (
           <NavLink
             end
             key={item.id}
-            prefetch="intent"
+            prefetch='intent'
             style={activeLinkStyle}
             to={url}
           >
             {item.title}
           </NavLink>
-        );
+        )
       })}
     </nav>
-  );
+  )
 }
 
 const FALLBACK_FOOTER_MENU = {
@@ -93,7 +101,7 @@ const FALLBACK_FOOTER_MENU = {
       items: [],
     },
   ],
-};
+}
 
 /**
  * @param {{
@@ -101,11 +109,11 @@ const FALLBACK_FOOTER_MENU = {
  *   isPending: boolean;
  * }}
  */
-function activeLinkStyle({isActive, isPending}) {
+function activeLinkStyle({ isActive, isPending }) {
   return {
     fontWeight: isActive ? 'bold' : undefined,
     color: isPending ? 'grey' : 'white',
-  };
+  }
 }
 
 /** @typedef {import('storefrontapi.generated').FooterQuery} FooterQuery */

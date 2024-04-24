@@ -10,6 +10,7 @@ import {
   useLoaderData,
   ScrollRestoration,
   isRouteErrorResponse,
+  Links,
 } from '@remix-run/react'
 import favicon from '../public/favicon.svg'
 import resetStyles from './styles/reset.css'
@@ -118,15 +119,29 @@ export default function App() {
   return (
     <html lang='en' style={{ backgroundColor: '#FFFFFF' }}>
       <head>
+        <link
+          rel='preconnect'
+          href='https://fonts.googleapis.com'
+        />
+        <link
+          rel='preconnect'
+          href='https://fonts.gstatic.com'
+          crossOrigin='anonymous'
+        />
+        <link
+          href='https://fonts.googleapis.com/css2?family=Amiko:wght@400;600;700&display=swap'
+          rel='stylesheet'
+        />
+
         <meta charSet='utf-8' />
         <meta
           name='viewport'
           content='width=device-width,initial-scale=1'
         />
         <Meta />
-        {/* Removed links, because it throws an exception when the actual route doesn't exist */}
-        {/* See https://github.com/concrete-utopia/utopia/issues/5218 }
-        {/* <Links /> */}
+        {/* We need to either move the loading of CSS someplace else instead of links() */}
+        {/* or fix Links throwing an error when navigating to a 404 */}
+        <Links />
       </head>
       <body>
         <Layout {...data}>

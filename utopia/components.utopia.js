@@ -17,6 +17,7 @@ import {
   TrippyButton,
   TwoFeatureCallout,
   PageTitle,
+  SubsectionTitle,
 } from '../app/components/Components'
 import { Footer } from '../app/components/Footer'
 import { Header } from '../app/components/Header'
@@ -534,7 +535,7 @@ const Components = {
       children: 'supported',
       focus: 'never',
       variants: {
-        label: 'Section subtitle',
+        label: 'Section Subtitle',
         imports: `import { SectionSubtitle } from "/app/components/Components"`,
         code: `<SectionSubtitle>Section subtitle</SectionSubtitle>`,
       },
@@ -547,9 +548,22 @@ const Components = {
       children: 'supported',
       focus: 'never',
       variants: {
-        label: 'Section title',
+        label: 'Section Title',
         imports: `import { SectionTitle } from "/app/components/Components"`,
         code: `<SectionTitle>Section title</SectionTitle>`,
+      },
+    },
+    SubsectionTitle: {
+      component: SubsectionTitle,
+      properties: {
+        style: Utopia.styleControl(),
+      },
+      children: 'supported',
+      focus: 'never',
+      variants: {
+        label: 'Subsection Title',
+        imports: `import { SubsectionTitle } from "/app/components/Components"`,
+        code: `<SubsectionTitle>Section title</SubsectionTitle>`,
       },
     },
     PageTitle: {
@@ -560,7 +574,7 @@ const Components = {
       focus: 'never',
       children: 'supported',
       variants: {
-        label: 'Page title',
+        label: 'Page Title',
         imports: `import { PageTitle } from "/app/components/Components"`,
         code: `<PageTitle>Page title</PageTitle>`,
       },

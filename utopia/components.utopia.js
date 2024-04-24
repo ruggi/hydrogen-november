@@ -552,7 +552,7 @@ const Components = {
           label: 'Text, embiggened',
           imports:
             'import { Text } from "/app/components/Components"',
-          code: `<Text level='embiggened'><span>Embiggened text</span></Text>`,
+          code: `<Text level='embiggened'>Embiggened text</Text>`,
         },
       ],
     },

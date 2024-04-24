@@ -16,6 +16,7 @@ import {
   Text,
   TrippyButton,
   TwoFeatureCallout,
+  PageTitle,
 } from '../app/components/Components'
 import { Footer } from '../app/components/Footer'
 import { Header } from '../app/components/Header'
@@ -502,6 +503,7 @@ const Components = {
         style: Utopia.styleControl(),
       },
       children: { preferredContents: 'text' },
+      focus: 'never',
       variants: [
         {
           label: 'Text, embiggened',
@@ -517,6 +519,7 @@ const Components = {
         rating: Utopia.sliderControl(0, 5, 1, 'stars'),
         style: Utopia.styleControl(),
       },
+      focus: 'never',
       variants: {
         label: 'Stars',
         imports: `import { Stars } from '/app/components/Components'`,
@@ -527,6 +530,7 @@ const Components = {
       component: SectionSubtitle,
       properties: { style: Utopia.styleControl() },
       children: { preferredContents: 'text' },
+      focus: 'never',
       variants: {
         label: 'Section subtitle',
         imports: `import { SectionSubtitle } from "/app/components/Components"`,
@@ -539,10 +543,24 @@ const Components = {
         style: Utopia.styleControl(),
       },
       children: 'supported',
+      focus: 'never',
       variants: {
         label: 'Section title',
         imports: `import { SectionTitle } from "/app/components/Components"`,
         code: `<SectionTitle>Section title</SectionTitle>`,
+      },
+    },
+    PageTitle: {
+      component: PageTitle,
+      properties: {
+        style: Utopia.styleControl(),
+      },
+      focus: 'never',
+      children: 'supported',
+      variants: {
+        label: 'Page title',
+        imports: `import { PageTitle } from "/app/components/Components"`,
+        code: `<PageTitle>Page title</PageTitle>`,
       },
     },
   },

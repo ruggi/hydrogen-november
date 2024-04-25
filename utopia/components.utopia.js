@@ -151,7 +151,6 @@ const Components = {
   '/app/components/Header': {
     Header: {
       component: Header,
-      supportsChildren: false,
       properties: {},
       variants: [],
       emphasis: 'emphasized',
@@ -160,7 +159,6 @@ const Components = {
   '/app/components/Footer': {
     Footer: {
       component: Footer,
-      supportsChildren: false,
       properties: {},
       variants: [],
       emphasis: 'emphasized',
@@ -169,7 +167,6 @@ const Components = {
   '/app/components/Layout': {
     Layout: {
       component: Layout,
-      supportsChildren: true,
       inspector: [],
       properties: {},
       variants: [],
@@ -178,28 +175,24 @@ const Components = {
     },
     CartAside: {
       component: CartAside,
-      supportsChildren: true,
       properties: {},
       variants: [],
       emphasis: 'subdued',
     },
     SearchAside: {
       component: SearchAside,
-      supportsChildren: true,
       properties: {},
       variants: [],
       emphasis: 'subdued',
     },
     MobileMenuAside: {
       component: MobileMenuAside,
-      supportsChildren: true,
       properties: {},
       variants: [],
       emphasis: 'subdued',
     },
     RecommendedProductsGrid: {
       component: RecommendedProductsGrid,
-      supportsChildren: true,
       properties: {},
       variants: [],
       focus: 'never',
@@ -236,11 +229,6 @@ const Components = {
           label: 'Empty Blog Post',
           imports: `import { BlogComponent } from '/app/components/Layout';`,
           code: '<BlogComponent title={<h1>Title</h1>} />',
-        },
-      ],
-      preferredChildComponents: [
-        {
-          name: 'div',
         },
       ],
     },

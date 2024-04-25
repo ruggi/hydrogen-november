@@ -167,7 +167,6 @@ const Components = {
           ],
         },
       },
-      supportsChildren: false,
       variants: [
         {
           label: 'Money',

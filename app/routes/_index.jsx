@@ -1,28 +1,27 @@
 import { useLoaderData } from '@remix-run/react'
-import { json } from '@shopify/remix-oxygen'
 import {
+  BadgesColumn,
+  ColorOptionsColumn,
   Column,
-  Row,
-  HalfAndHalf,
-  Section,
-  Spacer,
-  TrippyButton,
-  SpecialRow,
-  TwoFeatureCallout,
-  QuoteWithRating,
+  DecorativeClouds,
   DuplicatedImageWithBackground,
+  HalfAndHalf,
+  PageTitle,
+  QuoteWithRating,
+  Row,
+  Section,
   SectionSubtitle,
   SectionTitle,
-  Text,
+  Spacer,
+  SpecialRow,
   Stars,
-  PageTitle,
   SubsectionTitle,
-  ColorOptionsColumn,
-  BadgesColumn,
-  DecorativeClouds,
-} from '~/components/Components'
+  Text,
+  TrippyButton,
+  TwoFeatureCallout,
+} from '../components/Components'
+import { RecommendedProducts } from '../components/RecommendedProducts'
 import { loader as loaderTemplate } from './trippy-trails-template'
-import { RecommendedProducts } from '~/components/RecommendedProducts'
 
 export const loader = loaderTemplate
 

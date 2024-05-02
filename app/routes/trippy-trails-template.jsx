@@ -2,14 +2,14 @@ import { useLoaderData } from '@remix-run/react'
 import { defer, json } from '@shopify/remix-oxygen'
 import { Column, PageTitle } from '../components/Components'
 
-export function processReviews(reviews) {
-  return reviews.nodes.map((review) => ({
-    id: review.id,
-    rating: JSON.parse(review.rating.value).value,
-    summary: review.summary.value,
-    reviewerName: review.reviewerName.value,
-    countryEmoji: review.countryEmoji.value,
-    title: review.title.value,
+export function processTestimonials(testimonial) {
+  return reviews.nodes.map((testimonial) => ({
+    id: testimonial.id,
+    rating: JSON.parse(testimonial.rating.value).value,
+    summary: testimonial.summary.value,
+    reviewerName: testimonial.reviewerName.value,
+    countryEmoji: testimonial.countryEmoji.value,
+    title: testimonial.title.value,
   }))
 }
 
@@ -26,7 +26,7 @@ export async function loader({ params, context }) {
   )
 
   return defer({
-    reviews: processReviews(reviews),
+    reviews: processTestimonials(reviews),
     recommendedProducts,
   })
 }

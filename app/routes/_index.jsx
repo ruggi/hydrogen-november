@@ -488,15 +488,15 @@ export default function LandingPage() {
             scrollable
             style={{ marginBottom: 36 }}
           >
-            {reviews.map((review) => {
+            {reviews.map((testimonial) => {
               return (
                 <TestimonialCard
-                  key={review.id}
-                  rating={review.rating}
-                  title={review.title}
-                  text={review.summary}
-                  country={review.countryEmoji}
-                  name={review.reviewerName}
+                  key={testimonial.id}
+                  rating={testimonial.rating}
+                  title={testimonial.title}
+                  text={testimonial.summary}
+                  country={testimonial.countryEmoji}
+                  name={testimonial.reviewerName}
                 />
               )
             })}

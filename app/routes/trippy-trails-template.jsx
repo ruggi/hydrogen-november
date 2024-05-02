@@ -2,8 +2,8 @@ import { useLoaderData } from '@remix-run/react'
 import { defer, json } from '@shopify/remix-oxygen'
 import { Column, PageTitle } from '../components/Components'
 
-export function processTestimonials(testimonial) {
-  return reviews.nodes.map((testimonial) => ({
+export function processTestimonials(testimonials) {
+  return testimonials.nodes.map((testimonial) => ({
     id: testimonial.id,
     rating: JSON.parse(testimonial.rating.value).value,
     summary: testimonial.summary.value,

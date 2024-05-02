@@ -25,7 +25,7 @@ import { loader as loaderTemplate } from './trippy-trails-template'
 
 export const loader = loaderTemplate
 
-export const ReviewCard = ({
+export const TestimonialCard = ({
   children,
   style,
   rating,
@@ -490,7 +490,7 @@ export default function LandingPage() {
           >
             {reviews.map((review) => {
               return (
-                <ReviewCard
+                <TestimonialCard
                   key={review.id}
                   rating={review.rating}
                   title={review.title}
@@ -500,35 +500,35 @@ export default function LandingPage() {
                 />
               )
             })}
-            <ReviewCard
+            <TestimonialCard
               rating={4}
               title='A good backpack is like a true friend'
               text='A friend should always underestimate your virtues and an enemy overestimate your faults.'
               country='🇮🇹'
               name='M Puzo'
             />
-            <ReviewCard
+            <TestimonialCard
               rating={4}
               title='Something to know about backpacks'
               text='Wearing a backpack and a turtleneck is like a weak midget trying to bring you down'
               country='🇺🇸'
               name='Mitch Hedberg'
             />
-            <ReviewCard
+            <TestimonialCard
               rating={4}
               title='Everything good in life happens on the run.'
               text='This bag holds cash, ammo, and three quarts of whiskey.'
               country='🇺🇸'
               name='Clyde Barrow'
             />
-            <ReviewCard
+            <TestimonialCard
               rating={4}
               title='Works well with body armor'
               text='What I best recall is riding alone with the sun behind me, seeing me own shadow cantering ahead against the roadside weeds.'
               country='🇦🇺'
               name='Ned Kelly'
             />
-            <ReviewCard
+            <TestimonialCard
               rating={5}
               title='Will carry you to hell and back'
               text='Midway through the journey of my life, I found myself inside a shadowy forest. But at least I had a backpack!'

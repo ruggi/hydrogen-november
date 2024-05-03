@@ -37,7 +37,6 @@ export const loader = async ({request, params, context: {storefront}}) => {
 };
 
 export default function Blog() {
-  /** @type {LoaderReturnData} */
   const {blog} = useLoaderData();
   const {articles} = blog;
 

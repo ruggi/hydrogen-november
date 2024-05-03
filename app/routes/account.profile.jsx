@@ -106,7 +106,7 @@ export async function action({request, context}) {
 export default function AccountProfile() {
   const account = useOutletContext();
   const {state} = useNavigation();
-  /** @type {ActionReturnData} */
+
   const action = useActionData();
   const customer = action?.customer ?? account?.customer;
 

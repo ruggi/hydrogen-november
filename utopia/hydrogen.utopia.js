@@ -30,7 +30,6 @@ const CurrencyCodeControl = Utopia.popupListControl([
     value: 'EUR',
     label: 'Euro (EUR).',
   },
-  // TODO: all currencies
 ])
 
 const UnitPriceMeasurementMeasuredUnit =

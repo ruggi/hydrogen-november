@@ -49,7 +49,6 @@ export async function loader({request, context}) {
 }
 
 export default function Orders() {
-  /** @type {LoaderReturnData} */
   const {customer} = useLoaderData();
   const {orders, numberOfOrders} = customer;
   return (

@@ -63,7 +63,6 @@ export async function action({request, context, params}) {
 }
 
 export default function Reset() {
-  /** @type {ActionReturnData} */
   const action = useActionData();
 
   return (
@@ -76,7 +75,6 @@ export default function Reset() {
           <input
             aria-label="Password"
             autoComplete="current-password"
-            // eslint-disable-next-line jsx-a11y/no-autofocus
             autoFocus
             id="password"
             minLength={8}

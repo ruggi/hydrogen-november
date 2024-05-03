@@ -68,7 +68,6 @@ export async function action({request, context}) {
 }
 
 export default function Login() {
-  /** @type {ActionReturnData} */
   const data = useActionData();
   const error = data?.error || null;
 
@@ -86,7 +85,6 @@ export default function Login() {
             required
             placeholder="Email address"
             aria-label="Email address"
-            // eslint-disable-next-line jsx-a11y/no-autofocus
             autoFocus
           />
           <label htmlFor="password">Password</label>

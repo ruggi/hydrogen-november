@@ -113,7 +113,6 @@ export async function loader({ context }) {
 
 export default function App() {
   const nonce = useNonce()
-  /** @type {LoaderReturnData} */
   const data = useLoaderData()
 
   return (
@@ -139,8 +138,6 @@ export default function App() {
           content='width=device-width,initial-scale=1'
         />
         <Meta />
-        {/* We need to either move the loading of CSS someplace else instead of links() */}
-        {/* or fix Links throwing an error when navigating to a 404 */}
         <Links />
       </head>
       <body>
@@ -178,9 +175,6 @@ export function ErrorBoundary() {
           content='width=device-width,initial-scale=1'
         />
         <Meta />
-        {/* Removed links, because it throws an exception when the actual route doesn't exist */}
-        {/* See https://github.com/concrete-utopia/utopia/issues/5218 }
-        {/* <Links /> */}
       </head>
       <body>
         <Layout {...rootData}>

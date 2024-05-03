@@ -51,14 +51,6 @@ export function Layout({
         isLoggedIn={isLoggedIn}
       />
       <main>{children}</main>
-      {/* TODO Fix Footer */}
-      {/* <Suspense>
-        <Await resolve={footer}>
-          {(footer) => (
-            <Footer menu={footer.menu} shop={header.shop} />
-          )}
-        </Await>
-      </Suspense> */}
     </>
   )
 }

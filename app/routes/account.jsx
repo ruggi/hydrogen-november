@@ -78,7 +78,6 @@ export async function loader({request, context}) {
 }
 
 export default function Acccount() {
-  /** @type {LoaderReturnData} */
   const {customer, isPrivateRoute, isAccountHome} = useLoaderData();
 
   if (!isPrivateRoute && !isAccountHome) {

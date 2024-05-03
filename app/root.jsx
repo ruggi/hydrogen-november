@@ -140,7 +140,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body style={{ minHeight: 1000 }}>
         <Layout {...data}>
           <Outlet />
         </Layout>

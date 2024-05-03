@@ -545,6 +545,7 @@ const Components = {
       },
       children: { preferredContents: 'text' },
       focus: 'never',
+      inspector: ['typography'],
       variants: [
         {
           label: 'Text, embiggened',
@@ -571,6 +572,7 @@ const Components = {
       properties: { style: Utopia.styleControl() },
       children: 'supported',
       focus: 'never',
+      inspector: ['typography'],
       variants: {
         label: 'Section Subtitle',
         imports: `import { SectionSubtitle } from "/app/components/Components"`,
@@ -584,6 +586,7 @@ const Components = {
       },
       children: 'supported',
       focus: 'never',
+      inspector: ['typography'],
       variants: {
         label: 'Section Title',
         imports: `import { SectionTitle } from "/app/components/Components"`,
@@ -597,6 +600,7 @@ const Components = {
       },
       children: 'supported',
       focus: 'never',
+      inspector: ['typography'],
       variants: {
         label: 'Subsection Title',
         imports: `import { SubsectionTitle } from "/app/components/Components"`,
@@ -610,6 +614,7 @@ const Components = {
       },
       focus: 'never',
       children: 'supported',
+      inspector: ['typography'],
       variants: {
         label: 'Page Title',
         imports: `import { PageTitle } from "/app/components/Components"`,

@@ -394,6 +394,7 @@ const Components = {
         fixed: Utopia.checkboxControl(),
       },
       focus: 'never',
+      children: 'not-supported',
       inspector: [],
     },
     Grid: {

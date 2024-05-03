@@ -31,7 +31,7 @@ import {
 } from '../app/components/Layout'
 import { RecommendedProducts } from '../app/components/RecommendedProducts'
 
-import { ReviewCard } from '../app/routes/_index'
+import { TestimonialCard } from '../app/routes/_index'
 
 const PlaceholderContent = {
   component: 'Placeholder',
@@ -116,8 +116,8 @@ const ColumnVariants = [
 
 const Components = {
   '/app/routes/_index': {
-    ReviewCard: {
-      component: ReviewCard,
+    TestimonialCard: {
+      component: TestimonialCard,
       properties: {
         rating: Utopia.sliderControl(0, 5, 1, 'stars'),
         title: Utopia.stringControl(),
@@ -128,9 +128,9 @@ const Components = {
       focus: 'never',
       inspector: [],
       variants: {
-        label: 'ReviewCard',
-        imports: `import { ReviewCard } from '/app/routes/_index';`,
-        code: `<ReviewCard
+        label: 'TestimonialCard',
+        imports: `import { TestimonialCard } from '/app/routes/_index';`,
+        code: `<TestimonialCard
           rating={4}
           title='A good backpack is like a true friend'
           text='A friend should always underestimate your virtues and an enemy overestimate your faults.'

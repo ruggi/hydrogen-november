@@ -25,7 +25,7 @@ import { loader as loaderTemplate } from './trippy-trails-template'
 
 export const loader = loaderTemplate
 
-export const ReviewCard = ({
+export const TestimonialCard = ({
   children,
   style,
   rating,
@@ -67,7 +67,8 @@ export const ReviewCard = ({
 )
 
 export default function LandingPage() {
-  const { reviews, recommendedProducts } = useLoaderData()
+  const { testimonials, recommendedProducts } =
+    useLoaderData()
   return (
     <Column>
       <div
@@ -488,47 +489,47 @@ export default function LandingPage() {
             scrollable
             style={{ marginBottom: 36 }}
           >
-            {reviews.map((review) => {
+            {testimonials.map((testimonial) => {
               return (
-                <ReviewCard
-                  key={review.id}
-                  rating={review.rating}
-                  title={review.title}
-                  text={review.summary}
-                  country={review.countryEmoji}
-                  name={review.reviewerName}
+                <TestimonialCard
+                  key={testimonial.id}
+                  rating={testimonial.rating}
+                  title={testimonial.title}
+                  text={testimonial.summary}
+                  country={testimonial.countryEmoji}
+                  name={testimonial.reviewerName}
                 />
               )
             })}
-            <ReviewCard
+            <TestimonialCard
               rating={4}
               title='A good backpack is like a true friend'
               text='A friend should always underestimate your virtues and an enemy overestimate your faults.'
               country='🇮🇹'
               name='M Puzo'
             />
-            <ReviewCard
+            <TestimonialCard
               rating={4}
               title='Something to know about backpacks'
               text='Wearing a backpack and a turtleneck is like a weak midget trying to bring you down'
               country='🇺🇸'
               name='Mitch Hedberg'
             />
-            <ReviewCard
+            <TestimonialCard
               rating={4}
               title='Everything good in life happens on the run.'
               text='This bag holds cash, ammo, and three quarts of whiskey.'
               country='🇺🇸'
               name='Clyde Barrow'
             />
-            <ReviewCard
+            <TestimonialCard
               rating={4}
               title='Works well with body armor'
               text='What I best recall is riding alone with the sun behind me, seeing me own shadow cantering ahead against the roadside weeds.'
               country='🇦🇺'
               name='Ned Kelly'
             />
-            <ReviewCard
+            <TestimonialCard
               rating={5}
               title='Will carry you to hell and back'
               text='Midway through the journey of my life, I found myself inside a shadowy forest. But at least I had a backpack!'

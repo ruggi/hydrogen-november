@@ -2,19 +2,19 @@ import { useLoaderData } from '@remix-run/react'
 import { defer, json } from '@shopify/remix-oxygen'
 import { Column, PageTitle } from '../components/Components'
 
-export function processReviews(reviews) {
-  return reviews.nodes.map((review) => ({
-    id: review.id,
-    rating: JSON.parse(review.rating.value).value,
-    summary: review.summary.value,
-    reviewerName: review.reviewerName.value,
-    countryEmoji: review.countryEmoji.value,
-    title: review.title.value,
+export function processTestimonials(testimonials) {
+  return testimonials.nodes.map((testimonial) => ({
+    id: testimonial.id,
+    rating: JSON.parse(testimonial.rating.value).value,
+    summary: testimonial.summary.value,
+    reviewerName: testimonial.reviewerName.value,
+    countryEmoji: testimonial.countryEmoji.value,
+    title: testimonial.title.value,
   }))
 }
 
 export async function loader({ params, context }) {
-  const { reviews } = await context.storefront.query(
+  const { testimonials } = await context.storefront.query(
     LANDING_PAGE_QUERY,
     {
       variables: {},
@@ -26,13 +26,14 @@ export async function loader({ params, context }) {
   )
 
   return defer({
-    reviews: processReviews(reviews),
+    testimonials: processTestimonials(testimonials),
     recommendedProducts,
   })
 }
 
 export default function LandingPage() {
-  const { reviews, recommendedProducts } = useLoaderData()
+  const { testimonials, recommendedProducts } =
+    useLoaderData()
   return (
     <Column>
       <PageTitle>Hi!</PageTitle>
@@ -45,27 +46,27 @@ export const LANDING_PAGE_QUERY = `#graphql
     $country: CountryCode
     $language: LanguageCode
   ) @inContext(language: $language, country: $country) {
-    reviews: metaobjects(type: "product_ratings", first: 10) {
-    nodes {
-      id
-      type
-      rating: field(key: "rating") {
-        value
-      }
-      summary: field(key: "review_summary") {
-        value
-      }
-      reviewerName: field(key: "reviewer_name") {
-        value
-      }
-      countryEmoji: field(key: "country_emoji") {
-        value
-      }
-      title: field(key: "review_title") {
-        value
+    testimonials: metaobjects(type: "product_ratings", first: 10) {
+      nodes {
+        id
+        type
+        rating: field(key: "rating") {
+          value
+        }
+        summary: field(key: "review_summary") {
+          value
+        }
+        reviewerName: field(key: "reviewer_name") {
+          value
+        }
+        countryEmoji: field(key: "country_emoji") {
+          value
+        }
+        title: field(key: "review_title") {
+          value
+        }
       }
     }
-  }
   }
 `
 

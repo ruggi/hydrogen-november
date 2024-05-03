@@ -1623,7 +1623,7 @@ export type LandingPageQueryVariables = StorefrontAPI.Exact<{
 }>;
 
 export type LandingPageQuery = {
-  reviews: {
+  testimonials: {
     nodes: Array<
       Pick<StorefrontAPI.Metaobject, 'id' | 'type'> & {
         rating?: StorefrontAPI.Maybe<
@@ -1867,7 +1867,7 @@ interface GeneratedQueryTypes {
     return: SearchQuery;
     variables: SearchQueryVariables;
   };
-  '#graphql\n  query LandingPage(\n    $country: CountryCode\n    $language: LanguageCode\n  ) @inContext(language: $language, country: $country) {\n    reviews: metaobjects(type: "product_ratings", first: 10) {\n    nodes {\n      id\n      type\n      rating: field(key: "rating") {\n        value\n      }\n      summary: field(key: "review_summary") {\n        value\n      }\n      reviewerName: field(key: "reviewer_name") {\n        value\n      }\n      countryEmoji: field(key: "country_emoji") {\n        value\n      }\n      title: field(key: "review_title") {\n        value\n      }\n    }\n  }\n  }\n': {
+  '#graphql\n  query LandingPage(\n    $country: CountryCode\n    $language: LanguageCode\n  ) @inContext(language: $language, country: $country) {\n    testimonials: metaobjects(type: "product_ratings", first: 10) {\n      nodes {\n        id\n        type\n        rating: field(key: "rating") {\n          value\n        }\n        summary: field(key: "review_summary") {\n          value\n        }\n        reviewerName: field(key: "reviewer_name") {\n          value\n        }\n        countryEmoji: field(key: "country_emoji") {\n          value\n        }\n        title: field(key: "review_title") {\n          value\n        }\n      }\n    }\n  }\n': {
     return: LandingPageQuery;
     variables: LandingPageQueryVariables;
   };

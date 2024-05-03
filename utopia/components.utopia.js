@@ -289,6 +289,7 @@ const Components = {
       },
       focus: 'never',
       inspector: [],
+      children: 'not-supported',
       variants: {
         label: 'DuplicatedImageWithBackground',
         imports: `import { DuplicatedImageWithBackground } from '/app/components/Components';`,
@@ -305,6 +306,7 @@ const Components = {
         rating: Utopia.sliderControl(0, 5, 1, 'stars'),
       },
       focus: 'never',
+      children: 'not-supported',
       variants: {
         label: 'QuoteWithRating',
         imports: `import { QuoteWithRating, Placeholder } from "/app/components/Components"`,
@@ -333,6 +335,7 @@ const Components = {
         },
       },
       focus: 'never',
+      children: 'not-supported',
       variants: {
         label: 'TwoFeatureCallout',
         imports: `import { TwoFeatureCallout, Placeholder } from "/app/components/Components"`,
@@ -363,6 +366,7 @@ const Components = {
         inverted: Utopia.checkboxControl(),
       },
       focus: 'never',
+      children: 'not-supported',
       variants: [
         {
           label: 'SpecialRow',
@@ -397,6 +401,7 @@ const Components = {
         gap: Utopia.numberControl(),
       },
       focus: 'never',
+      children: 'not-supported',
       variants: {
         label: 'HalfAndHalf',
         imports: `import { HalfAndHalf, Placeholder } from "/app/components/Components"`,
@@ -586,6 +591,7 @@ const Components = {
         rating: Utopia.sliderControl(0, 5, 1, 'stars'),
       },
       focus: 'never',
+      children: 'not-supported',
       variants: {
         label: 'Stars',
         imports: `import { Stars } from '/app/components/Components'`,

@@ -39,16 +39,18 @@ const PlaceholderContent = {
   variants: [],
 }
 
-const RowVariants = [
-  {
-    label: 'Row with Placeholders',
-    imports:
-      'import { Row, Placeholder } from "/app/components/Components"',
-    code: `<Row style={{ gap: 10 }} padded >
-  <Placeholder />
-  <Placeholder />
+const RowWithPlaceholdersVariant = {
+  label: 'Row with Placeholders',
+  imports:
+    'import { Row, Placeholder } from "/app/components/Components"',
+  code: `<Row style={{ gap: 10 }} padded >
+<Placeholder />
+<Placeholder />
 </Row>`,
-  },
+}
+
+const RowVariants = [
+  RowWithPlaceholdersVariant,
   {
     label: 'Row - empty',
     imports:
@@ -93,21 +95,37 @@ const SectionVariants = [
   },
 ]
 
-const ColumnVariants = [
-  {
-    label: 'Column with Placeholders',
-    imports:
-      "import { Column, Placeholder } from '/app/components/Components'",
-    code: `<Column style={{ gap: 10 }} padded >
-  <Placeholder />
-  <Placeholder />
+const ColumnWithPlaceholdersVariant = {
+  label: 'Column with Placeholders',
+  imports:
+    "import { Column, Placeholder } from '/app/components/Components'",
+  code: `<Column style={{ gap: 10 }} padded >
+<Placeholder />
+<Placeholder />
 </Column>`,
-  },
+}
+
+const ColumnVariants = [
+  ColumnWithPlaceholdersVariant,
   {
     label: 'Column - empty',
     imports:
       "import { Column } from '/app/components/Components'",
     code: `<Column />`,
+  },
+]
+
+const DefaultContent = [
+  //title text column row image
+  {
+    component: 'Row',
+    moduleName: '/app/components/Components',
+    variants: RowWithPlaceholdersVariant,
+  },
+  {
+    component: 'Column',
+    moduleName: '/app/components/Components',
+    variants: ColumnWithPlaceholdersVariant,
   },
 ]
 
@@ -269,11 +287,17 @@ const Components = {
       properties: {
         left: {
           control: 'jsx',
-          preferredContents: PlaceholderContent,
+          preferredContents: [
+            PlaceholderContent,
+            ...DefaultContent,
+          ],
         },
         right: {
           control: 'jsx',
-          preferredContents: PlaceholderContent,
+          preferredContents: [
+            PlaceholderContent,
+            ...DefaultContent,
+          ],
         },
       },
       focus: 'never',
@@ -292,11 +316,17 @@ const Components = {
       properties: {
         left: {
           control: 'jsx',
-          preferredContents: [PlaceholderContent],
+          preferredContents: [
+            PlaceholderContent,
+            ...DefaultContent,
+          ],
         },
         right: {
           control: 'jsx',
-          preferredContents: [PlaceholderContent],
+          preferredContents: [
+            PlaceholderContent,
+            ...DefaultContent,
+          ],
         },
         inverted: Utopia.checkboxControl(),
       },
@@ -319,11 +349,17 @@ const Components = {
       properties: {
         left: {
           control: 'jsx',
-          preferredContents: PlaceholderContent,
+          preferredContents: [
+            PlaceholderContent,
+            ...DefaultContent,
+          ],
         },
         right: {
           control: 'jsx',
-          preferredContents: PlaceholderContent,
+          preferredContents: [
+            PlaceholderContent,
+            ...DefaultContent,
+          ],
         },
         padded: Utopia.checkboxControl(),
         gap: Utopia.numberControl(),
@@ -400,31 +436,15 @@ const Components = {
         left: {
           control: 'jsx',
           preferredContents: [
-            {
-              component: 'Row',
-              moduleName: '/app/components/Components',
-              variants: RowVariants,
-            },
-            {
-              component: 'Column',
-              moduleName: '/app/components/Components',
-              variants: ColumnVariants,
-            },
+            PlaceholderContent,
+            ...DefaultContent,
           ],
         },
         right: {
           control: 'jsx',
           preferredContents: [
-            {
-              component: 'Row',
-              moduleName: '/app/components/Components',
-              variants: RowVariants,
-            },
-            {
-              component: 'Column',
-              moduleName: '/app/components/Components',
-              variants: ColumnVariants,
-            },
+            PlaceholderContent,
+            ...DefaultContent,
           ],
         },
       },
@@ -439,16 +459,8 @@ const Components = {
       focus: 'never',
       children: {
         preferredContents: [
-          {
-            component: 'Row',
-            moduleName: '/app/components/Components',
-            variants: RowVariants,
-          },
-          {
-            component: 'Column',
-            moduleName: '/app/components/Components',
-            variants: ColumnVariants,
-          },
+          PlaceholderContent,
+          ...DefaultContent,
         ],
       },
       variants: SectionVariants,

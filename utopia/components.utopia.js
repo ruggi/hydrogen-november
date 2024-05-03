@@ -159,6 +159,11 @@ const DefaultContent = [
     moduleName: '/app/components/Components',
     variants: TextVariants,
   },
+  {
+    component: 'Section',
+    moduleName: '/app/components/Components',
+    variants: TextVariants,
+  },
 ]
 
 const Components = {
@@ -515,7 +520,12 @@ const Components = {
         gap: Utopia.numberControl(),
       },
       focus: 'never',
-      children: 'supported',
+      children: {
+        preferredContents: [
+          PlaceholderContent,
+          ...DefaultContent,
+        ],
+      },
       variants: RowVariants,
     },
     Column: {
@@ -532,11 +542,8 @@ const Components = {
       focus: 'never',
       children: {
         preferredContents: [
-          {
-            component: 'Placeholder',
-            moduleName: '/app/components/Components',
-            variants: [],
-          },
+          PlaceholderContent,
+          ...DefaultContent,
         ],
       },
       variants: ColumnVariants,

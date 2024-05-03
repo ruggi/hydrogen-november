@@ -16,7 +16,6 @@ export const NO_PREDICTIVE_SEARCH_RESULTS = [
 export function SearchForm({searchTerm}) {
   const inputRef = useRef(null);
 
-  // focus the input when cmd+k is pressed
   useEffect(() => {
     function handleKeyDown(event) {
       if (event.key === 'k' && event.metaKey) {
@@ -212,8 +211,6 @@ export function PredictiveSearchForm({
     );
   }
 
-  // ensure the passed input has a type of search, because SearchResults
-  // will select the element based on the input
   useEffect(() => {
     inputRef?.current?.setAttribute('type', 'search');
   }, []);
@@ -244,7 +241,6 @@ export function PredictiveSearchResults() {
     if (!searchInputRef.current) return;
     searchInputRef.current.blur();
     searchInputRef.current.value = '';
-    // close the aside
     window.location.href = event.currentTarget.href;
   }
 
@@ -264,7 +260,6 @@ export function PredictiveSearchResults() {
           />
         ))}
       </div>
-      {/* view all results /search?q=term */}
       {searchTerm.current && (
         <Link onClick={goToSearchResult} to={`/search?q=${searchTerm.current}`}>
           <p>
@@ -371,7 +366,6 @@ function usePredictiveSearch() {
     totalResults: 0,
   };
 
-  // capture the search input element as a ref
   useEffect(() => {
     if (searchInputRef.current) return;
     searchInputRef.current = document.querySelector('input[type="search"]');

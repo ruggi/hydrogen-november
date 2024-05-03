@@ -55,7 +55,6 @@ export async function loader({params, context}) {
 }
 
 export default function OrderRoute() {
-  /** @type {LoaderReturnData} */
   const {order, lineItems, discountValue, discountPercentage} = useLoaderData();
   return (
     <div className="account-order">
@@ -74,7 +73,6 @@ export default function OrderRoute() {
           </thead>
           <tbody>
             {lineItems.map((lineItem, lineItemIndex) => (
-              // eslint-disable-next-line react/no-array-index-key
               <OrderLineRow key={lineItemIndex} lineItem={lineItem} />
             ))}
           </tbody>

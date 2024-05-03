@@ -89,7 +89,6 @@ function CartLineItem({layout, line}) {
           to={lineItemUrl}
           onClick={() => {
             if (layout === 'aside') {
-              // close the drawer
               window.location.href = lineItemUrl;
             }
           }}
@@ -280,7 +279,6 @@ function CartDiscounts({discountCodes}) {
 
   return (
     <div>
-      {/* Have existing discount, display it with a remove option */}
       <dl hidden={!codes.length}>
         <div>
           <dt>Discount(s)</dt>
@@ -294,7 +292,6 @@ function CartDiscounts({discountCodes}) {
         </div>
       </dl>
 
-      {/* Show an input to apply a discount */}
       <UpdateDiscountForm discountCodes={codes}>
         <div>
           <input type="text" name="discountCode" placeholder="Discount code" />

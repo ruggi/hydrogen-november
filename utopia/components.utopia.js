@@ -111,9 +111,6 @@ const ColumnVariants = [
   },
 ]
 
-// SectionSubtitle,
-// SectionTitle,
-
 const Components = {
   '/app/routes/_index': {
     TestimonialCard: {
@@ -453,7 +450,7 @@ const Components = {
             variants: ColumnVariants,
           },
         ],
-      }, // row with placeholders, column with placeholders
+      },
       variants: SectionVariants,
     },
     Row: {

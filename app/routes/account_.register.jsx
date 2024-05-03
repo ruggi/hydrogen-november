@@ -57,7 +57,6 @@ export async function action({request, context}) {
       throw new Error('Could not create customer');
     }
 
-    // get an access token for the new customer
     const {customerAccessTokenCreate} = await storefront.mutate(
       REGISTER_LOGIN_MUTATION,
       {
@@ -97,7 +96,6 @@ export async function action({request, context}) {
 }
 
 export default function Register() {
-  /** @type {ActionReturnData} */
   const data = useActionData();
   const error = data?.error || null;
   return (
@@ -114,7 +112,6 @@ export default function Register() {
             required
             placeholder="Email address"
             aria-label="Email address"
-            // eslint-disable-next-line jsx-a11y/no-autofocus
             autoFocus
           />
           <label htmlFor="password">Password</label>

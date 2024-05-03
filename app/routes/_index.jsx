@@ -144,7 +144,6 @@ export default function LandingPage() {
                 zIndex: -1,
                 position: 'absolute',
                 top: 0,
-                // right: -80,
                 transform: 'scale(.75)',
               }}
               src='decorative/underline_01@2x.png'
@@ -198,7 +197,6 @@ export default function LandingPage() {
                 >
                   Amazing Pal for the Little Ones
                 </h2>
-                {/* TODO replace with remix link */}
                 <a
                   style={{
                     marginTop: '1em',
@@ -288,7 +286,6 @@ export default function LandingPage() {
                 >
                   Perfect for your lappy
                 </h2>
-                {/* TODO replace with remix link */}
                 <a
                   style={{
                     marginTop: '1em',
@@ -375,7 +372,6 @@ export default function LandingPage() {
                 >
                   Travel Companion
                 </h2>
-                {/* TODO replace with remix link */}
                 <a
                   style={{
                     marginTop: '1em',

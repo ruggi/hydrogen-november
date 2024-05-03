@@ -41,7 +41,6 @@ export async function loader({params, context}) {
 }
 
 export default function Policy() {
-  /** @type {LoaderReturnData} */
   const {policy} = useLoaderData();
 
   return (

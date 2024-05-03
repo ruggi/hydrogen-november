@@ -309,7 +309,6 @@ function ExistingAddresses({addresses, defaultAddress}) {
  */
 export function AddressForm({address, defaultAddress, children}) {
   const {state, formMethod} = useNavigation();
-  /** @type {ActionReturnData} */
   const action = useActionData();
   const error = action?.error?.[address.id];
   const isDefaultAddress = defaultAddress?.id === address.id;

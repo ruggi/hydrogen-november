@@ -116,7 +116,6 @@ function redirectToFirstVariant({ product, request }) {
 }
 
 export default function Product() {
-  /** @type {LoaderReturnData} */
   const { product, variants } = useLoaderData()
   const { selectedVariant } = product
   return (

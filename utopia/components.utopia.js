@@ -127,6 +127,36 @@ const DefaultContent = [
     moduleName: '/app/components/Components',
     variants: ColumnWithPlaceholdersVariant,
   },
+  {
+    component: 'Text',
+    moduleName: '/app/components/Components',
+    variants: [
+      {
+        label: 'Smaller Text',
+        imports:
+          'import { Text } from "/app/components/Components"',
+        code: `<Text level='smaller'>Smaller Text</Text>`,
+      },
+      {
+        label: 'Regular Text',
+        imports:
+          'import { Text } from "/app/components/Components"',
+        code: `<Text level='regular'>Regular Text</Text>`,
+      },
+      {
+        label: 'Embiggened Text',
+        imports:
+          'import { Text } from "/app/components/Components"',
+        code: `<Text level='embiggened'>Embiggened Text</Text>`,
+      },
+      {
+        label: 'Large Text',
+        imports:
+          'import { Text } from "/app/components/Components"',
+        code: `<Text level='large'>Large Text</Text>`,
+      },
+    ],
+  },
 ]
 
 const Components = {

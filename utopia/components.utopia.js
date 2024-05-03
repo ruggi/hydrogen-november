@@ -160,9 +160,13 @@ const DefaultContent = [
     variants: TextVariants,
   },
   {
-    component: 'Section',
+    component: 'Section Title',
     moduleName: '/app/components/Components',
-    variants: TextVariants,
+    variants: {
+      label: 'Section Title',
+      imports: `import { SectionTitle } from "/app/components/Components"`,
+      code: `<SectionTitle>Section Title</SectionTitle>`,
+    },
   },
 ]
 

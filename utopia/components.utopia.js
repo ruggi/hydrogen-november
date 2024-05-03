@@ -548,6 +548,7 @@ const Components = {
       },
       focus: 'never',
       inspector: [],
+      children: 'not-supported',
       variants: {
         label: 'Spacer',
         imports:
@@ -601,7 +602,7 @@ const Components = {
     SectionSubtitle: {
       component: SectionSubtitle,
       properties: { style: Utopia.styleControl() },
-      children: 'supported',
+      children: { preferredContents: 'text' },
       focus: 'never',
       inspector: ['typography'],
       variants: {
@@ -615,7 +616,7 @@ const Components = {
       properties: {
         style: Utopia.styleControl(),
       },
-      children: 'supported',
+      children: { preferredContents: 'text' },
       focus: 'never',
       inspector: ['typography'],
       variants: {
@@ -629,7 +630,7 @@ const Components = {
       properties: {
         style: Utopia.styleControl(),
       },
-      children: 'supported',
+      children: { preferredContents: 'text' },
       focus: 'never',
       inspector: ['typography'],
       variants: {
@@ -644,7 +645,7 @@ const Components = {
         style: Utopia.styleControl(),
       },
       focus: 'never',
-      children: 'supported',
+      children: { preferredContents: 'text' },
       inspector: ['typography'],
       variants: {
         label: 'Page Title',

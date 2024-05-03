@@ -67,7 +67,8 @@ export const TestimonialCard = ({
 )
 
 export default function LandingPage() {
-  const { reviews, recommendedProducts } = useLoaderData()
+  const { testimonials, recommendedProducts } =
+    useLoaderData()
   return (
     <Column>
       <div
@@ -488,8 +489,7 @@ export default function LandingPage() {
             scrollable
             style={{ marginBottom: 36 }}
           >
-            {/* TODO renaming this to testimonials does not work, something w/ the loader? */}
-            {reviews.map((testimonial) => {
+            {testimonials.map((testimonial) => {
               return (
                 <TestimonialCard
                   key={testimonial.id}

@@ -115,6 +115,33 @@ const ColumnVariants = [
   },
 ]
 
+const TextVariants = [
+  {
+    label: 'Smaller Text',
+    imports:
+      'import { Text } from "/app/components/Components"',
+    code: `<Text level='smaller'>Smaller Text</Text>`,
+  },
+  {
+    label: 'Regular Text',
+    imports:
+      'import { Text } from "/app/components/Components"',
+    code: `<Text level='regular'>Regular Text</Text>`,
+  },
+  {
+    label: 'Embiggened Text',
+    imports:
+      'import { Text } from "/app/components/Components"',
+    code: `<Text level='embiggened'>Embiggened Text</Text>`,
+  },
+  {
+    label: 'Large Text',
+    imports:
+      'import { Text } from "/app/components/Components"',
+    code: `<Text level='large'>Large Text</Text>`,
+  },
+]
+
 const DefaultContent = [
   //title text column row image
   {
@@ -130,32 +157,7 @@ const DefaultContent = [
   {
     component: 'Text',
     moduleName: '/app/components/Components',
-    variants: [
-      {
-        label: 'Smaller Text',
-        imports:
-          'import { Text } from "/app/components/Components"',
-        code: `<Text level='smaller'>Smaller Text</Text>`,
-      },
-      {
-        label: 'Regular Text',
-        imports:
-          'import { Text } from "/app/components/Components"',
-        code: `<Text level='regular'>Regular Text</Text>`,
-      },
-      {
-        label: 'Embiggened Text',
-        imports:
-          'import { Text } from "/app/components/Components"',
-        code: `<Text level='embiggened'>Embiggened Text</Text>`,
-      },
-      {
-        label: 'Large Text',
-        imports:
-          'import { Text } from "/app/components/Components"',
-        code: `<Text level='large'>Large Text</Text>`,
-      },
-    ],
+    variants: TextVariants,
   },
 ]
 
@@ -576,14 +578,7 @@ const Components = {
       children: { preferredContents: 'text' },
       focus: 'never',
       inspector: ['typography'],
-      variants: [
-        {
-          label: 'Text, embiggened',
-          imports:
-            'import { Text } from "/app/components/Components"',
-          code: `<Text level='embiggened'>Embiggened text</Text>`,
-        },
-      ],
+      variants: TextVariants,
     },
     Stars: {
       component: Stars,
@@ -606,7 +601,7 @@ const Components = {
       variants: {
         label: 'Section Subtitle',
         imports: `import { SectionSubtitle } from "/app/components/Components"`,
-        code: `<SectionSubtitle>Section subtitle</SectionSubtitle>`,
+        code: `<SectionSubtitle>Section Subtitle</SectionSubtitle>`,
       },
     },
     SectionTitle: {
@@ -620,7 +615,7 @@ const Components = {
       variants: {
         label: 'Section Title',
         imports: `import { SectionTitle } from "/app/components/Components"`,
-        code: `<SectionTitle>Section title</SectionTitle>`,
+        code: `<SectionTitle>Section Title</SectionTitle>`,
       },
     },
     SubsectionTitle: {
@@ -634,7 +629,7 @@ const Components = {
       variants: {
         label: 'Subsection Title',
         imports: `import { SubsectionTitle } from "/app/components/Components"`,
-        code: `<SubsectionTitle>Section title</SubsectionTitle>`,
+        code: `<SubsectionTitle>Subsection Title</SubsectionTitle>`,
       },
     },
     PageTitle: {
@@ -648,7 +643,7 @@ const Components = {
       variants: {
         label: 'Page Title',
         imports: `import { PageTitle } from "/app/components/Components"`,
-        code: `<PageTitle>Page title</PageTitle>`,
+        code: `<PageTitle>Page Title</PageTitle>`,
       },
     },
   },

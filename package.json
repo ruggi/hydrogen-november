@@ -58,6 +58,10 @@
       {
         "label": "Empty Page",
         "path": "/app/routes/trippy-trails-template.jsx"
+      },
+      {
+        "label": "Featured Product Page",
+        "path": "/app/routes/trippy-trails-template.jsx"
       }
     ]
   }

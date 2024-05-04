@@ -92,9 +92,7 @@ export default function LandingPage() {
               <PageTitle>
                 We produce high quality bags for lifestyle
               </PageTitle>
-              <TrippyButton>
-                Add to Cart
-              </TrippyButton>
+              <TrippyButton>Add to Cart</TrippyButton>
               <Spacer />
               <WomanSeeking />
             </Column>
@@ -514,9 +512,19 @@ export default function LandingPage() {
         </Column>
       </Section>
       <Section>
-        <Column centerH>
+        <Column
+          centerH
+          style={{ width: 1440, height: 805.5 }}
+        >
           <RecommendedProducts
             products={recommendedProducts}
+            style={{
+              width: 441,
+              height: 806,
+              position: 'absolute',
+              left: 488,
+              top: 0,
+            }}
           />
         </Column>
       </Section>

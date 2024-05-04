@@ -586,7 +586,6 @@ export const ProductCard = ({
           <Stars
             rating={5}
             style={{
-              zoom: '0.6',
               gap: 3,
               marginTop: '0.5em',
             }}
@@ -606,10 +605,7 @@ export const ProductCard = ({
           <Text>Add quantity</Text>
           <QuantitySelector />
         </Row>
-        <TrippyButton
-          style={{ zoom: 0.8 }}
-          price={<Money data={price} />}
-        >
+        <TrippyButton price={<Money data={price} />}>
           Add to cart
         </TrippyButton>
         <Text style={{ fontWeight: 700 }}>

@@ -16,7 +16,7 @@ import { Image, Money } from '@shopify/hydrogen'
 export const Placeholder = ({
   style,
   margin,
-  fill,
+  expand,
   fixed = true,
 }) => (
   <div
@@ -26,8 +26,8 @@ export const Placeholder = ({
       borderRadius: 10,
       minWidth: fixed ? 100 : null,
       minHeight: fixed ? 100 : null,
-      flexGrow: fill ? 1 : null,
-      alignSelf: fill ? 'stretch' : null,
+      flexGrow: expand ? 1 : null,
+      alignSelf: expand ? 'stretch' : null,
       margin: margin ? '10px' : null,
       ...style,
     }}
@@ -151,31 +151,37 @@ export const Grid = ({ left, right, padded, gap }) => (
   </div>
 )
 
-export const SpecialRow = ({
-  left,
-  right,
+export const ProductFeatureRow = ({
+  image,
+  content,
+  background,
   inverted,
   style,
 }) => (
   <div
     style={{
       display: 'grid',
+      minHeight: 300,
+      padding: '2em',
       gridTemplateColumns: inverted
         ? '1.2fr 1fr'
         : '1fr 1.2fr',
       gap: '2em',
+      backgroundColor:
+        background ?? 'oklch(0.89 0.16 87.52)',
+      borderRadius: 20,
       ...style,
     }}
   >
     {inverted ? (
       <>
-        {right}
-        {left}
+        {content}
+        {image}
       </>
     ) : (
       <>
-        {left}
-        {right}
+        {image}
+        {content}
       </>
     )}
   </div>

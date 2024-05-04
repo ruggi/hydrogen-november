@@ -11,7 +11,7 @@ import {
   SectionSubtitle,
   SectionTitle,
   Spacer,
-  SpecialRow,
+  ProductFeatureRow,
   Stars,
   Text,
   TrippyButton,
@@ -356,7 +356,7 @@ const Components = {
       },
     },
     SpecialRow: {
-      component: SpecialRow,
+      component: ProductFeatureRow,
       properties: {
         left: {
           control: 'jsx',
@@ -470,7 +470,7 @@ const Components = {
       component: Placeholder,
       properties: {
         margin: Utopia.numberControl(),
-        fill: Utopia.colorControl(),
+        expand: Utopia.checkboxControl(),
         fixed: Utopia.checkboxControl(),
       },
       focus: 'never',

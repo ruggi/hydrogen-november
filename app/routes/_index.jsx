@@ -13,12 +13,13 @@ import {
   SectionSubtitle,
   SectionTitle,
   Spacer,
-  SpecialRow,
+  ProductFeatureRow,
   Stars,
   SubsectionTitle,
   Text,
   TrippyButton,
   TwoFeatureCallout,
+  Placeholder,
 } from '../components/Components'
 import { RecommendedProducts } from '../components/RecommendedProducts'
 import { loader as loaderTemplate } from './trippy-trails-template'
@@ -156,13 +157,22 @@ export default function LandingPage() {
       <Section style={{ padding: '5em 9em' }}>
         <Column>
           <DecorativeClouds />
-          <SpecialRow
+
+          <div>ok</div>
+
+          <ProductFeatureRow
+            inverted
+            image={<Placeholder />}
+            content={<Placeholder />}
+          ></ProductFeatureRow>
+
+          <ProductFeatureRow
             style={{
               background: 'var(--purple)',
               color: 'white',
               paddingBottom: '2em',
             }}
-            left={
+            image={
               <div
                 style={{
                   contain: 'layout',
@@ -185,7 +195,7 @@ export default function LandingPage() {
                 />
               </div>
             }
-            right={
+            content={
               <Column style={{ padding: '2em 2em' }}>
                 <h2
                   style={{
@@ -244,7 +254,7 @@ export default function LandingPage() {
               </Column>
             }
           />
-          <SpecialRow
+          <ProductFeatureRow
             inverted
             style={{
               background: 'var(--orange)',
@@ -333,7 +343,7 @@ export default function LandingPage() {
               </Column>
             }
           />
-          <SpecialRow
+          <ProductFeatureRow
             style={{
               background: 'var(--green)',
               color: 'white',

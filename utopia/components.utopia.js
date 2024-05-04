@@ -501,9 +501,10 @@ const Components = {
       component: Section,
       properties: {
         verticalPadding: {
-          label: 'Horizontal Padding',
+          label: 'Vertical Padding',
           control: 'radio',
           options: [
+            // it would be nice to be able to pass in data here somehow, and have it be used in the component
             { label: 'None', value: 'none' },
             { label: 'Small', value: 'small' },
             { label: 'Medium', value: 'medium' },

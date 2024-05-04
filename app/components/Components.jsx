@@ -247,7 +247,7 @@ export const Section = ({
   const horizontalPadding = getHorizontalPaddingForSize(
     horizontalPadding ?? 'none',
   )
-  const horizontalPadding = getVerticalPaddingForSize(
+  const verticalPadding = getVerticalPaddingForSize(
     verticalPadding ?? 'none',
   )
 

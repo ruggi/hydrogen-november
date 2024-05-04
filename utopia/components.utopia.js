@@ -374,7 +374,7 @@ const Components = {
         },
         inverted: Utopia.checkboxControl(),
       },
-      icon: 'flex-row',
+      icon: 'row',
       focus: 'never',
       children: 'not-supported',
       variants: [
@@ -532,7 +532,7 @@ const Components = {
         ],
       },
       variants: RowVariants,
-      icon: 'flex-row',
+      icon: 'row',
     },
     Column: {
       component: Column,
@@ -552,7 +552,7 @@ const Components = {
           ...DefaultContent,
         ],
       },
-      icon: 'flex-column',
+      icon: 'column',
       variants: ColumnVariants,
     },
     Spacer: {

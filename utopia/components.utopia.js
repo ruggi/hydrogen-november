@@ -569,6 +569,7 @@ const Components = {
           'import { Spacer } from "/app/components/Components"',
         code: `<Spacer height={50} />`,
       },
+      icon: 'dashedframe',
     },
     Text: {
       component: Text,
@@ -624,6 +625,7 @@ const Components = {
         imports: `import { SectionSubtitle } from "/app/components/Components"`,
         code: `<SectionSubtitle>Section Subtitle</SectionSubtitle>`,
       },
+      icon: 'headline',
     },
     SectionTitle: {
       component: SectionTitle,
@@ -638,6 +640,7 @@ const Components = {
         imports: `import { SectionTitle } from "/app/components/Components"`,
         code: `<SectionTitle>Section Title</SectionTitle>`,
       },
+      icon: 'headline',
     },
     SubsectionTitle: {
       component: SubsectionTitle,
@@ -652,6 +655,7 @@ const Components = {
         imports: `import { SubsectionTitle } from "/app/components/Components"`,
         code: `<SubsectionTitle>Subsection Title</SubsectionTitle>`,
       },
+      icon: 'headline',
     },
     PageTitle: {
       component: PageTitle,
@@ -666,6 +670,7 @@ const Components = {
         imports: `import { PageTitle } from "/app/components/Components"`,
         code: `<PageTitle>Page Title</PageTitle>`,
       },
+      icon: 'headline',
     },
   },
 }

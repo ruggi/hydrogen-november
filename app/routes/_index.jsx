@@ -83,16 +83,16 @@ export default function LandingPage() {
           backgroundImage:
             'url(https://cdn.discordapp.com/attachments/703248722334842910/1231926200054583316/trippytrails.jpg?ex=6638bbae&is=662646ae&hm=0e5a7fd4ed51a811416af3dd6a93f8d0baf5b3956a3023bb4714579c81d597c0&)',
         }}
-      ></div>
-      <Spacer height={'4em'} />
+      />
+      <Spacer height='4em' />
       <Section padded>
         <HalfAndHalf
           left={
-            <Column gap={'1em'}>
+            <Column gap='1em'>
               <PageTitle>
                 We produce high quality bags for lifestyle
               </PageTitle>
-              <TrippyButton price={59}>
+              <TrippyButton>
                 Add to Cart
               </TrippyButton>
               <Spacer />
@@ -163,21 +163,15 @@ export default function LandingPage() {
               paddingBottom: '2em',
             }}
             left={
-              <div
-                style={{
-                  contain: 'layout',
-                }}
-              >
+              <div style={{ contain: 'layout' }}>
                 <DuplicatedImageWithBackground
-                  backgroundColor={'var(--lihgt-purple)'}
-                  image={'merchandise/bag-black@2x.png'}
+                  backgroundColor='var(--lihgt-purple)'
+                  image='merchandise/bag-black@2x.png'
                 />
                 <QuoteWithRating
-                  quote={
-                    'My 3 y/o loves it carrying daily to the school! ❤️'
-                  }
+                  quote='My 3 y/o loves it carrying daily to the school! ❤️'
                   rating={5}
-                  backgroundColor={'var(--dark-blue)'}
+                  backgroundColor='var(--dark-blue)'
                   style={{
                     position: 'relative',
                     left: 100,
@@ -207,9 +201,7 @@ export default function LandingPage() {
                   View Child Collection
                 </a>
                 <TwoFeatureCallout
-                  style={{
-                    marginTop: '1.4em',
-                  }}
+                  style={{ marginTop: '1.4em' }}
                   left={
                     <Column padded>
                       <img
@@ -240,7 +232,7 @@ export default function LandingPage() {
                       </p>
                     </Column>
                   }
-                ></TwoFeatureCallout>
+                />
               </Column>
             }
           />
@@ -252,21 +244,15 @@ export default function LandingPage() {
               paddingBottom: '2em',
             }}
             left={
-              <div
-                style={{
-                  contain: 'layout',
-                }}
-              >
+              <div style={{ contain: 'layout' }}>
                 <DuplicatedImageWithBackground
-                  backgroundColor={'var(--dark-orange)'}
-                  image={'merchandise/bag-silver@2x.png'}
+                  backgroundColor='var(--dark-orange)'
+                  image='merchandise/bag-silver@2x.png'
                 />
                 <QuoteWithRating
-                  quote={
-                    'Those custom pockets are a life saver! 😍'
-                  }
+                  quote='Those custom pockets are a life saver! 😍'
                   rating={5}
-                  backgroundColor={'var(--darker-orange)'}
+                  backgroundColor='var(--darker-orange)'
                   style={{
                     position: 'relative',
                     left: 100,
@@ -296,9 +282,7 @@ export default function LandingPage() {
                   View Laptop Collection
                 </a>
                 <TwoFeatureCallout
-                  style={{
-                    marginTop: '1.4em',
-                  }}
+                  style={{ marginTop: '1.4em' }}
                   left={
                     <Column padded>
                       <img
@@ -329,7 +313,7 @@ export default function LandingPage() {
                       </p>
                     </Column>
                   }
-                ></TwoFeatureCallout>
+                />
               </Column>
             }
           />
@@ -340,19 +324,15 @@ export default function LandingPage() {
               paddingBottom: '2em',
             }}
             left={
-              <div
-                style={{
-                  contain: 'layout',
-                }}
-              >
+              <div style={{ contain: 'layout' }}>
                 <DuplicatedImageWithBackground
-                  backgroundColor={'var(--light-green)'}
-                  image={'merchandise/bag-army@2x.png'}
+                  backgroundColor='var(--light-green)'
+                  image='merchandise/bag-army@2x.png'
                 />
                 <QuoteWithRating
-                  quote={'The best hiking backpack! 💪'}
+                  quote='The best hiking backpack! 💪'
                   rating={5}
-                  backgroundColor={'var(--dark-green)'}
+                  backgroundColor='var(--dark-green)'
                   style={{
                     position: 'relative',
                     left: 100,
@@ -382,9 +362,7 @@ export default function LandingPage() {
                   View Travel Collection
                 </a>
                 <TwoFeatureCallout
-                  style={{
-                    marginTop: '1.4em',
-                  }}
+                  style={{ marginTop: '1.4em' }}
                   left={
                     <Column padded>
                       <img
@@ -415,7 +393,7 @@ export default function LandingPage() {
                       </p>
                     </Column>
                   }
-                ></TwoFeatureCallout>
+                />
               </Column>
             }
           />

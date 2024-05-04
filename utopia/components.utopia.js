@@ -19,6 +19,7 @@ import {
   PageTitle,
   SubsectionTitle,
 } from '../app/components/Components'
+import { WomanSeeking } from '../app/routes/_index'
 import { Footer } from '../app/components/Footer'
 import { Header } from '../app/components/Header'
 import {
@@ -194,6 +195,13 @@ const Components = {
           name='M Puzo'
         />`,
       },
+    },
+    WomanSeeking: {
+      component: WomanSeeking,
+      properties: {},
+      focus: 'never',
+      icon: 'component',
+      emphasis: 'emphasized'
     },
   },
   '/app/components/RecommendedProducts': {

@@ -19,7 +19,7 @@ export const AntdTextVariants = [
     code: `<TypographyText italic>Sample Text</TypographyText>`,
   },
   {
-    label: 'Antd Strong Text',
+    label: 'Antd Bold Text',
     imports:
       'import { TypographyText } from "/app/components/Components"',
     code: `<TypographyText strong>Sample Text</TypographyText>`,
@@ -39,12 +39,6 @@ export const AntdTitleVariants = [
       'import { TypographyTitle } from "/app/components/Components"',
     code: `<TypographyTitle italic>Sample Text</TypographyTitle>`,
   },
-  {
-    label: 'Antd Strong Title',
-    imports:
-      'import { TypographyTitle } from "/app/components/Components"',
-    code: `<TypographyTitle strong>Sample Text</TypographyTitle>`,
-  },
 ]
 
 export const AntdParagraphVariants = [
@@ -61,7 +55,7 @@ export const AntdParagraphVariants = [
     code: `<TypographyParagraph italic>Sample Text</TypographyParagraph>`,
   },
   {
-    label: 'Antd Strong Paragraph',
+    label: 'Antd Bold Paragraph',
     imports:
       'import { TypographyParagraph } from "/app/components/Components"',
     code: `<TypographyParagraph strong>Sample Text</TypographyParagraph>`,

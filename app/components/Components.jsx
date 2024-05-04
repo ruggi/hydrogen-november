@@ -235,6 +235,24 @@ export const getHorizontalPaddingForSize = (size) => {
   }
 }
 
+// Please fix me, I just copied this from getHorizontalPaddingForSize
+export const getVerticalPaddingForSize = (size) => {
+  switch (size) {
+    case 'none':
+      return '0em'
+    case 'small':
+      return '1em'
+    case 'medium':
+      return '2em'
+    case 'large':
+      return '5em'
+    case 'xl':
+      return '8em'
+    default:
+      return '0em'
+  }
+}
+
 export const Section = ({
   orientation,
   verticalPadding,
@@ -244,20 +262,19 @@ export const Section = ({
   style,
   children,
 }) => {
-  const horizontalPadding = getHorizontalPaddingForSize(
-    horizontalPadding ?? 'none',
-  )
-  const verticalPadding = getVerticalPaddingForSize(
+  const horizontalPaddingForSize =
+    getHorizontalPaddingForSize(horizontalPadding ?? 'none')
+  const verticalPaddingForSize = getVerticalPaddingForSize(
     verticalPadding ?? 'none',
   )
 
   return (
     <section
       style={{
-        paddingTop: verticalPadding,
-        paddingBottom: verticalPadding,
-        paddingLeft: horizontalPadding,
-        paddingRight: horizontalPadding,
+        paddingTop: verticalPaddingForSize,
+        paddingBottom: verticalPaddingForSize,
+        paddingLeft: horizontalPaddingForSize,
+        paddingRight: horizontalPaddingForSize,
         minHeight: minHeight ? '85vh' : null,
         backgroundColor: backgroundColor ?? null,
         display: 'flex',

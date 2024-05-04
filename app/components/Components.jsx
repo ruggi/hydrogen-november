@@ -20,6 +20,7 @@ export const Placeholder = ({
   fixed = true,
 }) => (
   <div
+    data-label='placeholder'
     style={{
       backgroundColor: 'rgb(225 225 225 / 25%)',
       border: '1px dashed rgb(61 154 255)',
@@ -124,6 +125,7 @@ export const Text = ({
 
   return (
     <div
+      data-label='text'
       style={{
         ...defaultText,
         ...resultingStyle,
@@ -139,6 +141,7 @@ export const Text = ({
 
 export const Grid = ({ left, right, padded, gap }) => (
   <div
+    data-label='grid'
     style={{
       display: 'flex',
       flexGrow: 1,
@@ -215,25 +218,59 @@ export const Card = ({
   </div>
 )
 
+export const getHorizontalPaddingForSize = (size) => {
+  switch (size) {
+    case 'none':
+      return '0em'
+    case 'small':
+      return '1em'
+    case 'medium':
+      return '2em'
+    case 'large':
+      return '5em'
+    case 'xl':
+      return '8em'
+    default:
+      return '0em'
+  }
+}
+
 export const Section = ({
-  padded,
+  orientation,
+  verticalPadding,
+  horizontalPadding,
+  minHeight,
+  backgroundColor,
   style,
   children,
-  minHeight,
-}) => (
-  <section
-    style={{
-      padding: padded ? '1em 10em' : null,
-      minHeight: minHeight ? '85vh' : null,
-      display: 'flex',
-      flexDirection: 'column',
-      contain: 'layout',
-      ...style,
-    }}
-  >
-    {children}
-  </section>
-)
+}) => {
+  const horizontalPadding = getHorizontalPaddingForSize(
+    horizontalPadding ?? 'none',
+  )
+  const horizontalPadding = getVerticalPaddingForSize(
+    verticalPadding ?? 'none',
+  )
+
+  return (
+    <section
+      style={{
+        paddingTop: verticalPadding,
+        paddingBottom: verticalPadding,
+        paddingLeft: horizontalPadding,
+        paddingRight: horizontalPadding,
+        minHeight: minHeight ? '85vh' : null,
+        backgroundColor: backgroundColor ?? null,
+        display: 'flex',
+        flexDirection:
+          orientation === 'row' ? 'row' : 'column',
+        contain: 'layout',
+        ...style,
+      }}
+    >
+      {children}
+    </section>
+  )
+}
 
 export const Row = ({
   padded,

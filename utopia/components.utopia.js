@@ -500,8 +500,37 @@ const Components = {
     Section: {
       component: Section,
       properties: {
-        padded: Utopia.checkboxControl(),
-        minHeight: Utopia.checkboxControl(),
+        verticalPadding: {
+          label: 'Horizontal Padding',
+          control: 'radio',
+          options: [
+            { label: 'None', value: 'none' },
+            { label: 'Small', value: 'small' },
+            { label: 'Medium', value: 'medium' },
+            { label: 'Large', value: 'large' },
+            { label: 'XL', value: 'xl' },
+          ],
+        },
+        horizontalPadding: {
+          label: 'Horizontal Padding',
+          control: 'radio',
+          options: [
+            { label: 'None', value: 'none' },
+            { label: 'Small', value: 'small' },
+            { label: 'Medium', value: 'medium' },
+            { label: 'Large', value: 'large' },
+            { label: 'XL', value: 'xl' },
+          ],
+        },
+        minHeight: {
+          label: 'Minimum Height',
+          control: 'checkbox',
+        },
+        orientation: Utopia.radioControl([
+          { label: 'Vertical', value: 'column' },
+          { label: 'Horizontal', value: 'row' },
+        ]),
+        backgroundColor: Utopia.colorControl(),
       },
       focus: 'never',
       children: {

@@ -31,6 +31,7 @@ import {
   SearchAside,
 } from '../app/components/Layout'
 import { RecommendedProducts } from '../app/components/RecommendedProducts'
+import { AntdTextVariants } from '../utopia/antd.utopia'
 
 import { TestimonialCard } from '../app/routes/_index'
 
@@ -159,6 +160,11 @@ const DefaultContent = [
     component: 'Text',
     moduleName: '/app/components/Components',
     variants: TextVariants,
+  },
+  {
+    component: 'Antd Text',
+    moduleName: '/app/components/Components',
+    variants: AntdTextVariants,
   },
   {
     component: 'Section Title',

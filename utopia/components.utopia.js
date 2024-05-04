@@ -31,7 +31,11 @@ import {
   SearchAside,
 } from '../app/components/Layout'
 import { RecommendedProducts } from '../app/components/RecommendedProducts'
-import { AntdTextVariants } from '../utopia/antd.utopia'
+import {
+  AntdTextVariants,
+  AntdTitleVariants,
+  AntdParagraphVariants,
+} from '../utopia/antd.utopia'
 
 import { TestimonialCard } from '../app/routes/_index'
 
@@ -167,6 +171,16 @@ const DefaultContent = [
     variants: AntdTextVariants,
   },
   {
+    component: 'Antd Title',
+    moduleName: '/app/components/Components',
+    variants: AntdTitleVariants,
+  },
+  {
+    component: 'Antd Paragraph',
+    moduleName: '/app/components/Components',
+    variants: AntdParagraphVariants,
+  },
+  {
     component: 'Section Title',
     moduleName: '/app/components/Components',
     variants: {
@@ -207,7 +221,7 @@ const Components = {
       properties: {},
       focus: 'never',
       icon: 'component',
-      emphasis: 'emphasized'
+      emphasis: 'emphasized',
     },
   },
   '/app/components/RecommendedProducts': {

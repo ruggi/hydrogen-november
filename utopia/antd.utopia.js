@@ -82,6 +82,10 @@ const AntdTypoAnnotations = {
     copyable: Utopia.checkboxControl(),
     type: Utopia.popupListControl([
       {
+        label: 'none',
+        value: 'undefined',
+      },
+      {
         label: 'secondary',
         value: 'secondary',
       },

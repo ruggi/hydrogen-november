@@ -19,6 +19,7 @@ import {
   PageTitle,
   SubsectionTitle,
 } from '../app/components/Components'
+import { WomanSeeking } from '../app/routes/_index'
 import { Footer } from '../app/components/Footer'
 import { Header } from '../app/components/Header'
 import {
@@ -30,6 +31,11 @@ import {
   SearchAside,
 } from '../app/components/Layout'
 import { RecommendedProducts } from '../app/components/RecommendedProducts'
+import {
+  AntdTextVariants,
+  AntdTitleVariants,
+  AntdParagraphVariants,
+} from '../utopia/antd.utopia'
 
 import { TestimonialCard } from '../app/routes/_index'
 
@@ -160,6 +166,21 @@ const DefaultContent = [
     variants: TextVariants,
   },
   {
+    component: 'Antd Text',
+    moduleName: '/app/components/Components',
+    variants: AntdTextVariants,
+  },
+  {
+    component: 'Antd Title',
+    moduleName: '/app/components/Components',
+    variants: AntdTitleVariants,
+  },
+  {
+    component: 'Antd Paragraph',
+    moduleName: '/app/components/Components',
+    variants: AntdParagraphVariants,
+  },
+  {
     component: 'Section Title',
     moduleName: '/app/components/Components',
     variants: {
@@ -194,6 +215,13 @@ const Components = {
           name='M Puzo'
         />`,
       },
+    },
+    WomanSeeking: {
+      component: WomanSeeking,
+      properties: {},
+      focus: 'never',
+      icon: 'component',
+      emphasis: 'emphasized',
     },
   },
   '/app/components/RecommendedProducts': {
@@ -599,6 +627,7 @@ const Components = {
           'import { Spacer } from "/app/components/Components"',
         code: `<Spacer height={50} />`,
       },
+      icon: 'dashedframe',
     },
     Text: {
       component: Text,
@@ -654,6 +683,7 @@ const Components = {
         imports: `import { SectionSubtitle } from "/app/components/Components"`,
         code: `<SectionSubtitle>Section Subtitle</SectionSubtitle>`,
       },
+      icon: 'headline',
     },
     SectionTitle: {
       component: SectionTitle,
@@ -668,6 +698,7 @@ const Components = {
         imports: `import { SectionTitle } from "/app/components/Components"`,
         code: `<SectionTitle>Section Title</SectionTitle>`,
       },
+      icon: 'headline',
     },
     SubsectionTitle: {
       component: SubsectionTitle,
@@ -682,6 +713,7 @@ const Components = {
         imports: `import { SubsectionTitle } from "/app/components/Components"`,
         code: `<SubsectionTitle>Subsection Title</SubsectionTitle>`,
       },
+      icon: 'headline',
     },
     PageTitle: {
       component: PageTitle,
@@ -696,6 +728,7 @@ const Components = {
         imports: `import { PageTitle } from "/app/components/Components"`,
         code: `<PageTitle>Page Title</PageTitle>`,
       },
+      icon: 'headline',
     },
   },
 }

@@ -12,6 +12,19 @@
 import { StarIcon } from '@heroicons/react/24/solid'
 import { Link } from '@remix-run/react'
 import { Image, Money } from '@shopify/hydrogen'
+import { Typography } from 'antd'
+
+export const TypographyText = (props) => {
+  return <Typography.Text {...props} />
+}
+
+export const TypographyTitle = (props) => {
+  return <Typography.Title {...props} />
+}
+
+export const TypographyParagraph = (props) => {
+  return <Typography.Paragraph {...props} />
+}
 
 export const Placeholder = ({
   style,
@@ -646,7 +659,6 @@ export const ProductCard = ({
           <Stars
             rating={5}
             style={{
-              zoom: '0.6',
               gap: 3,
               marginTop: '0.5em',
             }}
@@ -666,10 +678,7 @@ export const ProductCard = ({
           <Text>Add quantity</Text>
           <QuantitySelector />
         </Row>
-        <TrippyButton
-          style={{ zoom: 0.8 }}
-          price={<Money data={price} />}
-        >
+        <TrippyButton price={<Money data={price} />}>
           Add to cart
         </TrippyButton>
         <Text style={{ fontWeight: 700 }}>

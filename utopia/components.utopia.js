@@ -640,7 +640,7 @@ const Components = {
         imports: `import { SectionTitle } from "/app/components/Components"`,
         code: `<SectionTitle>Section Title</SectionTitle>`,
       },
-	  icon: 'headline',
+      icon: 'headline',
     },
     SubsectionTitle: {
       component: SubsectionTitle,
@@ -655,7 +655,7 @@ const Components = {
         imports: `import { SubsectionTitle } from "/app/components/Components"`,
         code: `<SubsectionTitle>Subsection Title</SubsectionTitle>`,
       },
-	  icon: 'headline',
+      icon: 'headline',
     },
     PageTitle: {
       component: PageTitle,
@@ -670,7 +670,7 @@ const Components = {
         imports: `import { PageTitle } from "/app/components/Components"`,
         code: `<PageTitle>Page Title</PageTitle>`,
       },
-	  icon: 'headline',
+      icon: 'headline',
     },
   },
 }

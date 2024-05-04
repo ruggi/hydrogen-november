@@ -53,8 +53,7 @@
     "featuredRoutes": [
       "/",
       "/blogs/news",
-      "/blogs/news/making-liquid",
-      "/page-loud-cart"
+      "/blogs/news/making-liquid"
     ],
     "pageTemplates": [
       {

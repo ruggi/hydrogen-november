@@ -438,9 +438,9 @@ export default function LandingPage() {
                 src='decorative/underline_01@2x.png'
                 alt='decorative swirl'
               />
-              <SectionTitle>
-                some of our happy faces
-              </SectionTitle>
+            </SectionTitle>
+            <SectionTitle>
+              some of our happy faces
             </SectionTitle>
             <Text
               level='large'

@@ -12,6 +12,19 @@
 import { StarIcon } from '@heroicons/react/24/solid'
 import { Link } from '@remix-run/react'
 import { Image, Money } from '@shopify/hydrogen'
+import { Typography } from 'antd'
+
+export const TypographyText = (props) => {
+  return <Typography.Text {...props} />
+}
+
+export const TypographyTitle = (props) => {
+  return <Typography.Title {...props} />
+}
+
+export const TypographyParagraph = (props) => {
+  return <Typography.Paragraph {...props} />
+}
 
 export const Placeholder = ({
   style,

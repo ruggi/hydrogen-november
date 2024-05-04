@@ -5,7 +5,6 @@ import { getLoadContext } from '../server'
 import { Grid } from '/app/components/Components'
 import { Section } from '/app/components/Components'
 import { Image } from '@shopify/hydrogen'
-import { TypographyText } from '/app/components/Components.tsx'
 
 const contextGetter = getLoadContext(
   {
@@ -35,18 +34,5 @@ export var storyboard = (
       getLoadContext={contextGetter}
       commentId='bjt'
     />
-    <TypographyText
-      style={{ top: 0, left: 0, position: 'absolute' }}
-    />
-    <div
-      style={{
-        backgroundColor: '#aaaaaa33',
-        position: 'absolute',
-        left: 1657,
-        top: 33,
-        width: 278,
-        height: 221,
-      }}
-    ></div>
   </Storyboard>
 )

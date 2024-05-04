@@ -569,7 +569,7 @@ const Components = {
           'import { Spacer } from "/app/components/Components"',
         code: `<Spacer height={50} />`,
       },
-	  icon: 'dashedframe',
+	//   icon: 'dashedframe',
     },
     Text: {
       component: Text,

@@ -3,7 +3,10 @@ import { Storyboard, RemixScene } from 'utopia-api'
 
 import { getLoadContext } from '../server'
 import { Grid } from '/app/components/Components'
-import { Section } from '/app/components/Components'
+import {
+  Section,
+  TypographyTitle,
+} from '/app/components/Components'
 import { Image } from '@shopify/hydrogen'
 
 const contextGetter = getLoadContext(
@@ -33,6 +36,16 @@ export var storyboard = (
       }}
       getLoadContext={contextGetter}
       commentId='bjt'
+    />
+    <div
+      style={{
+        backgroundColor: '#aaaaaa33',
+        position: 'absolute',
+        left: 1697,
+        top: -385,
+        width: 330,
+        height: 294,
+      }}
     />
   </Storyboard>
 )

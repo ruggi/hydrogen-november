@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { ProductCard, SectionTitle } from './Components'
+import { ProductCard, TypographyTitle } from './Components'
 import { Await } from '@remix-run/react'
 import { RecommendedProductsGrid } from './Layout'
 
@@ -11,7 +11,9 @@ import { RecommendedProductsGrid } from './Layout'
 export function RecommendedProducts({ products }) {
   return (
     <div className='recommended-products'>
-      <SectionTitle>Featured Products</SectionTitle>
+      <TypographyTitle level={1}>
+        Featured Products
+      </TypographyTitle>
       <Suspense fallback={<div>Loading...</div>}>
         <Await resolve={products}>
           {({ products }) => {

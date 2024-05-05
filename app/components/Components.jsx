@@ -9,6 +9,7 @@
 // .regular             { font-size: 16px; line-height: 140%; }
 // .smaller     { font-size: 15px; line-height: 140%; }
 
+import React from 'react'
 import { StarIcon } from '@heroicons/react/24/solid'
 import { Link } from '@remix-run/react'
 import { Image, Money } from '@shopify/hydrogen'
@@ -18,8 +19,56 @@ export const TypographyText = (props) => {
   return <Typography.Text {...props} />
 }
 
-export const TypographyTitle = (props) => {
-  return <Typography.Title {...props} />
+export const TypographyTitle = ({ style, ...props }) => {
+  let baseStyle = {
+    lineHeight: '140%',
+    fontFamily: 'Amiko',
+    padding: 0,
+    margin: 0,
+  }
+
+  const extraStyle = (() => {
+    switch (props.level) {
+      case 1:
+        return {
+          fontSize: '60px',
+          lineHeight: '120%',
+        }
+      case 2:
+        return {
+          fontSize: '48px',
+          lineHeight: '120%',
+        }
+      case 3:
+        return {
+          fontSize: '40px',
+          lineHeight: '120%',
+        }
+      case 4:
+        return {
+          fontSize: '32px',
+          lineHeight: '120%',
+        }
+      case 5:
+        return {
+          fontSize: '20px',
+          lineHeight: '140%',
+        }
+      default:
+        return {}
+    }
+  })()
+
+  return (
+    <Typography.Title
+      style={{
+        ...baseStyle,
+        ...extraStyle,
+        ...style,
+      }}
+      {...props}
+    />
+  )
 }
 
 export const TypographyParagraph = (props) => {
@@ -45,69 +94,6 @@ export const Placeholder = ({
       ...style,
     }}
   />
-)
-
-export const PageTitle = ({ style, children }) => (
-  <h1
-    style={{
-      fontFamily: 'Amiko',
-      fontSize: 60,
-      lineHeight: '120%',
-      fontWeight: 700,
-      padding: 0,
-      margin: '2rem 0',
-      ...style,
-    }}
-  >
-    {children}
-  </h1>
-)
-export const SectionTitle = ({ style, children }) => (
-  <h2
-    style={{
-      fontFamily: 'Amiko',
-      fontSize: '48px',
-      lineHeight: '120%',
-      padding: 0,
-      margin: 0,
-      textAlign: 'center',
-      fontWeight: 700,
-      ...style,
-    }}
-  >
-    {children}
-  </h2>
-)
-export const SubsectionTitle = ({ style, children }) => (
-  <h3
-    style={{
-      fontFamily: 'Amiko',
-      fontSize: '40px',
-      lineHeight: '120%',
-      padding: 0,
-      margin: 0,
-      textAlign: 'center',
-      ...style,
-    }}
-  >
-    {children}
-  </h3>
-)
-
-export const SectionSubtitle = ({ style, children }) => (
-  <h5
-    style={{
-      fontFamily: 'Amiko',
-      fontSize: '20px',
-      lineHeight: '140%',
-      padding: 0,
-      margin: 0,
-      textAlign: 'center',
-      ...style,
-    }}
-  >
-    {children}
-  </h5>
 )
 
 export const Text = ({
@@ -595,7 +581,9 @@ export const ProductCard = ({
         }}
       >
         <Column style={{ alignSelf: 'flex-start' }}>
-          <SectionSubtitle>{title}</SectionSubtitle>
+          <TypographyTitle level={5}>
+            {title}
+          </TypographyTitle>
           <Stars
             rating={5}
             style={{

@@ -1,6 +1,6 @@
 import { useLoaderData } from '@remix-run/react'
 import { defer, json } from '@shopify/remix-oxygen'
-import { Column, PageTitle } from '../components/Components'
+import { Column } from '../components/Components'
 
 export function processTestimonials(testimonials) {
   return testimonials.nodes.map((testimonial) => ({
@@ -36,7 +36,7 @@ export default function LandingPage() {
     useLoaderData()
   return (
     <Column>
-      <PageTitle>Hi!</PageTitle>
+      <TypographyTitle level={1}>Hi!</TypographyTitle>
     </Column>
   )
 }

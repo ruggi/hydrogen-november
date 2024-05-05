@@ -28,16 +28,34 @@ export const AntdTextVariants = [
 
 export const AntdTitleVariants = [
   {
-    label: 'Antd Title',
+    label: 'Antd Title Level 1',
     imports:
       'import { TypographyTitle } from "/app/components/Components"',
-    code: `<TypographyTitle>Sample Text</TypographyTitle>`,
+    code: `<TypographyTitle level={1}>Sample Text</TypographyTitle>`,
   },
   {
-    label: 'Antd Italic Title',
+    label: 'Antd Title Level 2',
     imports:
       'import { TypographyTitle } from "/app/components/Components"',
-    code: `<TypographyTitle italic>Sample Text</TypographyTitle>`,
+    code: `<TypographyTitle level={2}>Sample Text</TypographyTitle>`,
+  },
+  {
+    label: 'Antd Title Level 3',
+    imports:
+      'import { TypographyTitle } from "/app/components/Components"',
+    code: `<TypographyTitle level={3}>Sample Text</TypographyTitle>`,
+  },
+  {
+    label: 'Antd Title Level 4',
+    imports:
+      'import { TypographyTitle } from "/app/components/Components"',
+    code: `<TypographyTitle level={4}>Sample Text</TypographyTitle>`,
+  },
+  {
+    label: 'Antd Title Level 5',
+    imports:
+      'import { TypographyTitle } from "/app/components/Components"',
+    code: `<TypographyTitle level={5}>Sample Text</TypographyTitle>`,
   },
 ]
 

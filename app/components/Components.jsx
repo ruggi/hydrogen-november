@@ -26,7 +26,6 @@ export const TypographyTitle = ({ style, ...props }) => {
     padding: 0,
     margin: 0,
   }
-  console.log(props)
 
   const extraStyle = (() => {
     switch (props.level) {

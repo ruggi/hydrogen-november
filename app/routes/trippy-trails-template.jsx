@@ -1,5 +1,6 @@
 import { useLoaderData } from '@remix-run/react'
 import { defer, json } from '@shopify/remix-oxygen'
+
 import {
   Column,
   Section,
@@ -42,7 +43,7 @@ export default function LandingPage() {
   return (
     <Column>
       <Section minHeight id='top-section'>
-        <Placeholder />
+        <TypographyTitle level={1}>Hi!</TypographyTitle>
       </Section>
       <Section orientation='row'>
         <Placeholder />

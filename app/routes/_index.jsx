@@ -6,20 +6,18 @@ import {
   DecorativeClouds,
   DuplicatedImageWithBackground,
   HalfAndHalf,
-  PageTitle,
   QuoteWithRating,
   Row,
   Section,
-  SectionSubtitle,
-  SectionTitle,
   Spacer,
   ProductFeatureRow,
   Stars,
-  SubsectionTitle,
   Text,
   TrippyButton,
   TwoFeatureCallout,
   Placeholder,
+  TypographyText,
+  TypographyTitle,
 } from '../components/Components'
 import { RecommendedProducts } from '../components/RecommendedProducts'
 import { loader as loaderTemplate } from './trippy-trails-template'
@@ -90,9 +88,9 @@ export default function LandingPage() {
         <HalfAndHalf
           left={
             <Column gap='1em'>
-              <PageTitle>
+              <TypographyTitle level={1}>
                 We produce high quality bags for lifestyle
-              </PageTitle>
+              </TypographyTitle>
               <TrippyButton>Add to Cart</TrippyButton>
               <Spacer />
               <WomanSeeking />
@@ -134,10 +132,13 @@ export default function LandingPage() {
       </Section>
       <Section padded>
         <Column centerH>
-          <SectionSubtitle>
+          <TypographyTitle level={5}>
             And in comfort binds them
-          </SectionSubtitle>
-          <SubsectionTitle style={{ contain: 'layout' }}>
+          </TypographyTitle>
+          <TypographyTitle
+            level={3}
+            style={{ contain: 'layout' }}
+          >
             <img
               style={{
                 zIndex: -1,
@@ -149,7 +150,7 @@ export default function LandingPage() {
               alt='decorative swirl'
             />
             <span>one bag to fit them all</span>
-          </SubsectionTitle>
+          </TypographyTitle>
         </Column>
       </Section>
       <Section style={{ padding: '5em 9em' }}>
@@ -424,10 +425,11 @@ export default function LandingPage() {
               marginBottom: 50,
             }}
           >
-            <SectionSubtitle>
+            <TypographyTitle level={5}>
               They love us ❤️
-            </SectionSubtitle>
-            <SectionTitle
+            </TypographyTitle>
+            <TypographyTitle
+              level={2}
               style={{ marginTop: 8, position: 'relative' }}
             >
               <img
@@ -452,10 +454,10 @@ export default function LandingPage() {
                 src='decorative/underline_01@2x.png'
                 alt='decorative swirl'
               />
-            </SectionTitle>
-            <SectionTitle>
+            </TypographyTitle>
+            <TypographyTitle level={2}>
               some of our happy faces
-            </SectionTitle>
+            </TypographyTitle>
             <Text
               level='large'
               style={{

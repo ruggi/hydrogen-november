@@ -8,16 +8,12 @@ import {
   QuoteWithRating,
   Row,
   Section,
-  SectionSubtitle,
-  SectionTitle,
   Spacer,
   ProductFeatureRow,
   Stars,
   Text,
   TrippyButton,
   TwoFeatureCallout,
-  PageTitle,
-  SubsectionTitle,
 } from '../app/components/Components'
 import { WomanSeeking } from '../app/routes/_index'
 import { Footer } from '../app/components/Footer'
@@ -179,15 +175,6 @@ const DefaultContent = [
     component: 'Antd Paragraph',
     moduleName: '/app/components/Components',
     variants: AntdParagraphVariants,
-  },
-  {
-    component: 'Section Title',
-    moduleName: '/app/components/Components',
-    variants: {
-      label: 'Section Title',
-      imports: `import { SectionTitle } from "/app/components/Components"`,
-      code: `<SectionTitle>Section Title</SectionTitle>`,
-    },
   },
 ]
 
@@ -671,64 +658,6 @@ const Components = {
         imports: `import { Stars } from '/app/components/Components'`,
         code: `<Stars rating={5} />`,
       },
-    },
-    SectionSubtitle: {
-      component: SectionSubtitle,
-      properties: { style: Utopia.styleControl() },
-      children: { preferredContents: 'text' },
-      focus: 'never',
-      inspector: ['typography'],
-      variants: {
-        label: 'Section Subtitle',
-        imports: `import { SectionSubtitle } from "/app/components/Components"`,
-        code: `<SectionSubtitle>Section Subtitle</SectionSubtitle>`,
-      },
-      icon: 'headline',
-    },
-    SectionTitle: {
-      component: SectionTitle,
-      properties: {
-        style: Utopia.styleControl(),
-      },
-      children: { preferredContents: 'text' },
-      focus: 'never',
-      inspector: ['typography'],
-      variants: {
-        label: 'Section Title',
-        imports: `import { SectionTitle } from "/app/components/Components"`,
-        code: `<SectionTitle>Section Title</SectionTitle>`,
-      },
-      icon: 'headline',
-    },
-    SubsectionTitle: {
-      component: SubsectionTitle,
-      properties: {
-        style: Utopia.styleControl(),
-      },
-      children: { preferredContents: 'text' },
-      focus: 'never',
-      inspector: ['typography'],
-      variants: {
-        label: 'Subsection Title',
-        imports: `import { SubsectionTitle } from "/app/components/Components"`,
-        code: `<SubsectionTitle>Subsection Title</SubsectionTitle>`,
-      },
-      icon: 'headline',
-    },
-    PageTitle: {
-      component: PageTitle,
-      properties: {
-        style: Utopia.styleControl(),
-      },
-      focus: 'never',
-      children: { preferredContents: 'text' },
-      inspector: ['typography'],
-      variants: {
-        label: 'Page Title',
-        imports: `import { PageTitle } from "/app/components/Components"`,
-        code: `<PageTitle>Page Title</PageTitle>`,
-      },
-      icon: 'headline',
     },
   },
 }

@@ -96,69 +96,6 @@ export const Placeholder = ({
   />
 )
 
-export const PageTitle = ({ style, children }) => (
-  <h1
-    style={{
-      fontFamily: 'Amiko',
-      fontSize: 60,
-      lineHeight: '120%',
-      fontWeight: 700,
-      padding: 0,
-      margin: '2rem 0',
-      ...style,
-    }}
-  >
-    {children}
-  </h1>
-)
-export const SectionTitle = ({ style, children }) => (
-  <h2
-    style={{
-      fontFamily: 'Amiko',
-      fontSize: '48px',
-      lineHeight: '120%',
-      padding: 0,
-      margin: 0,
-      textAlign: 'center',
-      fontWeight: 700,
-      ...style,
-    }}
-  >
-    {children}
-  </h2>
-)
-export const SubsectionTitle = ({ style, children }) => (
-  <h3
-    style={{
-      fontFamily: 'Amiko',
-      fontSize: '40px',
-      lineHeight: '120%',
-      padding: 0,
-      margin: 0,
-      textAlign: 'center',
-      ...style,
-    }}
-  >
-    {children}
-  </h3>
-)
-
-export const SectionSubtitle = ({ style, children }) => (
-  <h5
-    style={{
-      fontFamily: 'Amiko',
-      fontSize: '20px',
-      lineHeight: '140%',
-      padding: 0,
-      margin: 0,
-      textAlign: 'center',
-      ...style,
-    }}
-  >
-    {children}
-  </h5>
-)
-
 export const Text = ({
   level,
   deemphasized,

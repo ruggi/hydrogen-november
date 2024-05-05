@@ -62,41 +62,42 @@ export const AntdParagraphVariants = [
   },
 ]
 
+const AntdTypoBaseProps = {
+  italic: Utopia.checkboxControl(),
+  underline: Utopia.checkboxControl(),
+  mark: Utopia.checkboxControl(),
+  code: Utopia.checkboxControl(),
+  delete: Utopia.checkboxControl(),
+  disabled: Utopia.checkboxControl(),
+  ellipsis: Utopia.checkboxControl(),
+  keyboard: Utopia.checkboxControl(),
+  copyable: Utopia.checkboxControl(),
+  type: Utopia.popupListControl([
+    {
+      label: 'none',
+      value: 'undefined',
+    },
+    {
+      label: 'secondary',
+      value: 'secondary',
+    },
+    {
+      label: 'success',
+      value: 'success',
+    },
+    {
+      label: 'warning',
+      value: 'warning',
+    },
+    {
+      label: 'danger',
+      value: 'danger',
+    },
+  ]),
+}
+
 const AntdTypoAnnotations = {
-  properties: {
-    italic: Utopia.checkboxControl(),
-    underline: Utopia.checkboxControl(),
-    strong: Utopia.checkboxControl(),
-    mark: Utopia.checkboxControl(),
-    code: Utopia.checkboxControl(),
-    delete: Utopia.checkboxControl(),
-    disabled: Utopia.checkboxControl(),
-    ellipsis: Utopia.checkboxControl(),
-    keyboard: Utopia.checkboxControl(),
-    copyable: Utopia.checkboxControl(),
-    type: Utopia.popupListControl([
-      {
-        label: 'none',
-        value: 'undefined',
-      },
-      {
-        label: 'secondary',
-        value: 'secondary',
-      },
-      {
-        label: 'success',
-        value: 'success',
-      },
-      {
-        label: 'warning',
-        value: 'warning',
-      },
-      {
-        label: 'danger',
-        value: 'danger',
-      },
-    ]),
-  },
+  properties: AntdTypoBaseProps,
   focus: 'never',
   children: {
     preferredContents: 'text',
@@ -109,16 +110,33 @@ const Components = {
   '/app/components/Components': {
     TypographyText: {
       ...AntdTypoAnnotations,
+      properties: {
+        ...AntdTypoBaseProps,
+        strong: {
+          control: 'checkbox',
+          label: 'bold',
+        },
+      },
       component: TypographyText,
       variants: AntdTextVariants,
     },
     TypographyTitle: {
       ...AntdTypoAnnotations,
+      properties: {
+        level: Utopia.sliderControl(1, 5, 1),
+        ...AntdTypoBaseProps,
+      },
       component: TypographyTitle,
       variants: AntdTitleVariants,
     },
     TypographyParagraph: {
-      ...AntdTypoAnnotations,
+      properties: {
+        ...AntdTypoBaseProps,
+        strong: {
+          control: 'checkbox',
+          label: 'bold',
+        },
+      },
       component: TypographyParagraph,
       variants: AntdParagraphVariants,
     },

@@ -78,18 +78,19 @@ export const TypographyParagraph = (props) => {
 export const Placeholder = ({
   style,
   margin,
-  fill,
+  expand,
   fixed = true,
 }) => (
   <div
+    data-label='placeholder'
     style={{
       backgroundColor: 'rgb(225 225 225 / 25%)',
       border: '1px dashed rgb(61 154 255)',
       borderRadius: 10,
       minWidth: fixed ? 100 : null,
       minHeight: fixed ? 100 : null,
-      flexGrow: fill ? 1 : null,
-      alignSelf: fill ? 'stretch' : null,
+      flexGrow: expand ? 1 : null,
+      alignSelf: expand ? 'stretch' : null,
       margin: margin ? '10px' : null,
       ...style,
     }}
@@ -123,6 +124,7 @@ export const Text = ({
 
   return (
     <div
+      data-label='text'
       style={{
         ...defaultText,
         ...resultingStyle,
@@ -138,6 +140,7 @@ export const Text = ({
 
 export const Grid = ({ left, right, padded, gap }) => (
   <div
+    data-label='grid'
     style={{
       display: 'flex',
       flexGrow: 1,
@@ -150,31 +153,37 @@ export const Grid = ({ left, right, padded, gap }) => (
   </div>
 )
 
-export const SpecialRow = ({
-  left,
-  right,
+export const ProductFeatureRow = ({
+  image,
+  content,
+  background,
   inverted,
   style,
 }) => (
   <div
     style={{
       display: 'grid',
+      minHeight: 300,
+      padding: '2em',
       gridTemplateColumns: inverted
         ? '1.2fr 1fr'
         : '1fr 1.2fr',
       gap: '2em',
+      backgroundColor:
+        background ?? 'oklch(0.89 0.16 87.52)',
+      borderRadius: 20,
       ...style,
     }}
   >
     {inverted ? (
       <>
-        {right}
-        {left}
+        {content}
+        {image}
       </>
     ) : (
       <>
-        {left}
-        {right}
+        {image}
+        {content}
       </>
     )}
   </div>
@@ -208,25 +217,76 @@ export const Card = ({
   </div>
 )
 
+export const getHorizontalPaddingForSize = (size) => {
+  switch (size) {
+    case 'none':
+      return '0em'
+    case 'small':
+      return '1em'
+    case 'medium':
+      return '2em'
+    case 'large':
+      return '5em'
+    case 'xl':
+      return '8em'
+    default:
+      return '0em'
+  }
+}
+
+// Please fix me, I just copied this from getHorizontalPaddingForSize
+export const getVerticalPaddingForSize = (size) => {
+  switch (size) {
+    case 'none':
+      return '0em'
+    case 'small':
+      return '1em'
+    case 'medium':
+      return '2em'
+    case 'large':
+      return '5em'
+    case 'xl':
+      return '8em'
+    default:
+      return '0em'
+  }
+}
+
 export const Section = ({
-  padded,
+  orientation,
+  verticalPadding,
+  horizontalPadding,
+  minHeight,
+  backgroundColor,
   style,
   children,
-  minHeight,
-}) => (
-  <section
-    style={{
-      padding: padded ? '1em 10em' : null,
-      minHeight: minHeight ? '85vh' : null,
-      display: 'flex',
-      flexDirection: 'column',
-      contain: 'layout',
-      ...style,
-    }}
-  >
-    {children}
-  </section>
-)
+}) => {
+  const horizontalPaddingForSize =
+    getHorizontalPaddingForSize(horizontalPadding ?? 'none')
+  const verticalPaddingForSize = getVerticalPaddingForSize(
+    verticalPadding ?? 'none',
+  )
+
+  return (
+    <section
+      style={{
+        paddingTop: verticalPaddingForSize,
+        paddingBottom: verticalPaddingForSize,
+        paddingLeft: horizontalPaddingForSize,
+        paddingRight: horizontalPaddingForSize,
+        minHeight: minHeight ? '85vh' : null,
+        backgroundColor: backgroundColor ?? null,
+        display: 'flex',
+        flexDirection:
+          orientation === 'row' ? 'row' : 'column',
+        contain: 'layout',
+        ...style,
+      }}
+    >
+      {children}
+    </section>
+  )
+}
 
 export const Row = ({
   padded,

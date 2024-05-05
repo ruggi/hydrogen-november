@@ -10,11 +10,12 @@ import {
   Row,
   Section,
   Spacer,
-  SpecialRow,
+  ProductFeatureRow,
   Stars,
   Text,
   TrippyButton,
   TwoFeatureCallout,
+  Placeholder,
   TypographyText,
   TypographyTitle,
 } from '../components/Components'
@@ -155,14 +156,27 @@ export default function LandingPage() {
       <Section style={{ padding: '5em 9em' }}>
         <Column>
           <DecorativeClouds />
-          <SpecialRow
+
+          <div>ok</div>
+
+          <ProductFeatureRow
+            inverted
+            image={<Placeholder />}
+            content={<Placeholder />}
+          ></ProductFeatureRow>
+
+          <ProductFeatureRow
             style={{
               background: 'var(--purple)',
               color: 'white',
               paddingBottom: '2em',
             }}
-            left={
-              <div style={{ contain: 'layout' }}>
+            image={
+              <div
+                style={{
+                  contain: 'layout',
+                }}
+              >
                 <DuplicatedImageWithBackground
                   backgroundColor='var(--lihgt-purple)'
                   image='merchandise/bag-black@2x.png'
@@ -178,7 +192,7 @@ export default function LandingPage() {
                 />
               </div>
             }
-            right={
+            content={
               <Column style={{ padding: '2em 2em' }}>
                 <h2
                   style={{
@@ -235,7 +249,7 @@ export default function LandingPage() {
               </Column>
             }
           />
-          <SpecialRow
+          <ProductFeatureRow
             inverted
             style={{
               background: 'var(--orange)',
@@ -316,7 +330,7 @@ export default function LandingPage() {
               </Column>
             }
           />
-          <SpecialRow
+          <ProductFeatureRow
             style={{
               background: 'var(--green)',
               color: 'white',

@@ -1,6 +1,12 @@
 import { useLoaderData } from '@remix-run/react'
 import { defer, json } from '@shopify/remix-oxygen'
-import { Column } from '../components/Components'
+
+import {
+  Column,
+  Section,
+  PageTitle,
+  Placeholder,
+} from '../components/Components'
 
 export function processTestimonials(testimonials) {
   return testimonials.nodes.map((testimonial) => ({
@@ -36,7 +42,17 @@ export default function LandingPage() {
     useLoaderData()
   return (
     <Column>
-      <TypographyTitle level={1}>Hi!</TypographyTitle>
+      <Section minHeight id='top-section'>
+        <TypographyTitle level={1}>Hi!</TypographyTitle>
+      </Section>
+      <Section orientation='row'>
+        <Placeholder />
+        <Placeholder />
+        <Placeholder />
+      </Section>
+      <Section minHeight id='third-section'>
+        <Placeholder />
+      </Section>
     </Column>
   )
 }

@@ -6,7 +6,6 @@ import {
   DecorativeClouds,
   DuplicatedImageWithBackground,
   HalfAndHalf,
-  PageTitle,
   QuoteWithRating,
   Row,
   Section,

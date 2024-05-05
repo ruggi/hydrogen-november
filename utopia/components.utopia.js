@@ -9,7 +9,7 @@ import {
   Row,
   Section,
   Spacer,
-  SpecialRow,
+  ProductFeatureRow,
   Stars,
   TrippyButton,
   TwoFeatureCallout,
@@ -364,8 +364,8 @@ const Components = {
           />`,
       },
     },
-    SpecialRow: {
-      component: SpecialRow,
+    ProductFeatureRow: {
+      component: ProductFeatureRow,
       properties: {
         left: {
           control: 'jsx',
@@ -388,9 +388,9 @@ const Components = {
       children: 'not-supported',
       variants: [
         {
-          label: 'SpecialRow',
-          imports: `import { SpecialRow, Placeholder } from "/app/components/Components"`,
-          code: `<SpecialRow
+          label: 'ProductFeatureRow',
+          imports: `import { ProductFeatureRow, Placeholder } from "/app/components/Components"`,
+          code: `<ProductFeatureRow
             style={{ gap: 10 }}
             inverted={false}
             left={<Placeholder />}
@@ -479,7 +479,7 @@ const Components = {
       component: Placeholder,
       properties: {
         margin: Utopia.numberControl(),
-        fill: Utopia.checkboxControl(),
+        expand: Utopia.checkboxControl(),
         fixed: Utopia.checkboxControl(),
       },
       focus: 'never',
@@ -509,8 +509,38 @@ const Components = {
     Section: {
       component: Section,
       properties: {
-        padded: Utopia.checkboxControl(),
-        minHeight: Utopia.checkboxControl(),
+        verticalPadding: {
+          label: 'Vertical Padding',
+          control: 'radio',
+          options: [
+            // it would be nice to be able to pass in data here somehow, and have it be used in the component
+            { label: 'None', value: 'none' },
+            { label: 'Small', value: 'small' },
+            { label: 'Medium', value: 'medium' },
+            { label: 'Large', value: 'large' },
+            { label: 'XL', value: 'xl' },
+          ],
+        },
+        horizontalPadding: {
+          label: 'Horizontal Padding',
+          control: 'radio',
+          options: [
+            { label: 'None', value: 'none' },
+            { label: 'Small', value: 'small' },
+            { label: 'Medium', value: 'medium' },
+            { label: 'Large', value: 'large' },
+            { label: 'XL', value: 'xl' },
+          ],
+        },
+        minHeight: {
+          label: 'Minimum Height',
+          control: 'checkbox',
+        },
+        orientation: Utopia.radioControl([
+          { label: 'Vertical', value: 'column' },
+          { label: 'Horizontal', value: 'row' },
+        ]),
+        backgroundColor: Utopia.colorControl(),
       },
       focus: 'never',
       children: {

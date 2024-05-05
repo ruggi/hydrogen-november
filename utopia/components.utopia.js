@@ -498,7 +498,7 @@ const Components = {
       component: Placeholder,
       properties: {
         margin: Utopia.numberControl(),
-        fill: Utopia.colorControl(),
+        fill: Utopia.checkboxControl(),
         fixed: Utopia.checkboxControl(),
       },
       focus: 'never',

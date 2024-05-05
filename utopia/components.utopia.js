@@ -177,7 +177,9 @@ const DefaultContent = [
     variants: AntdParagraphVariants,
   },
 ]
-
+/**
+ * @type {{[modulePath: string]: {[componentName:string]: import("utopia-api").ComponentToRegister}}}
+ */
 const Components = {
   '/app/routes/_index': {
     TestimonialCard: {

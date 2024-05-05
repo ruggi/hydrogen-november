@@ -11,7 +11,7 @@ import { RecommendedProductsGrid } from './Layout'
 export function RecommendedProducts({ products }) {
   return (
     <div className='recommended-products'>
-      <TypographyTitle level={1}>
+      <TypographyTitle level={2}>
         Featured Products
       </TypographyTitle>
       <Suspense fallback={<div>Loading...</div>}>

@@ -383,7 +383,7 @@ const Components = {
           />`,
       },
     },
-    SpecialRow: {
+    ProductFeatureRow: {
       component: ProductFeatureRow,
       properties: {
         left: {
@@ -407,9 +407,9 @@ const Components = {
       children: 'not-supported',
       variants: [
         {
-          label: 'SpecialRow',
-          imports: `import { SpecialRow, Placeholder } from "/app/components/Components"`,
-          code: `<SpecialRow
+          label: 'ProductFeatureRow',
+          imports: `import { ProductFeatureRow, Placeholder } from "/app/components/Components"`,
+          code: `<ProductFeatureRow
             style={{ gap: 10 }}
             inverted={false}
             left={<Placeholder />}

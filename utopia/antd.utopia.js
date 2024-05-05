@@ -149,11 +149,12 @@ const Components = {
     },
     TypographyParagraph: {
       properties: {
-        ...AntdTypoBaseProps,
+        deemphasized: Utopia.checkboxControl(),
         strong: {
           control: 'checkbox',
           label: 'bold',
         },
+        ...AntdTypoBaseProps,
       },
       component: TypographyParagraph,
       variants: AntdParagraphVariants,

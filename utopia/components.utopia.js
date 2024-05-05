@@ -11,7 +11,6 @@ import {
   Spacer,
   ProductFeatureRow,
   Stars,
-  Text,
   TrippyButton,
   TwoFeatureCallout,
 } from '../app/components/Components'
@@ -121,26 +120,26 @@ const TextVariants = [
   {
     label: 'Smaller Text',
     imports:
-      'import { Text } from "/app/components/Components"',
-    code: `<Text level='smaller'>Smaller Text</Text>`,
+      'import { TypographyParagraph } from "/app/components/Components"',
+    code: `<TypographyParagraph level='smaller'>Smaller Antd Paragraph</TypographyParagraph>`,
   },
   {
     label: 'Regular Text',
     imports:
-      'import { Text } from "/app/components/Components"',
-    code: `<Text level='regular'>Regular Text</Text>`,
+      'import { TypographyParagraph } from "/app/components/Components"',
+    code: `<TypographyParagraph level='regular'>Regular Antd Paragraph</TypographyParagraph>`,
   },
   {
     label: 'Embiggened Text',
     imports:
-      'import { Text } from "/app/components/Components"',
-    code: `<Text level='embiggened'>Embiggened Text</Text>`,
+      'import { TypographyParagraph } from "/app/components/Components"',
+    code: `<TypographyParagraph level='embiggened'>Embiggened Antd Paragraph</TypographyParagraph>`,
   },
   {
     label: 'Large Text',
     imports:
-      'import { Text } from "/app/components/Components"',
-    code: `<Text level='large'>Large Text</Text>`,
+      'import { TypographyParagraph } from "/app/components/Components"',
+    code: `<TypographyParagraph level='large'>Large Antd Paragraph</TypographyParagraph>`,
   },
 ]
 
@@ -157,16 +156,6 @@ const DefaultContent = [
     variants: ColumnWithPlaceholdersVariant,
   },
   {
-    component: 'Text',
-    moduleName: '/app/components/Components',
-    variants: TextVariants,
-  },
-  {
-    component: 'Antd Text',
-    moduleName: '/app/components/Components',
-    variants: AntdTextVariants,
-  },
-  {
     component: 'Antd Title',
     moduleName: '/app/components/Components',
     variants: AntdTitleVariants,
@@ -175,6 +164,11 @@ const DefaultContent = [
     component: 'Antd Paragraph',
     moduleName: '/app/components/Components',
     variants: AntdParagraphVariants,
+  },
+  {
+    component: 'Antd Text',
+    moduleName: '/app/components/Components',
+    variants: AntdTextVariants,
   },
 ]
 
@@ -615,36 +609,6 @@ const Components = {
         code: `<Spacer height={50} />`,
       },
       icon: 'dashedframe',
-    },
-    Text: {
-      component: Text,
-      properties: {
-        level: Utopia.popupListControl([
-          {
-            label: 'large',
-            value: 'large',
-          },
-          {
-            label: 'embiggened',
-            value: 'embiggened',
-          },
-          {
-            label: 'regular',
-            value: 'regular',
-          },
-          {
-            label: 'smaller',
-            value: 'smaller',
-          },
-        ]),
-        deemphasized: Utopia.checkboxControl(),
-        emboldened: Utopia.checkboxControl(),
-        style: Utopia.styleControl(),
-      },
-      children: { preferredContents: 'text' },
-      focus: 'never',
-      inspector: ['typography'],
-      variants: TextVariants,
     },
     Stars: {
       component: Stars,

@@ -12,11 +12,10 @@ import {
   Spacer,
   ProductFeatureRow,
   Stars,
-  Text,
   TrippyButton,
   TwoFeatureCallout,
+  TypographyParagraph,
   Placeholder,
-  TypographyText,
   TypographyTitle,
 } from '../components/Components'
 import { RecommendedProducts } from '../components/RecommendedProducts'
@@ -46,22 +45,26 @@ export const TestimonialCard = ({
     }}
   >
     <Stars rating={rating} />
-    <Text
+    <TypographyParagraph
       level='embiggened'
       style={{
         marginTop: 14,
         marginBottom: 8,
         fontWeight: 'bold',
+        opacity: 0.7,
       }}
     >
       {title}
-    </Text>
-    <Text level='smaller' deemphasized>
+    </TypographyParagraph>
+    <TypographyParagraph level='smaller' deemphasized>
       {text}
-    </Text>
-    <Text level='smaller' style={{ marginTop: 8 }}>
+    </TypographyParagraph>
+    <TypographyParagraph
+      level='smaller'
+      style={{ marginTop: 8 }}
+    >
       {country}&nbsp; {name}
-    </Text>
+    </TypographyParagraph>
   </div>
 )
 
@@ -458,7 +461,7 @@ export default function LandingPage() {
             <TypographyTitle level={2}>
               some of our happy faces
             </TypographyTitle>
-            <Text
+            <TypographyParagraph
               level='large'
               style={{
                 marginTop: 16,
@@ -470,7 +473,7 @@ export default function LandingPage() {
               But don't take it from us - here is what some
               of our faceless customers are saying about our
               products and service.
-            </Text>
+            </TypographyParagraph>
           </Column>
           <Row
             gap={27}

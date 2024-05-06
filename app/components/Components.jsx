@@ -580,7 +580,6 @@ export const ProductCard = ({
   return (
     <Link
       key={id}
-      className='recommended-product'
       to={`/products/${handle}`}
       style={{
         textDecoration: 'none',

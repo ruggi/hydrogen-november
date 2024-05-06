@@ -1,5 +1,10 @@
 import { Suspense } from 'react'
-import { ProductCard, TypographyTitle } from './Components'
+import {
+  Column,
+  ProductCard,
+  Row,
+  TypographyTitle,
+} from './Components'
 import { Await, useLoaderData } from '@remix-run/react'
 import { RecommendedProductsGrid } from './Layout'
 
@@ -11,11 +16,11 @@ import { RecommendedProductsGrid } from './Layout'
 export function RecommendedProducts() {
   const { recommendedProducts } = useLoaderData()
   return (
-    <div className='recommended-products'>
+    <Column centerH>
       <TypographyTitle level={2}>
         Featured Products
       </TypographyTitle>
-      <RecommendedProductsGrid>
+      <Row scrollable>
         {recommendedProducts.map((product, i) => (
           <ProductCard
             key={product.id}
@@ -27,8 +32,7 @@ export function RecommendedProducts() {
             backgroundColorIndex={i}
           />
         ))}
-      </RecommendedProductsGrid>
-      <br />
-    </div>
+      </Row>
+    </Column>
   )
 }

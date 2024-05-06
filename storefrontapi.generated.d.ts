@@ -1617,6 +1617,44 @@ export type SearchQuery = {
   };
 };
 
+export type ProductReferenceFragment = Pick<
+  StorefrontAPI.Product,
+  'id' | 'title' | 'handle'
+> & {
+  priceRange: {
+    minVariantPrice: Pick<StorefrontAPI.MoneyV2, 'amount' | 'currencyCode'>;
+  };
+  images: {
+    nodes: Array<
+      Pick<StorefrontAPI.Image, 'id' | 'url' | 'altText' | 'width' | 'height'>
+    >;
+  };
+};
+
+type ImageReference_DamwiQk4tnOybi9Re6zhMgmaWi19m3FiPuphCjq7Hi_Fragment = {};
+
+type ImageReference_MediaImage_Fragment = {
+  image?: StorefrontAPI.Maybe<
+    Pick<StorefrontAPI.Image, 'url' | 'width' | 'height' | 'altText'>
+  >;
+};
+
+export type ImageReferenceFragment =
+  | ImageReference_DamwiQk4tnOybi9Re6zhMgmaWi19m3FiPuphCjq7Hi_Fragment
+  | ImageReference_MediaImage_Fragment;
+
+export type ReviewFragment = Pick<StorefrontAPI.Metaobject, 'id' | 'type'> & {
+  rating?: StorefrontAPI.Maybe<Pick<StorefrontAPI.MetaobjectField, 'value'>>;
+  summary?: StorefrontAPI.Maybe<Pick<StorefrontAPI.MetaobjectField, 'value'>>;
+  reviewerName?: StorefrontAPI.Maybe<
+    Pick<StorefrontAPI.MetaobjectField, 'value'>
+  >;
+  countryEmoji?: StorefrontAPI.Maybe<
+    Pick<StorefrontAPI.MetaobjectField, 'value'>
+  >;
+  title?: StorefrontAPI.Maybe<Pick<StorefrontAPI.MetaobjectField, 'value'>>;
+};
+
 export type LandingPageQueryVariables = StorefrontAPI.Exact<{
   country?: StorefrontAPI.InputMaybe<StorefrontAPI.CountryCode>;
   language?: StorefrontAPI.InputMaybe<StorefrontAPI.LanguageCode>;
@@ -1646,20 +1684,6 @@ export type LandingPageQuery = {
   };
 };
 
-export type RecommendedProductFragment = Pick<
-  StorefrontAPI.Product,
-  'id' | 'title' | 'handle'
-> & {
-  priceRange: {
-    minVariantPrice: Pick<StorefrontAPI.MoneyV2, 'amount' | 'currencyCode'>;
-  };
-  images: {
-    nodes: Array<
-      Pick<StorefrontAPI.Image, 'id' | 'url' | 'altText' | 'width' | 'height'>
-    >;
-  };
-};
-
 export type RecommendedProductsQueryVariables = StorefrontAPI.Exact<{
   country?: StorefrontAPI.InputMaybe<StorefrontAPI.CountryCode>;
   language?: StorefrontAPI.InputMaybe<StorefrontAPI.LanguageCode>;
@@ -1683,6 +1707,100 @@ export type RecommendedProductsQuery = {
             >
           >;
         };
+      }
+    >;
+  };
+};
+
+export type FeaturedCollectionsQueryVariables = StorefrontAPI.Exact<{
+  country?: StorefrontAPI.InputMaybe<StorefrontAPI.CountryCode>;
+  language?: StorefrontAPI.InputMaybe<StorefrontAPI.LanguageCode>;
+}>;
+
+export type FeaturedCollectionsQuery = {
+  collections: {
+    nodes: Array<
+      Pick<
+        StorefrontAPI.Collection,
+        'id' | 'handle' | 'title' | 'description'
+      > & {
+        relevantProductFeatures?: StorefrontAPI.Maybe<{
+          references?: StorefrontAPI.Maybe<{
+            edges: Array<{
+              node: {
+                title?: StorefrontAPI.Maybe<
+                  Pick<StorefrontAPI.MetaobjectField, 'value'>
+                >;
+                description?: StorefrontAPI.Maybe<
+                  Pick<StorefrontAPI.MetaobjectField, 'value'>
+                >;
+                image?: StorefrontAPI.Maybe<{
+                  reference?: StorefrontAPI.Maybe<{
+                    image?: StorefrontAPI.Maybe<
+                      Pick<
+                        StorefrontAPI.Image,
+                        'url' | 'width' | 'height' | 'altText'
+                      >
+                    >;
+                  }>;
+                }>;
+              };
+            }>;
+          }>;
+        }>;
+        featuredTestimonial?: StorefrontAPI.Maybe<{
+          reference?: StorefrontAPI.Maybe<
+            Pick<StorefrontAPI.Metaobject, 'id' | 'type'> & {
+              rating?: StorefrontAPI.Maybe<
+                Pick<StorefrontAPI.MetaobjectField, 'value'>
+              >;
+              summary?: StorefrontAPI.Maybe<
+                Pick<StorefrontAPI.MetaobjectField, 'value'>
+              >;
+              reviewerName?: StorefrontAPI.Maybe<
+                Pick<StorefrontAPI.MetaobjectField, 'value'>
+              >;
+              countryEmoji?: StorefrontAPI.Maybe<
+                Pick<StorefrontAPI.MetaobjectField, 'value'>
+              >;
+              title?: StorefrontAPI.Maybe<
+                Pick<StorefrontAPI.MetaobjectField, 'value'>
+              >;
+            }
+          >;
+        }>;
+        featuredImage?: StorefrontAPI.Maybe<{
+          reference?: StorefrontAPI.Maybe<{
+            image?: StorefrontAPI.Maybe<
+              Pick<StorefrontAPI.Image, 'url' | 'width' | 'height' | 'altText'>
+            >;
+          }>;
+        }>;
+        featuredProduct?: StorefrontAPI.Maybe<{
+          reference?: StorefrontAPI.Maybe<
+            Pick<StorefrontAPI.Product, 'id' | 'title' | 'handle'> & {
+              priceRange: {
+                minVariantPrice: Pick<
+                  StorefrontAPI.MoneyV2,
+                  'amount' | 'currencyCode'
+                >;
+              };
+              images: {
+                nodes: Array<
+                  Pick<
+                    StorefrontAPI.Image,
+                    'id' | 'url' | 'altText' | 'width' | 'height'
+                  >
+                >;
+              };
+            }
+          >;
+        }>;
+        featureTitle?: StorefrontAPI.Maybe<
+          Pick<StorefrontAPI.Metafield, 'id' | 'key' | 'type' | 'value'>
+        >;
+        color?: StorefrontAPI.Maybe<Pick<StorefrontAPI.Metafield, 'value'>>;
+        image?: StorefrontAPI.Maybe<Pick<StorefrontAPI.Image, 'id' | 'url'>>;
       }
     >;
   };
@@ -1855,7 +1973,7 @@ interface GeneratedQueryTypes {
     return: PoliciesQuery;
     variables: PoliciesQueryVariables;
   };
-  '#graphql\n  query Product(\n    $country: CountryCode\n    $handle: String!\n    $language: LanguageCode\n    $selectedOptions: [SelectedOptionInput!]!\n  ) @inContext(country: $country, language: $language) {\n    product(handle: $handle) {\n      ...Product\n    }\n  }\n  #graphql\n  fragment Product on Product {\n    id\n    title\n    vendor\n    handle\n    descriptionHtml\n    description\n    options {\n      name\n      values\n    }\n    selectedVariant: variantBySelectedOptions(selectedOptions: $selectedOptions) {\n      ...ProductVariant\n    }\n    variants(first: 1) {\n      nodes {\n        ...ProductVariant\n      }\n    }\n    seo {\n      description\n      title\n    }\n  }\n  #graphql\n  fragment ProductVariant on ProductVariant {\n    availableForSale\n    compareAtPrice {\n      amount\n      currencyCode\n    }\n    id\n    image {\n      __typename\n      id\n      url\n      altText\n      width\n      height\n    }\n    price {\n      amount\n      currencyCode\n    }\n    product {\n      title\n      handle\n    }\n    selectedOptions {\n      name\n      value\n    }\n    sku\n    title\n    unitPrice {\n      amount\n      currencyCode\n    }\n  }\n\n\n': {
+  '#graphql\n  query Product(\n    $country: CountryCode\n    $handle: String!\n    $language: LanguageCode\n    $selectedOptions: [SelectedOptionInput!]!\n  ) @inContext(country: $country, language: $language) {\n    product(handle: $handle) {\n      ...Product\n    }\n  }\n  #graphql\n  fragment ProductReference on Product {\n    id\n    title\n    handle\n    priceRange {\n      minVariantPrice {\n        amount\n        currencyCode\n      }\n    }\n    images(first: 1) {\n      nodes {\n        id\n        url\n        altText\n        width\n        height\n      }\n    }\n  }\n\n': {
     return: ProductQuery;
     variables: ProductQueryVariables;
   };
@@ -1867,13 +1985,17 @@ interface GeneratedQueryTypes {
     return: SearchQuery;
     variables: SearchQueryVariables;
   };
-  '#graphql\n  query LandingPage(\n    $country: CountryCode\n    $language: LanguageCode\n  ) @inContext(language: $language, country: $country) {\n    testimonials: metaobjects(type: "product_ratings", first: 10) {\n      nodes {\n        id\n        type\n        rating: field(key: "rating") {\n          value\n        }\n        summary: field(key: "review_summary") {\n          value\n        }\n        reviewerName: field(key: "reviewer_name") {\n          value\n        }\n        countryEmoji: field(key: "country_emoji") {\n          value\n        }\n        title: field(key: "review_title") {\n          value\n        }\n      }\n    }\n  }\n': {
+  '#graphql\n#graphql\n  fragment Review on Metaobject {\n    id\n    type\n    rating: field(key: "rating") {\n      value\n    }\n    summary: field(key: "review_summary") {\n      value\n    }\n    reviewerName: field(key: "reviewer_name") {\n      value\n    }\n    countryEmoji: field(key: "country_emoji") {\n      value\n    }\n    title: field(key: "review_title") {\n      value\n    }\n  }\n\n  query LandingPage(\n    $country: CountryCode\n    $language: LanguageCode\n  ) @inContext(language: $language, country: $country) {\n    testimonials: metaobjects(type: "product_ratings", first: 10) {\n      nodes {\n        ...Review\n      }\n    }\n  }\n': {
     return: LandingPageQuery;
     variables: LandingPageQueryVariables;
   };
-  '#graphql\n  fragment RecommendedProduct on Product {\n    id\n    title\n    handle\n    priceRange {\n      minVariantPrice {\n        amount\n        currencyCode\n      }\n    }\n    images(first: 1) {\n      nodes {\n        id\n        url\n        altText\n        width\n        height\n      }\n    }\n  }\n  query RecommendedProducts ($country: CountryCode, $language: LanguageCode)\n    @inContext(country: $country, language: $language) {\n    products(first: 6, sortKey: UPDATED_AT, reverse: true) {\n      nodes {\n        ...RecommendedProduct\n      }\n    }\n  }\n': {
+  '#graphql\n  #graphql\n  fragment ProductReference on Product {\n    id\n    title\n    handle\n    priceRange {\n      minVariantPrice {\n        amount\n        currencyCode\n      }\n    }\n    images(first: 1) {\n      nodes {\n        id\n        url\n        altText\n        width\n        height\n      }\n    }\n  }\n\n  query RecommendedProducts ($country: CountryCode, $language: LanguageCode)\n    @inContext(country: $country, language: $language) {\n    products(first: 6, sortKey: UPDATED_AT, reverse: true) {\n      nodes {\n        ...ProductReference\n      }\n    }\n  }\n': {
     return: RecommendedProductsQuery;
     variables: RecommendedProductsQueryVariables;
+  };
+  '#graphql\n  #graphql\n  fragment ProductReference on Product {\n    id\n    title\n    handle\n    priceRange {\n      minVariantPrice {\n        amount\n        currencyCode\n      }\n    }\n    images(first: 1) {\n      nodes {\n        id\n        url\n        altText\n        width\n        height\n      }\n    }\n  }\n\n  #graphql\nfragment ImageReference on MetafieldReference {\n  ... on MediaImage {\n    image {\n      url\n      width\n      height\n      altText\n    }\n  }\n}\n\n  #graphql\n  fragment Review on Metaobject {\n    id\n    type\n    rating: field(key: "rating") {\n      value\n    }\n    summary: field(key: "review_summary") {\n      value\n    }\n    reviewerName: field(key: "reviewer_name") {\n      value\n    }\n    countryEmoji: field(key: "country_emoji") {\n      value\n    }\n    title: field(key: "review_title") {\n      value\n    }\n  }\n\n  query FeaturedCollections ($country: CountryCode, $language: LanguageCode)\n    @inContext(country: $country, language: $language) {\n  collections(first: 6, sortKey: UPDATED_AT, reverse: true) {\n    nodes {\n      id\n      handle\n      title\n      description\n      relevantProductFeatures: metafield(\n        namespace: "custom"\n        key: "relevantProductFeatures"\n      ) {\n        references(first: 2) {\n          edges {\n            node {\n              ... on Metaobject {\n                title: field(key: "title") {\n                  value\n                }\n                description: field(key: "description") {\n                  value\n                }\n                image: field(key: "image") {\n                  reference {\n                    ...ImageReference\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n      featuredTestimonial: metafield(namespace: "custom", key: "featuredTestimonial") {\n        reference {\n          ... on Metaobject {\n            ...Review\n          }\n        }\n      }\n      featuredImage: metafield(namespace: "custom", key: "featuredImage") {\n        reference {\n          ...ImageReference\n        }\n      }\n      featuredProduct: metafield(namespace: "custom", key: "featuredProduct") {\n        reference {\n          ...ProductReference\n        }\n      }\n      featureTitle: metafield(namespace: "custom", key: "featuretitle") {\n        id\n        key\n        type\n        value\n      }\n      color: metafield(namespace: "custom", key: "color") {\n        value\n      }\n      image {\n        id\n        url\n      }\n    }\n  }\n}\n': {
+    return: FeaturedCollectionsQuery;
+    variables: FeaturedCollectionsQueryVariables;
   };
 }
 

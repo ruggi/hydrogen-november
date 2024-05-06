@@ -115,6 +115,7 @@ const Components = {
     // https://shopify.dev/docs/api/hydrogen-react/2024-01/components/image
     Image: {
       component: Image,
+      icon: 'image',
       properties: {
         aspectRatio: {
           control: 'string-input',

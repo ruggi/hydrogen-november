@@ -79,7 +79,10 @@ export default function LandingPage() {
   return (
     <Column>
       <Spacer height='4em' />
-      <Section horizontalPadding='medium'>
+      <Section
+        horizontalPadding='medium'
+        style={{ height: 800 }}
+      >
         <HalfAndHalf
           left={
             <Column gap='1em'>
@@ -136,9 +139,6 @@ export default function LandingPage() {
             </Row>
           }
         />
-      </Section>
-      <Section horizontalPadding='medium'>
-        <Spacer height={220} />
       </Section>
       <Section horizontalPadding='medium'>
         <Column centerH>

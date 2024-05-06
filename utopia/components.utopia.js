@@ -116,35 +116,7 @@ const ColumnVariants = [
   },
 ]
 
-const TextVariants = [
-  {
-    label: 'Smaller Text',
-    imports:
-      'import { TypographyParagraph } from "/app/components/Components"',
-    code: `<TypographyParagraph level='smaller'>Smaller Antd Paragraph</TypographyParagraph>`,
-  },
-  {
-    label: 'Regular Text',
-    imports:
-      'import { TypographyParagraph } from "/app/components/Components"',
-    code: `<TypographyParagraph level='regular'>Regular Antd Paragraph</TypographyParagraph>`,
-  },
-  {
-    label: 'Embiggened Text',
-    imports:
-      'import { TypographyParagraph } from "/app/components/Components"',
-    code: `<TypographyParagraph level='embiggened'>Embiggened Antd Paragraph</TypographyParagraph>`,
-  },
-  {
-    label: 'Large Text',
-    imports:
-      'import { TypographyParagraph } from "/app/components/Components"',
-    code: `<TypographyParagraph level='large'>Large Antd Paragraph</TypographyParagraph>`,
-  },
-]
-
 const DefaultContent = [
-  //title text column row image
   {
     component: 'Row',
     moduleName: '/app/components/Components',
@@ -156,17 +128,17 @@ const DefaultContent = [
     variants: ColumnWithPlaceholdersVariant,
   },
   {
-    component: 'Antd Title',
+    component: 'Title',
     moduleName: '/app/components/Components',
     variants: AntdTitleVariants,
   },
   {
-    component: 'Antd Paragraph',
+    component: 'Paragraph',
     moduleName: '/app/components/Components',
     variants: AntdParagraphVariants,
   },
   {
-    component: 'Antd Text',
+    component: 'Text',
     moduleName: '/app/components/Components',
     variants: AntdTextVariants,
   },

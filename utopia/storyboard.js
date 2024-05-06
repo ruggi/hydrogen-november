@@ -27,8 +27,8 @@ export var storyboard = (
         position: 'absolute',
         width: 1440,
         height: 'max-content',
-        left: 0,
-        top: 0,
+        left: 34,
+        top: -40,
         overflow: 'hidden',
       }}
       getLoadContext={contextGetter}

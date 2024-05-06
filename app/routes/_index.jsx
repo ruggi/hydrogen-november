@@ -70,10 +70,9 @@ export const TestimonialCard = ({
 )
 
 export default function LandingPage() {
-  const loaderData = useLoaderData()
-  const { testimonials } = loaderData
-  const { recommendedProducts } = loaderData
-  const { featuredCollections } = loaderData
+  const { testimonials } = useLoaderData()
+  const { recommendedProducts } = useLoaderData()
+  const { featuredCollections } = useLoaderData()
 
   return (
     <Column>

@@ -20,6 +20,7 @@ import {
 } from '../components/Components'
 import { RecommendedProducts } from '../components/RecommendedProducts'
 import { loader as loaderTemplate } from './trippy-trails-template'
+import { Image } from '@shopify/hydrogen'
 
 export const loader = loaderTemplate
 
@@ -74,7 +75,7 @@ export default function LandingPage() {
     recommendedProducts,
     featuredCollections,
   } = useLoaderData()
-
+  console.log('featuredCollections', featuredCollections)
   return (
     <Column>
       <div
@@ -179,259 +180,138 @@ export default function LandingPage() {
         <Column>
           <DecorativeClouds />
 
-          <div>ok</div>
+          {featuredCollections.map((collection, index) => {
+            const shouldFlip = index % 2
 
-          <ProductFeatureRow
-            inverted
-            image={<Placeholder />}
-            content={<Placeholder />}
-          ></ProductFeatureRow>
-
-          <ProductFeatureRow
-            style={{
-              background: 'var(--purple)',
-              color: 'white',
-              paddingBottom: '2em',
-            }}
-            image={
-              <div
-                style={{
-                  contain: 'layout',
-                }}
-              >
-                <DuplicatedImageWithBackground
-                  backgroundColor='var(--lihgt-purple)'
-                  image='merchandise/bag-black@2x.png'
-                />
-                <QuoteWithRating
-                  quote='My 3 y/o loves it carrying daily to the school! ❤️'
-                  rating={5}
-                  backgroundColor='var(--dark-blue)'
-                  style={{
-                    position: 'relative',
-                    left: 100,
-                  }}
-                />
-              </div>
-            }
-            content={
-              <Column style={{ padding: '2em 2em' }}>
-                <h2
-                  style={{
-                    color: 'var(--color-light)',
-                    fontSize: 40,
-                    paddingTop: '1em',
-                    lineHeight: '1.2em',
-                  }}
-                >
-                  Amazing Pal for the Little Ones
-                </h2>
-                <a
-                  style={{
-                    marginTop: '1em',
-                    color: 'white',
-                  }}
-                  href='/'
-                >
-                  View Child Collection
-                </a>
-                <TwoFeatureCallout
-                  style={{ marginTop: '1.4em' }}
-                  left={
-                    <Column padded>
-                      <img
-                        srcSet='illustration/feature-image-purple-02@2x.png 2x'
-                        alt='Illustration (purple)'
-                        width={55}
-                        height={55}
-                      />
-                      <h4>No Shoulder Ache</h4>
-                      <p>
-                        Lorem ipsum dolor sit amet,
-                        consectetur
-                      </p>
-                    </Column>
-                  }
-                  right={
-                    <Column padded>
-                      <img
-                        srcSet='illustration/feature-image-purple-01@2x.png 2x'
-                        width={55}
-                        height={55}
-                        alt='Illustration (purple)'
-                      />
-                      <h4>Stationery Pockets</h4>
-                      <p>
-                        Lorem ipsum dolor sit amet,
-                        consectetur
-                      </p>
-                    </Column>
-                  }
-                />
-              </Column>
-            }
-          />
-          <ProductFeatureRow
-            inverted
-            style={{
-              background: 'var(--orange)',
-              color: 'white',
-              paddingBottom: '2em',
-            }}
-            left={
-              <div style={{ contain: 'layout' }}>
-                <DuplicatedImageWithBackground
-                  backgroundColor='var(--dark-orange)'
-                  image='merchandise/bag-silver@2x.png'
-                />
-                <QuoteWithRating
-                  quote='Those custom pockets are a life saver! 😍'
-                  rating={5}
-                  backgroundColor='var(--darker-orange)'
-                  style={{
-                    position: 'relative',
-                    left: 100,
-                  }}
-                />
-              </div>
-            }
-            right={
-              <Column style={{ padding: '2em 2em' }}>
-                <h2
-                  style={{
-                    color: 'var(--color-light)',
-                    fontSize: 40,
-                    paddingTop: '1em',
-                    lineHeight: '1.2em',
-                  }}
-                >
-                  Perfect for your lappy
-                </h2>
-                <a
-                  style={{
-                    marginTop: '1em',
-                    color: 'white',
-                  }}
-                  href='/'
-                >
-                  View Laptop Collection
-                </a>
-                <TwoFeatureCallout
-                  style={{ marginTop: '1.4em' }}
-                  left={
-                    <Column padded>
-                      <img
-                        srcSet='illustration/feature-image-orange-02@2x.png 2x'
-                        alt='Illustration'
-                        width={55}
-                        height={55}
-                      />
-                      <h4>Laptop Customized</h4>
-                      <p>
-                        Lorem ipsum dolor sit amet,
-                        consectetur
-                      </p>
-                    </Column>
-                  }
-                  right={
-                    <Column padded>
-                      <img
-                        srcSet='illustration/feature-image-orange-01@2x.png 2x'
-                        width={55}
-                        height={55}
-                        alt='Illustration'
-                      />
-                      <h4>Accessories Space</h4>
-                      <p>
-                        Lorem ipsum dolor sit amet,
-                        consectetur
-                      </p>
-                    </Column>
-                  }
-                />
-              </Column>
-            }
-          />
-          <ProductFeatureRow
-            style={{
-              background: 'var(--green)',
-              color: 'white',
-              paddingBottom: '2em',
-            }}
-            left={
-              <div style={{ contain: 'layout' }}>
-                <DuplicatedImageWithBackground
-                  backgroundColor='var(--light-green)'
-                  image='merchandise/bag-army@2x.png'
-                />
-                <QuoteWithRating
-                  quote='The best hiking backpack! 💪'
-                  rating={5}
-                  backgroundColor='var(--dark-green)'
-                  style={{
-                    position: 'relative',
-                    left: 100,
-                  }}
-                />
-              </div>
-            }
-            right={
-              <Column style={{ padding: '2em 2em' }}>
-                <h2
-                  style={{
-                    color: 'var(--color-light)',
-                    fontSize: 40,
-                    paddingTop: '1em',
-                    lineHeight: '1.2em',
-                  }}
-                >
-                  Travel Companion
-                </h2>
-                <a
-                  style={{
-                    marginTop: '1em',
-                    color: 'white',
-                  }}
-                  href='/'
-                >
-                  View Travel Collection
-                </a>
-                <TwoFeatureCallout
-                  style={{ marginTop: '1.4em' }}
-                  left={
-                    <Column padded>
-                      <img
-                        srcSet='illustration/feature-image-green-01@2x.png 2x'
-                        alt='Illustration'
-                        width={55}
-                        height={55}
-                      />
-                      <h4>No Shoulder Ache</h4>
-                      <p>
-                        Lorem ipsum dolor sit amet,
-                        consectetur
-                      </p>
-                    </Column>
-                  }
-                  right={
-                    <Column padded>
-                      <img
-                        srcSet='illustration/feature-image-green-02@2x.png 2x'
-                        width={55}
-                        height={55}
-                        alt='Illustration'
-                      />
-                      <h4>Hold Hiking Gear</h4>
-                      <p>
-                        Lorem ipsum dolor sit amet,
-                        consectetur
-                      </p>
-                    </Column>
-                  }
-                />
-              </Column>
-            }
-          />
+            return (
+              <ProductFeatureRow
+                key={collection.id}
+                inverted={shouldFlip}
+                background={collection.color.value}
+                image={
+                  <div
+                    style={{
+                      contain: 'layout',
+                    }}
+                  >
+                    <Image
+                      style={{ height: 'auto' }}
+                      data={
+                        collection.featuredImage.reference
+                          .image
+                      }
+                      aspectRatio='1 / 1'
+                    />
+                    <QuoteWithRating
+                      quote={
+                        collection.featuredTestimonial
+                          .reference.title.value
+                      }
+                      rating={
+                        collection.featuredTestimonial
+                          .reference.rating.value
+                      }
+                      backgroundColor='var(--dark-blue)'
+                      style={{
+                        position: 'relative',
+                        left: 100,
+                      }}
+                    />
+                  </div>
+                }
+                content={
+                  <Column style={{ padding: '2em 2em' }}>
+                    <h2
+                      style={{
+                        color: 'var(--color-light)',
+                        fontSize: 40,
+                        paddingTop: '1em',
+                        lineHeight: '1.2em',
+                      }}
+                    >
+                      {collection.featureTitle.value}
+                    </h2>
+                    <a
+                      style={{
+                        marginTop: '1em',
+                        color: 'white',
+                      }}
+                      href='/'
+                    >
+                      View {collection.title} Collection
+                    </a>
+                    <TwoFeatureCallout
+                      style={{ marginTop: '1.4em' }}
+                      left={
+                        <Column padded>
+                          <Image
+                            style={{
+                              width: 55,
+                              height: 55,
+                            }}
+                            data={
+                              collection
+                                .relevantProductFeatures
+                                .references.nodes[0].image
+                                .reference.image
+                            }
+                          />
+                          <h4>
+                            {
+                              collection
+                                .relevantProductFeatures
+                                .references.nodes[0].title
+                                .value
+                            }
+                          </h4>
+                          <p>
+                            {
+                              collection
+                                .relevantProductFeatures
+                                .references.nodes[0]
+                                .description.value
+                            }
+                          </p>
+                        </Column>
+                      }
+                      right={
+                        <Column padded>
+                          <Image
+                            style={{
+                              width: 55,
+                              height: 55,
+                            }}
+                            data={
+                              collection
+                                .relevantProductFeatures
+                                .references.nodes[1].image
+                                .reference.image
+                            }
+                          />
+                          <h4>
+                            {
+                              collection
+                                .relevantProductFeatures
+                                .references.nodes[1].title
+                                .value
+                            }
+                          </h4>
+                          <p>
+                            {
+                              collection
+                                .relevantProductFeatures
+                                .references.nodes[1]
+                                .description.value
+                            }
+                          </p>
+                        </Column>
+                      }
+                    />
+                  </Column>
+                }
+              />
+            )
+          })}
         </Column>
       </Section>
       <Section

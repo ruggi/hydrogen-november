@@ -75,7 +75,6 @@ export default function LandingPage() {
     recommendedProducts,
     featuredCollections,
   } = useLoaderData()
-  console.log('featuredCollections', featuredCollections)
   return (
     <Column>
       <div

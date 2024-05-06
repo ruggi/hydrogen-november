@@ -135,12 +135,7 @@ const Components = {
         {
           label: 'Image',
           imports: `import { Image } from '@shopify/hydrogen'`,
-          code: "<Image data={{ altText: 'Example image', url: 'https://picsum.photos/200/300', height: 200, width: 300 }} />",
-        },
-        {
-          label: 'Cropped Image',
-          imports: `import { Image } from '@shopify/hydrogen'`,
-          code: `<Image crop='center' data={{ altText: 'Example image', url: 'https://picsum.photos/200/300', height: 200, width: 300 }} />`,
+          code: "<Image data={{ altText: 'Example image', url: 'https://cdn.shopify.com/s/files/1/0598/5959/9382/files/backpack-art-5.png', height: 'auto', }} />",
         },
       ],
     },

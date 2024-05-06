@@ -95,7 +95,7 @@ export default function LandingPage() {
             </Column>
           }
           right={
-            <Row>
+            <Row gap={42}>
               <Column centerV>
                 <ColorOptionsColumn />
               </Column>

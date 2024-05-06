@@ -31,15 +31,28 @@ export async function loader({ params, context }) {
     RECOMMENDED_PRODUCTS_QUERY,
   )
 
+  const featuredCollections =
+    await context.storefront.query(
+      FEATURED_COLLECTIONS_QUERY,
+      {
+        variables: {},
+      },
+    )
+
   return defer({
     testimonials: processTestimonials(testimonials),
     recommendedProducts,
+    featuredCollections,
   })
 }
 
 export default function LandingPage() {
-  const { testimonials, recommendedProducts } =
-    useLoaderData()
+  const {
+    testimonials,
+    recommendedProducts,
+    featuredCollections,
+  } = useLoaderData()
+
   return (
     <Column>
       <Section minHeight id='top-section'>
@@ -57,37 +70,8 @@ export default function LandingPage() {
   )
 }
 
-export const LANDING_PAGE_QUERY = `#graphql
-  query LandingPage(
-    $country: CountryCode
-    $language: LanguageCode
-  ) @inContext(language: $language, country: $country) {
-    testimonials: metaobjects(type: "product_ratings", first: 10) {
-      nodes {
-        id
-        type
-        rating: field(key: "rating") {
-          value
-        }
-        summary: field(key: "review_summary") {
-          value
-        }
-        reviewerName: field(key: "reviewer_name") {
-          value
-        }
-        countryEmoji: field(key: "country_emoji") {
-          value
-        }
-        title: field(key: "review_title") {
-          value
-        }
-      }
-    }
-  }
-`
-
-export const RECOMMENDED_PRODUCTS_QUERY = `#graphql
-  fragment RecommendedProduct on Product {
+const PRODUCT_FRAGMENT = `#graphql
+  fragment ProductReference on Product {
     id
     title
     handle
@@ -107,12 +91,136 @@ export const RECOMMENDED_PRODUCTS_QUERY = `#graphql
       }
     }
   }
+`
+
+const IMAGE_REFERENCE_FRAGMENT = `#graphql
+fragment ImageReference on MetafieldReference {
+  ... on MediaImage {
+    image {
+      url
+      width
+      height
+      altText
+    }
+  }
+}
+`
+
+const REVIEW_FRAGMENT = `#graphql
+  fragment Review on Metaobject {
+    id
+    type
+    rating: field(key: "rating") {
+      value
+    }
+    summary: field(key: "review_summary") {
+      value
+    }
+    reviewerName: field(key: "reviewer_name") {
+      value
+    }
+    countryEmoji: field(key: "country_emoji") {
+      value
+    }
+    title: field(key: "review_title") {
+      value
+    }
+  }
+`
+
+export const LANDING_PAGE_QUERY = `#graphql
+${REVIEW_FRAGMENT}
+  query LandingPage(
+    $country: CountryCode
+    $language: LanguageCode
+  ) @inContext(language: $language, country: $country) {
+    testimonials: metaobjects(type: "product_ratings", first: 10) {
+      nodes {
+        ...Review
+      }
+    }
+  }
+`
+
+export const RECOMMENDED_PRODUCTS_QUERY = `#graphql
+  ${PRODUCT_FRAGMENT}
   query RecommendedProducts ($country: CountryCode, $language: LanguageCode)
     @inContext(country: $country, language: $language) {
     products(first: 6, sortKey: UPDATED_AT, reverse: true) {
       nodes {
-        ...RecommendedProduct
+        ...ProductReference
       }
     }
   }
+`
+
+export const FEATURED_COLLECTIONS_QUERY = `#graphql
+  ${PRODUCT_FRAGMENT}
+  ${IMAGE_REFERENCE_FRAGMENT}
+  ${REVIEW_FRAGMENT}
+  query FeaturedCollections ($country: CountryCode, $language: LanguageCode)
+    @inContext(country: $country, language: $language) {
+  collections(first: 6, sortKey: UPDATED_AT, reverse: true) {
+    nodes {
+      id
+      handle
+      title
+      description
+      relevantProductFeatures: metafield(
+        namespace: "custom"
+        key: "relevantProductFeatures"
+      ) {
+        references(first: 2) {
+          edges {
+            node {
+              ... on Metaobject {
+                title: field(key: "title") {
+                  value
+                }
+                description: field(key: "description") {
+                  value
+                }
+                image: field(key: "image") {
+                  reference {
+                    ...ImageReference
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      featuredTestimonial: metafield(namespace: "custom", key: "featuredTestimonial") {
+        reference {
+          ... on Metaobject {
+            ...Review
+          }
+        }
+      }
+      featuredImage: metafield(namespace: "custom", key: "featuredImage") {
+        reference {
+          ...ImageReference
+        }
+      }
+      featuredProduct: metafield(namespace: "custom", key: "featuredProduct") {
+        reference {
+          ...ProductReference
+        }
+      }
+      featureTitle: metafield(namespace: "custom", key: "featuretitle") {
+        id
+        key
+        type
+        value
+      }
+      color: metafield(namespace: "custom", key: "color") {
+        value
+      }
+      image {
+        id
+        url
+      }
+    }
+  }
+}
 `

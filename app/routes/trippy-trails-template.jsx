@@ -4,8 +4,6 @@ import { defer, json } from '@shopify/remix-oxygen'
 import {
   Column,
   Section,
-  PageTitle,
-  Placeholder,
   TypographyTitle,
 } from '../components/Components'
 import { connectToMetaObjects as connectToMetaObjectsTemplate } from '../helpers/connect-metaobject'

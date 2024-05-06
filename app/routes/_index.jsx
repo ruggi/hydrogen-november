@@ -1,11 +1,9 @@
 import React from 'react'
 import { useLoaderData } from '@remix-run/react'
 import {
-  BadgesColumn,
   ColorOptionsColumn,
   Column,
   DecorativeClouds,
-  DuplicatedImageWithBackground,
   HalfAndHalf,
   QuoteWithRating,
   Row,

@@ -85,7 +85,7 @@ export default function LandingPage() {
       >
         <HalfAndHalf
           left={
-            <Column gap='1em'>
+            <Column style={{ gap: 24 }}>
               <TypographyTitle level={1}>
                 We produce high quality bags for lifestyle
               </TypographyTitle>

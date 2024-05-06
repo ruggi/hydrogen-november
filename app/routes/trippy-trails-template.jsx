@@ -6,6 +6,7 @@ import {
   Section,
   PageTitle,
   Placeholder,
+  TypographyTitle,
 } from '../components/Components'
 import { connectToMetaObjects as connectToMetaObjectsTemplate } from '../helpers/connect-metaobject'
 

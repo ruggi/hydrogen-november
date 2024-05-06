@@ -91,7 +91,6 @@ export async function loader({ params, context }) {
 export default function LandingPage() {
   const { testimonials } = useLoaderData()
   const { featuredCollections } = useLoaderData()
-  const { recommendedProducts } = useLoaderData()
 
   return (
     <Column>

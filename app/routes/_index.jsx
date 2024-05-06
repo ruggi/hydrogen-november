@@ -77,7 +77,6 @@ export const TestimonialCard = ({
 export default function LandingPage() {
   const { testimonials } = useLoaderData()
   const { featuredCollections } = useLoaderData()
-  const { recommendedProducts } = useLoaderData()
 
   return (
     <Column>
@@ -428,7 +427,6 @@ export default function LandingPage() {
           style={{ width: 1440, height: 805.5 }}
         >
           <RecommendedProducts
-            products={recommendedProducts}
             style={{
               width: 441,
               height: 806,

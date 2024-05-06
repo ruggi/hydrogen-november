@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
 import { ProductCard, TypographyTitle } from './Components'
-import { Await } from '@remix-run/react'
+import { Await, useLoaderData } from '@remix-run/react'
 import { RecommendedProductsGrid } from './Layout'
 
 /**
@@ -8,14 +8,15 @@ import { RecommendedProductsGrid } from './Layout'
  *   products: Promise<RecommendedProductsQuery>;
  * }}
  */
-export function RecommendedProducts({ products }) {
+export function RecommendedProducts() {
+  const { recommendedProducts } = useLoaderData()
   return (
     <div className='recommended-products'>
       <TypographyTitle level={2}>
         Featured Products
       </TypographyTitle>
       <RecommendedProductsGrid>
-        {products.map((product, i) => (
+        {recommendedProducts.map((product, i) => (
           <ProductCard
             key={product.id}
             id={product.id}

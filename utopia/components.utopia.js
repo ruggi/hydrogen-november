@@ -172,13 +172,6 @@ const Components = {
         />`,
       },
     },
-    DecorativeClouds: {
-      component: DecorativeClouds,
-      properties: {},
-      focus: 'never',
-      icon: 'image',
-      emphasis: 'emphasized',
-    },
     Illustration: {
       component: Illustration,
       properties: {},
@@ -281,6 +274,13 @@ const Components = {
     },
   },
   '/app/components/Components': {
+    DecorativeClouds: {
+      component: DecorativeClouds,
+      properties: {},
+      focus: 'never',
+      icon: 'image',
+      emphasis: 'emphasized',
+    },
     DuplicatedImageWithBackground: {
       component: DuplicatedImageWithBackground,
       properties: {

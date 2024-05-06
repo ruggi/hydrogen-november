@@ -95,6 +95,187 @@ const SectionVariants = [
     <Placeholder />
 </Section>`,
   },
+  {
+    label: 'Hero Section (With Content)',
+    imports: `
+      import { Money } from "@shopify/hydrogen"
+      import { Section, DecorativeClouds, ColorOptionsColumn, Placeholder, Column, Row, HalfAndHalf, TypographyTitle, TrippyButton, Spacer } from "/app/components/Components"
+      import { Illustration } from "/app/routes/_index"
+      `,
+    code: `<Section
+    horizontalPadding='medium'
+    style={{ height: 800 }}
+  >
+    <HalfAndHalf
+      left={
+        <Column style={{ gap: 24 }}>
+          <TypographyTitle level={1}>
+            We produce high quality bags for lifestyle
+          </TypographyTitle>
+          <TrippyButton
+            price={
+              <Money
+                data={{
+                  amount: '59.00',
+                  currencyCode: 'USD',
+                }}
+              />
+            }
+          >
+            Add to Cart
+          </TrippyButton>
+          <Spacer />
+          <Illustration />
+        </Column>
+      }
+      right={
+        <Row gap={42}>
+          <Column centerV>
+            <ColorOptionsColumn />
+          </Column>
+          <Column centerV centerH grow>
+            <div
+              style={{
+                position: 'absolute',
+                width: '100%',
+                height: '40%',
+                bottom: '15%',
+                borderRadius: 30,
+                backgroundColor: 'var(--yellow)',
+                zIndex: -1,
+              }}
+            >
+              <DecorativeClouds />
+            </div>
+            <img
+              alt='Hero Image'
+              srcSet='merchandise/bag-hero@2x.png 2x'
+            />
+          </Column>
+          <Column centerV gap={10}>
+            <img
+              alt='Badge 1'
+              srcSet='badge_01@2x.png 2x'
+            />
+            <img
+              alt='Badge 2'
+              srcSet='badge_02@2x.png 2x'
+            />
+            <img
+              alt='Badge 3'
+              srcSet='badge_03@2x.png 2x'
+            />
+            <img
+              alt='Badge 4'
+              srcSet='badge_04@2x.png 2x'
+            />
+          </Column>
+        </Row>
+      }
+    />
+  </Section>`,
+  },
+  {
+    label: 'Testimonial Section (With Content)',
+    imports: `
+    import { Section, DecorativeClouds, ColorOptionsColumn, Placeholder, Column, Row, HalfAndHalf, TypographyTitle, TrippyButton, Spacer, TypographyParagraph } from "/app/components/Components"
+    import { TestimonialCard } from "/app/routes/_index"
+    `,
+    code: `<Section
+    style={{ background: 'white', paddingTop: 100 }}
+  >
+    <Column centerH>
+      <Column
+        centerH
+        centerV
+        style={{
+          paddingLeft: '21em',
+          paddingRight: '21em',
+          marginBottom: 50,
+        }}
+      >
+        <TypographyTitle level={5}>
+          They love us ❤️
+        </TypographyTitle>
+        <TypographyTitle
+          level={2}
+          style={{ marginTop: 8, position: 'relative' }}
+        >
+          <img
+            style={{
+              position: 'absolute',
+              top: -55,
+              left: -55,
+              transform: 'scale(.5)',
+              zIndex: -1,
+            }}
+            src='decorative/swirl_black_02@2x.png'
+            alt='decorative swirl'
+          />
+          <img
+            style={{
+              position: 'absolute',
+              top: 0,
+              right: -80,
+              transform: 'scale(.5)',
+              zIndex: -1,
+            }}
+            src='decorative/underline_01@2x.png'
+            alt='decorative swirl'
+          />
+        </TypographyTitle>
+        <TypographyTitle level={2}>
+          some of our happy faces
+        </TypographyTitle>
+        <TypographyParagraph
+          level='large'
+          style={{
+            marginTop: 16,
+            marginBottom: 16,
+            textAlign: 'center',
+          }}
+        >
+          Our backpacks are worn and loved by millions.
+          But don't take it from us - here is what some
+          of our faceless customers are saying about our
+          products and service.
+        </TypographyParagraph>
+      </Column>
+      <Row
+        gap={27}
+        scrollable
+        style={{ marginBottom: 36 }}
+      >
+        {testimonials.map((testimonial) => {
+          return (
+            <TestimonialCard
+              key={testimonial.id}
+              rating={testimonial.rating}
+              title={testimonial.title}
+              text={testimonial.summary}
+              country={testimonial.countryEmoji}
+              name={testimonial.reviewerName}
+            />
+          )
+        })}
+      </Row>
+    </Column>
+  </Section>`,
+  },
+  {
+    label: 'Featured Products Section (With Content)',
+    imports: `
+    import { Section, Column } from "/app/components/Components"
+    import { RecommendedProducts } from "/app/components/RecommendedProducts"
+    `,
+    code: `
+    <Section>
+    <Column centerH>
+      <RecommendedProducts />
+    </Column>
+  </Section>
+  `,
+  },
 ]
 
 const ColumnWithPlaceholdersVariant = {
@@ -143,7 +324,13 @@ const DefaultContent = [
     moduleName: '/app/components/Components',
     variants: AntdTextVariants,
   },
+  {
+    component: 'Section',
+    moduleName: '/app/components/Components',
+    variants: SectionVariants,
+  },
 ]
+
 /**
  * @type {{[modulePath: string]: {[componentName:string]: import("utopia-api").ComponentToRegister}}}
  */

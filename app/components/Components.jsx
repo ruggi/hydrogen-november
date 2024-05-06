@@ -445,10 +445,15 @@ export const TrippyButton = ({
       {children}
     </span>
     {price && (
-      <Row gap={5}>
+      <Row gap={5} centerH>
         {typeof price === 'string' ? '$' + price : price}
         <img
           src='shoppingbag_black_small@2x.png'
+          style={{
+            width: 24,
+            height: 24,
+            paddingBottom: 4,
+          }}
           width={24}
           height={24}
           alt='Illustration (shopping bag)'
@@ -655,9 +660,7 @@ export const ProductCard = ({
             alignItems: 'center',
           }}
         >
-          <TypographyParagraph>
-            Add quantity
-          </TypographyParagraph>
+          Add quantity
           <QuantitySelector />
         </Row>
         <TrippyButton price={<Money data={price} />}>
@@ -739,10 +742,7 @@ export const QuantitySelector = () => (
       boxShadow: '-2px 3px 0px 0px #000',
     }}
   >
-    <CircleButton>-</CircleButton>
-    <TypographyParagraph style={{ paddingTop: 3 }}>
-      1
-    </TypographyParagraph>
+    <CircleButton>-</CircleButton>1
     <CircleButton>+</CircleButton>
   </Row>
 )

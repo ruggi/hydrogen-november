@@ -112,9 +112,19 @@ export async function loader({ context }) {
 }
 
 export default function App() {
-  const nonce = useNonce()
   const data = useLoaderData()
 
+  return (
+    <Root>
+      <Layout {...data}>
+        <Outlet />
+      </Layout>
+    </Root>
+  )
+}
+
+function Root({ children }) {
+  const nonce = useNonce()
   return (
     <html lang='en' style={{ backgroundColor: '#FFFFFF' }}>
       <head>
@@ -141,9 +151,7 @@ export default function App() {
         <Links />
       </head>
       <body style={{ minHeight: 1000 }}>
-        <Layout {...data}>
-          <Outlet />
-        </Layout>
+        {children}
         <ScrollRestoration nonce={nonce} />
         <Scripts nonce={nonce} />
         <LiveReload nonce={nonce} />

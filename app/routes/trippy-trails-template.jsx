@@ -7,6 +7,10 @@ import {
   PageTitle,
   Placeholder,
 } from '../components/Components'
+import { connectToMetaObjects as connectToMetaObjectsTemplate } from '../helpers/connect-metaobject'
+
+export const connectToMetaObjects =
+  connectToMetaObjectsTemplate
 
 function processTestimonial(testimonial) {
   return {

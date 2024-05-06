@@ -451,6 +451,7 @@ const Components = {
     },
     Placeholder: {
       component: Placeholder,
+      icon: 'dashedframe',
       properties: {
         margin: Utopia.numberControl(),
         expand: Utopia.checkboxControl(),

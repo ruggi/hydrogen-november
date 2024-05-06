@@ -95,16 +95,8 @@ export default function LandingPage() {
 
   return (
     <Column>
-      <Section minHeight id='top-section'>
+      <Section minHeight>
         <TypographyTitle level={1}>Hi!</TypographyTitle>
-      </Section>
-      <Section orientation='row'>
-        <Placeholder />
-        <Placeholder />
-        <Placeholder />
-      </Section>
-      <Section minHeight id='third-section'>
-        <Placeholder />
       </Section>
     </Column>
   )

@@ -1,3 +1,4 @@
+import React from 'react'
 import { useLoaderData } from '@remix-run/react'
 import {
   BadgesColumn,
@@ -20,9 +21,13 @@ import {
 } from '../components/Components'
 import { RecommendedProducts } from '../components/RecommendedProducts'
 import { loader as loaderTemplate } from './trippy-trails-template'
+import { connectToMetaObjects as connectToMetaObjectsTemplate } from '../helpers/connect-metaobject'
 import { Image } from '@shopify/hydrogen'
 
 export const loader = loaderTemplate
+
+export const connectToMetaObjects =
+  connectToMetaObjectsTemplate
 
 export const TestimonialCard = ({
   children,

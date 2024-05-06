@@ -123,8 +123,23 @@ export default function LandingPage() {
                   srcSet='merchandise/bag-hero@2x.png 2x'
                 />
               </Column>
-              <Column centerV>
-                <BadgesColumn />
+              <Column centerV gap={10}>
+                <img
+                  alt='Badge 1'
+                  srcSet='badge_01@2x.png 2x'
+                />
+                <img
+                  alt='Badge 2'
+                  srcSet='badge_02@2x.png 2x'
+                />
+                <img
+                  alt='Badge 3'
+                  srcSet='badge_03@2x.png 2x'
+                />
+                <img
+                  alt='Badge 4'
+                  srcSet='badge_04@2x.png 2x'
+                />
               </Column>
             </Row>
           }

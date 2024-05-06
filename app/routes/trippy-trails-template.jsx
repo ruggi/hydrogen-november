@@ -92,11 +92,13 @@ export default function LandingPage() {
   const { featuredCollections } = useLoaderData()
 
   return (
-    <Column>
-      <Section minHeight>
-        <TypographyTitle level={1}>Hi!</TypographyTitle>
-      </Section>
-    </Column>
+    <div>
+      <Column>
+        <Section minHeight>
+          <TypographyTitle level={1}>Hi!</TypographyTitle>
+        </Section>
+      </Column>
+    </div>
   )
 }
 

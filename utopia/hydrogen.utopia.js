@@ -135,7 +135,7 @@ const Components = {
         {
           label: 'Image',
           imports: `import { Image } from '@shopify/hydrogen'`,
-          code: "<Image data={{ altText: 'Example image', url: 'https://cdn.shopify.com/s/files/1/0598/5959/9382/files/backpack-art-5.png', height: 'auto', }} />",
+          code: "<Image style={{ height: 'auto' }} data={{ altText: 'Example image', url: 'https://cdn.shopify.com/s/files/1/0598/5959/9382/files/backpack-art-5.png', height: 'auto', }} />",
         },
       ],
     },

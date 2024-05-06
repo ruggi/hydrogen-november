@@ -19,7 +19,7 @@ import {
 import { RecommendedProducts } from '../components/RecommendedProducts'
 import { loader as loaderTemplate } from './trippy-trails-template'
 import { connectToMetaObjects as connectToMetaObjectsTemplate } from '../helpers/connect-metaobject'
-import { Image } from '@shopify/hydrogen'
+import { Image, Money } from '@shopify/hydrogen'
 import { Placeholder } from 'utopia-api'
 
 export const loader = loaderTemplate
@@ -89,7 +89,18 @@ export default function LandingPage() {
               <TypographyTitle level={1}>
                 We produce high quality bags for lifestyle
               </TypographyTitle>
-              <TrippyButton>Add to Cart</TrippyButton>
+              <TrippyButton
+                price={
+                  <Money
+                    data={{
+                      amount: '59.00',
+                      currencyCode: 'USD',
+                    }}
+                  />
+                }
+              >
+                Add to Cart
+              </TrippyButton>
               <Spacer />
               <Illustration />
             </Column>

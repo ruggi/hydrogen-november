@@ -153,6 +153,7 @@ const Components = {
       variants: AntdTitleVariants,
     },
     TypographyParagraph: {
+      ...AntdTypoAnnotations,
       properties: {
         deemphasized: Utopia.checkboxControl(),
         strong: {

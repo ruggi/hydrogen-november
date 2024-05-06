@@ -488,10 +488,10 @@ const Components = {
           control: 'radio',
           options: [
             // it would be nice to be able to pass in data here somehow, and have it be used in the component
-            { label: 'None', value: 'none' },
-            { label: 'Small', value: 'small' },
-            { label: 'Medium', value: 'medium' },
-            { label: 'Large', value: 'large' },
+            { label: '-', value: 'none' },
+            { label: 'S', value: 'small' },
+            { label: 'M', value: 'medium' },
+            { label: 'L', value: 'large' },
             { label: 'XL', value: 'xl' },
           ],
         },
@@ -500,9 +500,9 @@ const Components = {
           control: 'radio',
           options: [
             { label: 'None', value: 'none' },
-            { label: 'Small', value: 'small' },
-            { label: 'Medium', value: 'medium' },
-            { label: 'Large', value: 'large' },
+            { label: 'S', value: 'small' },
+            { label: 'M', value: 'medium' },
+            { label: 'L', value: 'large' },
             { label: 'XL', value: 'xl' },
           ],
         },

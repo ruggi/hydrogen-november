@@ -11,7 +11,7 @@ import {
 export function processTestimonials(testimonials) {
   return testimonials.nodes.map((testimonial) => ({
     id: testimonial.id,
-    rating: JSON.parse(testimonial.rating.value).value,
+    rating: testimonial.rating.value,
     summary: testimonial.summary.value,
     reviewerName: testimonial.reviewerName.value,
     countryEmoji: testimonial.countryEmoji.value,
@@ -42,7 +42,8 @@ export async function loader({ params, context }) {
   return defer({
     testimonials: processTestimonials(testimonials),
     recommendedProducts,
-    featuredCollections,
+    featuredCollections:
+      featuredCollections.collections.nodes,
   })
 }
 
@@ -110,7 +111,7 @@ const REVIEW_FRAGMENT = `#graphql
   fragment Review on Metaobject {
     id
     type
-    rating: field(key: "rating") {
+    rating: field(key: "rating_fixed") {
       value
     }
     summary: field(key: "review_summary") {
@@ -171,19 +172,17 @@ export const FEATURED_COLLECTIONS_QUERY = `#graphql
         key: "relevantProductFeatures"
       ) {
         references(first: 2) {
-          edges {
-            node {
-              ... on Metaobject {
-                title: field(key: "title") {
-                  value
-                }
-                description: field(key: "description") {
-                  value
-                }
-                image: field(key: "image") {
-                  reference {
-                    ...ImageReference
-                  }
+          nodes {
+            ... on Metaobject {
+              title: field(key: "title") {
+                value
+              }
+              description: field(key: "description") {
+                value
+              }
+              image: field(key: "image") {
+                reference {
+                  ...ImageReference
                 }
               }
             }

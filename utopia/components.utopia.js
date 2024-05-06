@@ -349,14 +349,14 @@ const Components = {
     ProductFeatureRow: {
       component: ProductFeatureRow,
       properties: {
-        left: {
+        image: {
           control: 'jsx',
           preferredContents: [
             PlaceholderContent,
             ...DefaultContent,
           ],
         },
-        right: {
+        content: {
           control: 'jsx',
           preferredContents: [
             PlaceholderContent,

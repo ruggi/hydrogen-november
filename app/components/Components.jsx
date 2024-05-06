@@ -163,7 +163,6 @@ export const ProductFeatureRow = ({
       gap: '2em',
       backgroundColor:
         background ?? 'oklch(0.89 0.16 87.52)',
-      borderRadius: 20,
       ...style,
     }}
   >

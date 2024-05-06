@@ -1726,25 +1726,23 @@ export type FeaturedCollectionsQuery = {
       > & {
         relevantProductFeatures?: StorefrontAPI.Maybe<{
           references?: StorefrontAPI.Maybe<{
-            edges: Array<{
-              node: {
-                title?: StorefrontAPI.Maybe<
-                  Pick<StorefrontAPI.MetaobjectField, 'value'>
-                >;
-                description?: StorefrontAPI.Maybe<
-                  Pick<StorefrontAPI.MetaobjectField, 'value'>
-                >;
-                image?: StorefrontAPI.Maybe<{
-                  reference?: StorefrontAPI.Maybe<{
-                    image?: StorefrontAPI.Maybe<
-                      Pick<
-                        StorefrontAPI.Image,
-                        'url' | 'width' | 'height' | 'altText'
-                      >
-                    >;
-                  }>;
+            nodes: Array<{
+              title?: StorefrontAPI.Maybe<
+                Pick<StorefrontAPI.MetaobjectField, 'value'>
+              >;
+              description?: StorefrontAPI.Maybe<
+                Pick<StorefrontAPI.MetaobjectField, 'value'>
+              >;
+              image?: StorefrontAPI.Maybe<{
+                reference?: StorefrontAPI.Maybe<{
+                  image?: StorefrontAPI.Maybe<
+                    Pick<
+                      StorefrontAPI.Image,
+                      'url' | 'width' | 'height' | 'altText'
+                    >
+                  >;
                 }>;
-              };
+              }>;
             }>;
           }>;
         }>;
@@ -1985,7 +1983,7 @@ interface GeneratedQueryTypes {
     return: SearchQuery;
     variables: SearchQueryVariables;
   };
-  '#graphql\n#graphql\n  fragment Review on Metaobject {\n    id\n    type\n    rating: field(key: "rating") {\n      value\n    }\n    summary: field(key: "review_summary") {\n      value\n    }\n    reviewerName: field(key: "reviewer_name") {\n      value\n    }\n    countryEmoji: field(key: "country_emoji") {\n      value\n    }\n    title: field(key: "review_title") {\n      value\n    }\n  }\n\n  query LandingPage(\n    $country: CountryCode\n    $language: LanguageCode\n  ) @inContext(language: $language, country: $country) {\n    testimonials: metaobjects(type: "product_ratings", first: 10) {\n      nodes {\n        ...Review\n      }\n    }\n  }\n': {
+  '#graphql\n#graphql\n  fragment Review on Metaobject {\n    id\n    type\n    rating: field(key: "rating_fixed") {\n      value\n    }\n    summary: field(key: "review_summary") {\n      value\n    }\n    reviewerName: field(key: "reviewer_name") {\n      value\n    }\n    countryEmoji: field(key: "country_emoji") {\n      value\n    }\n    title: field(key: "review_title") {\n      value\n    }\n  }\n\n  query LandingPage(\n    $country: CountryCode\n    $language: LanguageCode\n  ) @inContext(language: $language, country: $country) {\n    testimonials: metaobjects(type: "product_ratings", first: 10) {\n      nodes {\n        ...Review\n      }\n    }\n  }\n': {
     return: LandingPageQuery;
     variables: LandingPageQueryVariables;
   };
@@ -1993,7 +1991,7 @@ interface GeneratedQueryTypes {
     return: RecommendedProductsQuery;
     variables: RecommendedProductsQueryVariables;
   };
-  '#graphql\n  #graphql\n  fragment ProductReference on Product {\n    id\n    title\n    handle\n    priceRange {\n      minVariantPrice {\n        amount\n        currencyCode\n      }\n    }\n    images(first: 1) {\n      nodes {\n        id\n        url\n        altText\n        width\n        height\n      }\n    }\n  }\n\n  #graphql\nfragment ImageReference on MetafieldReference {\n  ... on MediaImage {\n    image {\n      url\n      width\n      height\n      altText\n    }\n  }\n}\n\n  #graphql\n  fragment Review on Metaobject {\n    id\n    type\n    rating: field(key: "rating") {\n      value\n    }\n    summary: field(key: "review_summary") {\n      value\n    }\n    reviewerName: field(key: "reviewer_name") {\n      value\n    }\n    countryEmoji: field(key: "country_emoji") {\n      value\n    }\n    title: field(key: "review_title") {\n      value\n    }\n  }\n\n  query FeaturedCollections ($country: CountryCode, $language: LanguageCode)\n    @inContext(country: $country, language: $language) {\n  collections(first: 6, sortKey: UPDATED_AT, reverse: true) {\n    nodes {\n      id\n      handle\n      title\n      description\n      relevantProductFeatures: metafield(\n        namespace: "custom"\n        key: "relevantProductFeatures"\n      ) {\n        references(first: 2) {\n          edges {\n            node {\n              ... on Metaobject {\n                title: field(key: "title") {\n                  value\n                }\n                description: field(key: "description") {\n                  value\n                }\n                image: field(key: "image") {\n                  reference {\n                    ...ImageReference\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n      featuredTestimonial: metafield(namespace: "custom", key: "featuredTestimonial") {\n        reference {\n          ... on Metaobject {\n            ...Review\n          }\n        }\n      }\n      featuredImage: metafield(namespace: "custom", key: "featuredImage") {\n        reference {\n          ...ImageReference\n        }\n      }\n      featuredProduct: metafield(namespace: "custom", key: "featuredProduct") {\n        reference {\n          ...ProductReference\n        }\n      }\n      featureTitle: metafield(namespace: "custom", key: "featuretitle") {\n        id\n        key\n        type\n        value\n      }\n      color: metafield(namespace: "custom", key: "color") {\n        value\n      }\n      image {\n        id\n        url\n      }\n    }\n  }\n}\n': {
+  '#graphql\n  #graphql\n  fragment ProductReference on Product {\n    id\n    title\n    handle\n    priceRange {\n      minVariantPrice {\n        amount\n        currencyCode\n      }\n    }\n    images(first: 1) {\n      nodes {\n        id\n        url\n        altText\n        width\n        height\n      }\n    }\n  }\n\n  #graphql\nfragment ImageReference on MetafieldReference {\n  ... on MediaImage {\n    image {\n      url\n      width\n      height\n      altText\n    }\n  }\n}\n\n  #graphql\n  fragment Review on Metaobject {\n    id\n    type\n    rating: field(key: "rating_fixed") {\n      value\n    }\n    summary: field(key: "review_summary") {\n      value\n    }\n    reviewerName: field(key: "reviewer_name") {\n      value\n    }\n    countryEmoji: field(key: "country_emoji") {\n      value\n    }\n    title: field(key: "review_title") {\n      value\n    }\n  }\n\n  query FeaturedCollections ($country: CountryCode, $language: LanguageCode)\n    @inContext(country: $country, language: $language) {\n  collections(first: 6, sortKey: UPDATED_AT, reverse: true) {\n    nodes {\n      id\n      handle\n      title\n      description\n      relevantProductFeatures: metafield(\n        namespace: "custom"\n        key: "relevantProductFeatures"\n      ) {\n        references(first: 2) {\n          nodes {\n            ... on Metaobject {\n              title: field(key: "title") {\n                value\n              }\n              description: field(key: "description") {\n                value\n              }\n              image: field(key: "image") {\n                reference {\n                  ...ImageReference\n                }\n              }\n            }\n          }\n        }\n      }\n      featuredTestimonial: metafield(namespace: "custom", key: "featuredTestimonial") {\n        reference {\n          ... on Metaobject {\n            ...Review\n          }\n        }\n      }\n      featuredImage: metafield(namespace: "custom", key: "featuredImage") {\n        reference {\n          ...ImageReference\n        }\n      }\n      featuredProduct: metafield(namespace: "custom", key: "featuredProduct") {\n        reference {\n          ...ProductReference\n        }\n      }\n      featureTitle: metafield(namespace: "custom", key: "featuretitle") {\n        id\n        key\n        type\n        value\n      }\n      color: metafield(namespace: "custom", key: "color") {\n        value\n      }\n      image {\n        id\n        url\n      }\n    }\n  }\n}\n': {
     return: FeaturedCollectionsQuery;
     variables: FeaturedCollectionsQueryVariables;
   };

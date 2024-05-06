@@ -376,8 +376,8 @@ const Components = {
           code: `<ProductFeatureRow
             style={{ gap: 10 }}
             inverted={false}
-            left={<Placeholder />}
-            right={<Placeholder />}
+            image={<Placeholder />}
+            content={<Placeholder />}
           />`,
         },
       ],

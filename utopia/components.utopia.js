@@ -357,7 +357,8 @@ const Components = {
         },
         inverted: Utopia.checkboxControl(),
       },
-      icon: 'row',
+      icon: 'component',
+      emphasis: 'emphasized',
       focus: 'never',
       children: 'not-supported',
       variants: [

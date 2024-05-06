@@ -11,11 +11,11 @@ import {
   Spacer,
   ProductFeatureRow,
   Stars,
-  Text,
   TrippyButton,
   TwoFeatureCallout,
+  DecorativeClouds,
 } from '../app/components/Components'
-import { WomanSeeking } from '../app/routes/_index'
+import { Illustration } from '../app/routes/_index'
 import { Footer } from '../app/components/Footer'
 import { Header } from '../app/components/Header'
 import {
@@ -117,35 +117,7 @@ const ColumnVariants = [
   },
 ]
 
-const TextVariants = [
-  {
-    label: 'Smaller Text',
-    imports:
-      'import { Text } from "/app/components/Components"',
-    code: `<Text level='smaller'>Smaller Text</Text>`,
-  },
-  {
-    label: 'Regular Text',
-    imports:
-      'import { Text } from "/app/components/Components"',
-    code: `<Text level='regular'>Regular Text</Text>`,
-  },
-  {
-    label: 'Embiggened Text',
-    imports:
-      'import { Text } from "/app/components/Components"',
-    code: `<Text level='embiggened'>Embiggened Text</Text>`,
-  },
-  {
-    label: 'Large Text',
-    imports:
-      'import { Text } from "/app/components/Components"',
-    code: `<Text level='large'>Large Text</Text>`,
-  },
-]
-
 const DefaultContent = [
-  //title text column row image
   {
     component: 'Row',
     moduleName: '/app/components/Components',
@@ -157,27 +129,24 @@ const DefaultContent = [
     variants: ColumnWithPlaceholdersVariant,
   },
   {
-    component: 'Text',
-    moduleName: '/app/components/Components',
-    variants: TextVariants,
-  },
-  {
-    component: 'Antd Text',
-    moduleName: '/app/components/Components',
-    variants: AntdTextVariants,
-  },
-  {
-    component: 'Antd Title',
+    component: 'Title',
     moduleName: '/app/components/Components',
     variants: AntdTitleVariants,
   },
   {
-    component: 'Antd Paragraph',
+    component: 'Paragraph',
     moduleName: '/app/components/Components',
     variants: AntdParagraphVariants,
   },
+  {
+    component: 'Text',
+    moduleName: '/app/components/Components',
+    variants: AntdTextVariants,
+  },
 ]
-
+/**
+ * @type {{[modulePath: string]: {[componentName:string]: import("utopia-api").ComponentToRegister}}}
+ */
 const Components = {
   '/app/routes/_index': {
     TestimonialCard: {
@@ -203,11 +172,11 @@ const Components = {
         />`,
       },
     },
-    WomanSeeking: {
-      component: WomanSeeking,
+    Illustration: {
+      component: Illustration,
       properties: {},
       focus: 'never',
-      icon: 'component',
+      icon: 'image',
       emphasis: 'emphasized',
     },
   },
@@ -305,6 +274,13 @@ const Components = {
     },
   },
   '/app/components/Components': {
+    DecorativeClouds: {
+      component: DecorativeClouds,
+      properties: {},
+      focus: 'never',
+      icon: 'image',
+      emphasis: 'emphasized',
+    },
     DuplicatedImageWithBackground: {
       component: DuplicatedImageWithBackground,
       properties: {
@@ -373,14 +349,14 @@ const Components = {
     ProductFeatureRow: {
       component: ProductFeatureRow,
       properties: {
-        left: {
+        image: {
           control: 'jsx',
           preferredContents: [
             PlaceholderContent,
             ...DefaultContent,
           ],
         },
-        right: {
+        content: {
           control: 'jsx',
           preferredContents: [
             PlaceholderContent,
@@ -389,7 +365,8 @@ const Components = {
         },
         inverted: Utopia.checkboxControl(),
       },
-      icon: 'row',
+      icon: 'component',
+      emphasis: 'emphasized',
       focus: 'never',
       children: 'not-supported',
       variants: [
@@ -399,8 +376,8 @@ const Components = {
           code: `<ProductFeatureRow
             style={{ gap: 10 }}
             inverted={false}
-            left={<Placeholder />}
-            right={<Placeholder />}
+            image={<Placeholder />}
+            content={<Placeholder />}
           />`,
         },
       ],
@@ -483,6 +460,7 @@ const Components = {
     },
     Placeholder: {
       component: Placeholder,
+      icon: 'dashedframe',
       properties: {
         margin: Utopia.numberControl(),
         expand: Utopia.checkboxControl(),
@@ -520,10 +498,10 @@ const Components = {
           control: 'radio',
           options: [
             // it would be nice to be able to pass in data here somehow, and have it be used in the component
-            { label: 'None', value: 'none' },
-            { label: 'Small', value: 'small' },
-            { label: 'Medium', value: 'medium' },
-            { label: 'Large', value: 'large' },
+            { label: '-', value: 'none' },
+            { label: 'S', value: 'small' },
+            { label: 'M', value: 'medium' },
+            { label: 'L', value: 'large' },
             { label: 'XL', value: 'xl' },
           ],
         },
@@ -532,9 +510,9 @@ const Components = {
           control: 'radio',
           options: [
             { label: 'None', value: 'none' },
-            { label: 'Small', value: 'small' },
-            { label: 'Medium', value: 'medium' },
-            { label: 'Large', value: 'large' },
+            { label: 'S', value: 'small' },
+            { label: 'M', value: 'medium' },
+            { label: 'L', value: 'large' },
             { label: 'XL', value: 'xl' },
           ],
         },
@@ -615,36 +593,6 @@ const Components = {
         code: `<Spacer height={50} />`,
       },
       icon: 'dashedframe',
-    },
-    Text: {
-      component: Text,
-      properties: {
-        level: Utopia.popupListControl([
-          {
-            label: 'large',
-            value: 'large',
-          },
-          {
-            label: 'embiggened',
-            value: 'embiggened',
-          },
-          {
-            label: 'regular',
-            value: 'regular',
-          },
-          {
-            label: 'smaller',
-            value: 'smaller',
-          },
-        ]),
-        deemphasized: Utopia.checkboxControl(),
-        emboldened: Utopia.checkboxControl(),
-        style: Utopia.styleControl(),
-      },
-      children: { preferredContents: 'text' },
-      focus: 'never',
-      inspector: ['typography'],
-      variants: TextVariants,
     },
     Stars: {
       component: Stars,

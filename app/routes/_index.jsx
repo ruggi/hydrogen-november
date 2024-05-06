@@ -13,15 +13,15 @@ import {
   Spacer,
   ProductFeatureRow,
   Stars,
-  Text,
   TrippyButton,
   TwoFeatureCallout,
+  TypographyParagraph,
   Placeholder,
-  TypographyText,
   TypographyTitle,
 } from '../components/Components'
 import { RecommendedProducts } from '../components/RecommendedProducts'
 import { loader as loaderTemplate } from './trippy-trails-template'
+import { Image } from '@shopify/hydrogen'
 
 export const loader = loaderTemplate
 
@@ -141,28 +141,33 @@ export const TestimonialCard = ({
     }}
   >
     <Stars rating={rating} />
-    <Text
+    <TypographyParagraph
       level='embiggened'
       style={{
         marginTop: 14,
         marginBottom: 8,
         fontWeight: 'bold',
+        opacity: 0.7,
       }}
     >
       {title}
-    </Text>
-    <Text level='smaller' deemphasized>
+    </TypographyParagraph>
+    <TypographyParagraph level='smaller' deemphasized>
       {text}
-    </Text>
-    <Text level='smaller' style={{ marginTop: 8 }}>
+    </TypographyParagraph>
+    <TypographyParagraph
+      level='smaller'
+      style={{ marginTop: 8 }}
+    >
       {country}&nbsp; {name}
-    </Text>
+    </TypographyParagraph>
   </div>
 )
 
 export default function LandingPage() {
-  const { testimonials, recommendedProducts } =
-    useLoaderData()
+  const { testimonials } = useLoaderData()
+  const { recommendedProducts } = useLoaderData()
+  const { featuredCollections } = useLoaderData()
 
   return (
     <Column>
@@ -189,7 +194,7 @@ export default function LandingPage() {
               </TypographyTitle>
               <TrippyButton>Add to Cart</TrippyButton>
               <Spacer />
-              <WomanSeeking />
+              <Illustration />
             </Column>
           }
           right={
@@ -212,12 +217,27 @@ export default function LandingPage() {
                   <DecorativeClouds />
                 </div>
                 <img
-                  alt=''
+                  alt='Hero Image'
                   srcSet='merchandise/bag-hero@2x.png 2x'
                 />
               </Column>
-              <Column centerV>
-                <BadgesColumn />
+              <Column centerV gap={10}>
+                <img
+                  alt='Badge 1'
+                  srcSet='badge_01@2x.png 2x'
+                />
+                <img
+                  alt='Badge 2'
+                  srcSet='badge_02@2x.png 2x'
+                />
+                <img
+                  alt='Badge 3'
+                  srcSet='badge_03@2x.png 2x'
+                />
+                <img
+                  alt='Badge 4'
+                  srcSet='badge_04@2x.png 2x'
+                />
               </Column>
             </Row>
           }
@@ -243,7 +263,7 @@ export default function LandingPage() {
                 transform: 'scale(.75)',
               }}
               src='decorative/underline_01@2x.png'
-              alt='decorative swirl'
+              alt='Decorative Swirl'
             />
             <span>one bag to fit them all</span>
           </TypographyTitle>
@@ -253,259 +273,128 @@ export default function LandingPage() {
         <Column>
           <DecorativeClouds />
 
-          <div>ok</div>
+          {featuredCollections.map((collection, index) => {
+            const shouldFlip = index % 2
 
-          <ProductFeatureRow
-            inverted
-            image={<Placeholder />}
-            content={<Placeholder />}
-          ></ProductFeatureRow>
-
-          <ProductFeatureRow
-            style={{
-              background: 'var(--purple)',
-              color: 'white',
-              paddingBottom: '2em',
-            }}
-            image={
-              <div
-                style={{
-                  contain: 'layout',
-                }}
-              >
-                <DuplicatedImageWithBackground
-                  backgroundColor='var(--lihgt-purple)'
-                  image='merchandise/bag-black@2x.png'
-                />
-                <QuoteWithRating
-                  quote='My 3 y/o loves it carrying daily to the school! ❤️'
-                  rating={5}
-                  backgroundColor='var(--dark-blue)'
-                  style={{
-                    position: 'relative',
-                    left: 100,
-                  }}
-                />
-              </div>
-            }
-            content={
-              <Column style={{ padding: '2em 2em' }}>
-                <h2
-                  style={{
-                    color: 'var(--color-light)',
-                    fontSize: 40,
-                    paddingTop: '1em',
-                    lineHeight: '1.2em',
-                  }}
-                >
-                  Amazing Pal for the Little Ones
-                </h2>
-                <a
-                  style={{
-                    marginTop: '1em',
-                    color: 'white',
-                  }}
-                  href='/'
-                >
-                  View Child Collection
-                </a>
-                <TwoFeatureCallout
-                  style={{ marginTop: '1.4em' }}
-                  left={
-                    <Column padded>
-                      <img
-                        srcSet='illustration/feature-image-purple-02@2x.png 2x'
-                        alt='purple 1'
-                        width={55}
-                        height={55}
-                      />
-                      <h4>No Shoulder Ache</h4>
-                      <p>
-                        Lorem ipsum dolor sit amet,
-                        consectetur
-                      </p>
-                    </Column>
-                  }
-                  right={
-                    <Column padded>
-                      <img
-                        srcSet='illustration/feature-image-purple-01@2x.png 2x'
-                        width={55}
-                        height={55}
-                        alt='purple  1'
-                      />
-                      <h4>Stationery Pockets</h4>
-                      <p>
-                        Lorem ipsum dolor sit amet,
-                        consectetur
-                      </p>
-                    </Column>
-                  }
-                />
-              </Column>
-            }
-          />
-          <ProductFeatureRow
-            inverted
-            style={{
-              background: 'var(--orange)',
-              color: 'white',
-              paddingBottom: '2em',
-            }}
-            left={
-              <div style={{ contain: 'layout' }}>
-                <DuplicatedImageWithBackground
-                  backgroundColor='var(--dark-orange)'
-                  image='merchandise/bag-silver@2x.png'
-                />
-                <QuoteWithRating
-                  quote='Those custom pockets are a life saver! 😍'
-                  rating={5}
-                  backgroundColor='var(--darker-orange)'
-                  style={{
-                    position: 'relative',
-                    left: 100,
-                  }}
-                />
-              </div>
-            }
-            right={
-              <Column style={{ padding: '2em 2em' }}>
-                <h2
-                  style={{
-                    color: 'var(--color-light)',
-                    fontSize: 40,
-                    paddingTop: '1em',
-                    lineHeight: '1.2em',
-                  }}
-                >
-                  Perfect for your lappy
-                </h2>
-                <a
-                  style={{
-                    marginTop: '1em',
-                    color: 'white',
-                  }}
-                  href='/'
-                >
-                  View Laptop Collection
-                </a>
-                <TwoFeatureCallout
-                  style={{ marginTop: '1.4em' }}
-                  left={
-                    <Column padded>
-                      <img
-                        srcSet='illustration/feature-image-orange-02@2x.png 2x'
-                        alt='purple 1'
-                        width={55}
-                        height={55}
-                      />
-                      <h4>Laptop Customized</h4>
-                      <p>
-                        Lorem ipsum dolor sit amet,
-                        consectetur
-                      </p>
-                    </Column>
-                  }
-                  right={
-                    <Column padded>
-                      <img
-                        srcSet='illustration/feature-image-orange-01@2x.png 2x'
-                        width={55}
-                        height={55}
-                        alt='purple  1'
-                      />
-                      <h4>Accessories Space</h4>
-                      <p>
-                        Lorem ipsum dolor sit amet,
-                        consectetur
-                      </p>
-                    </Column>
-                  }
-                />
-              </Column>
-            }
-          />
-          <ProductFeatureRow
-            style={{
-              background: 'var(--green)',
-              color: 'white',
-              paddingBottom: '2em',
-            }}
-            left={
-              <div style={{ contain: 'layout' }}>
-                <DuplicatedImageWithBackground
-                  backgroundColor='var(--light-green)'
-                  image='merchandise/bag-army@2x.png'
-                />
-                <QuoteWithRating
-                  quote='The best hiking backpack! 💪'
-                  rating={5}
-                  backgroundColor='var(--dark-green)'
-                  style={{
-                    position: 'relative',
-                    left: 100,
-                  }}
-                />
-              </div>
-            }
-            right={
-              <Column style={{ padding: '2em 2em' }}>
-                <h2
-                  style={{
-                    color: 'var(--color-light)',
-                    fontSize: 40,
-                    paddingTop: '1em',
-                    lineHeight: '1.2em',
-                  }}
-                >
-                  Travel Companion
-                </h2>
-                <a
-                  style={{
-                    marginTop: '1em',
-                    color: 'white',
-                  }}
-                  href='/'
-                >
-                  View Travel Collection
-                </a>
-                <TwoFeatureCallout
-                  style={{ marginTop: '1.4em' }}
-                  left={
-                    <Column padded>
-                      <img
-                        srcSet='illustration/feature-image-green-01@2x.png 2x'
-                        alt='purple 1'
-                        width={55}
-                        height={55}
-                      />
-                      <h4>No Shoulder Ache</h4>
-                      <p>
-                        Lorem ipsum dolor sit amet,
-                        consectetur
-                      </p>
-                    </Column>
-                  }
-                  right={
-                    <Column padded>
-                      <img
-                        srcSet='illustration/feature-image-green-02@2x.png 2x'
-                        width={55}
-                        height={55}
-                        alt='purple  1'
-                      />
-                      <h4>Hold Hiking Gear</h4>
-                      <p>
-                        Lorem ipsum dolor sit amet,
-                        consectetur
-                      </p>
-                    </Column>
-                  }
-                />
-              </Column>
-            }
-          />
+            return (
+              <ProductFeatureRow
+                key={collection.id}
+                inverted={shouldFlip}
+                background={collection.color}
+                image={
+                  <div
+                    style={{
+                      contain: 'layout',
+                    }}
+                  >
+                    <Image
+                      style={{ height: 'auto' }}
+                      data={collection.featuredImage}
+                      aspectRatio='1 / 1'
+                    />
+                    <QuoteWithRating
+                      quote={
+                        collection.featuredTestimonial.title
+                      }
+                      rating={
+                        collection.featuredTestimonial
+                          .rating
+                      }
+                      backgroundColor='var(--dark-blue)'
+                      style={{
+                        position: 'relative',
+                        left: 100,
+                      }}
+                    />
+                  </div>
+                }
+                content={
+                  <Column style={{ padding: '2em 2em' }}>
+                    <h2
+                      style={{
+                        color: 'var(--color-light)',
+                        fontSize: 40,
+                        paddingTop: '1em',
+                        lineHeight: '1.2em',
+                      }}
+                    >
+                      {collection.featureTitle}
+                    </h2>
+                    <a
+                      style={{
+                        marginTop: '1em',
+                        color: 'white',
+                      }}
+                      href='/'
+                    >
+                      View {collection.title} Collection
+                    </a>
+                    <TwoFeatureCallout
+                      style={{ marginTop: '1.4em' }}
+                      left={
+                        <Column padded>
+                          <Image
+                            style={{
+                              width: 55,
+                              height: 55,
+                            }}
+                            data={
+                              collection
+                                .relevantProductFeatures[0]
+                                .image
+                            }
+                          />
+                          <h4>
+                            {
+                              collection
+                                .relevantProductFeatures[0]
+                                .title
+                            }
+                          </h4>
+                          <p>
+                            {
+                              collection
+                                .relevantProductFeatures[0]
+                                .description
+                            }
+                          </p>
+                        </Column>
+                      }
+                      right={
+                        <Column padded>
+                          <Image
+                            style={{
+                              width: 55,
+                              height: 55,
+                            }}
+                            data={
+                              collection
+                                .relevantProductFeatures[1]
+                                .image
+                            }
+                          />
+                          <h4>
+                            {
+                              collection
+                                .relevantProductFeatures[1]
+                                .title
+                            }
+                          </h4>
+                          <p>
+                            {
+                              collection
+                                .relevantProductFeatures[1]
+                                .description
+                            }
+                          </p>
+                        </Column>
+                      }
+                    />
+                  </Column>
+                }
+              />
+            )
+          })}
         </Column>
       </Section>
       <Section
@@ -554,7 +443,7 @@ export default function LandingPage() {
             <TypographyTitle level={2}>
               some of our happy faces
             </TypographyTitle>
-            <Text
+            <TypographyParagraph
               level='large'
               style={{
                 marginTop: 16,
@@ -566,7 +455,7 @@ export default function LandingPage() {
               But don't take it from us - here is what some
               of our faceless customers are saying about our
               products and service.
-            </Text>
+            </TypographyParagraph>
           </Column>
           <Row
             gap={27}
@@ -644,7 +533,7 @@ export default function LandingPage() {
   )
 }
 
-export const WomanSeeking = () => (
+export const Illustration = () => (
   <div style={{ contain: 'layout' }}>
     <div
       style={{

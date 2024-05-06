@@ -15,8 +15,41 @@ import { Link } from '@remix-run/react'
 import { Image, Money } from '@shopify/hydrogen'
 import { Typography } from 'antd'
 
-export const TypographyText = (props) => {
-  return <Typography.Text {...props} />
+export const TypographyParagraph = ({
+  style,
+  ...props
+}) => {
+  const defaultText = {
+    lineHeight: '140%',
+    fontFamily: 'Amiko',
+  }
+  const large = { fontSize: '20px' }
+  const embiggened = { fontSize: '17px' }
+  const regular = { fontSize: '16px' }
+  const smaller = { fontSize: '15px' }
+
+  const level = props.level ?? 'regular'
+
+  const resultingStyle =
+    level === 'large'
+      ? large
+      : level === 'embiggened'
+      ? embiggened
+      : level === 'regular'
+      ? regular
+      : smaller
+
+  return (
+    <Typography.Paragraph
+      style={{
+        ...defaultText,
+        ...resultingStyle,
+        opacity: props.deemphasized ? 0.7 : 1,
+        ...style,
+      }}
+      {...props}
+    />
+  )
 }
 
 export const TypographyTitle = ({ style, ...props }) => {
@@ -71,7 +104,7 @@ export const TypographyTitle = ({ style, ...props }) => {
   )
 }
 
-export const TypographyParagraph = (props) => {
+export const TypographyText = (props) => {
   return <Typography.Paragraph {...props} />
 }
 
@@ -96,47 +129,6 @@ export const Placeholder = ({
     }}
   />
 )
-
-export const Text = ({
-  level,
-  deemphasized,
-  emboldened,
-  children,
-  style,
-}) => {
-  const defaultText = {
-    lineHeight: '140%',
-    fontFamily: 'Amiko',
-  }
-  const large = { fontSize: '20px' }
-  const embiggened = { fontSize: '17px' }
-  const regular = { fontSize: '16px' }
-  const smaller = { fontSize: '15px' }
-
-  const resultingStyle =
-    level === 'large'
-      ? large
-      : level === 'embiggened'
-      ? embiggened
-      : level === 'regular'
-      ? regular
-      : smaller
-
-  return (
-    <div
-      data-label='text'
-      style={{
-        ...defaultText,
-        ...resultingStyle,
-        opacity: deemphasized ? 0.7 : 1,
-        fontWeight: emboldened ? 'bold' : 'regular',
-        ...style,
-      }}
-    >
-      {children}
-    </div>
-  )
-}
 
 export const Grid = ({ left, right, padded, gap }) => (
   <div
@@ -171,7 +163,6 @@ export const ProductFeatureRow = ({
       gap: '2em',
       backgroundColor:
         background ?? 'oklch(0.89 0.16 87.52)',
-      borderRadius: 20,
       ...style,
     }}
   >
@@ -460,7 +451,7 @@ export const TrippyButton = ({
           src='shoppingbag_black_small@2x.png'
           width={24}
           height={24}
-          alt=''
+          alt='Illustration (shopping bag)'
         />
       </Row>
     )}
@@ -561,12 +552,12 @@ export const DuplicatedImageWithBackground = ({
         scale: '0.8',
       }}
       srcSet={image + ' 2x'}
-      alt=''
+      alt='Background'
     />
     <img
       style={{ position: 'absolute', top: 10, left: 100 }}
       srcSet={image + ' 2x'}
-      alt=''
+      alt='Background'
     />
   </div>
 )
@@ -652,7 +643,9 @@ export const ProductCard = ({
             }}
           />
           <Column gap='0.5em' style={{ marginTop: '1em' }}>
-            <Text>Colors available</Text>
+            <TypographyParagraph>
+              Colors available
+            </TypographyParagraph>
             <ColorOptions />
           </Column>
         </Column>
@@ -663,15 +656,17 @@ export const ProductCard = ({
             alignItems: 'center',
           }}
         >
-          <Text>Add quantity</Text>
+          <TypographyParagraph>
+            Add quantity
+          </TypographyParagraph>
           <QuantitySelector />
         </Row>
         <TrippyButton price={<Money data={price} />}>
           Add to cart
         </TrippyButton>
-        <Text style={{ fontWeight: 700 }}>
+        <TypographyParagraph style={{ fontWeight: 700 }}>
           View Details ❯
-        </Text>
+        </TypographyParagraph>
       </Column>
     </Link>
   )
@@ -710,10 +705,10 @@ export const ColorOptionsColumn = () => (
 
 export const BadgesColumn = () => (
   <Column gap={10}>
-    <img alt='' srcSet='badge_01@2x.png 2x' />
-    <img alt='' srcSet='badge_02@2x.png 2x' />
-    <img alt='' srcSet='badge_03@2x.png 2x' />
-    <img alt='' srcSet='badge_04@2x.png 2x' />
+    <img alt='Badge 1' srcSet='badge_01@2x.png 2x' />
+    <img alt='Badge 2' srcSet='badge_02@2x.png 2x' />
+    <img alt='Badge 3' srcSet='badge_03@2x.png 2x' />
+    <img alt='Badge 4' srcSet='badge_04@2x.png 2x' />
   </Column>
 )
 
@@ -746,7 +741,9 @@ export const QuantitySelector = () => (
     }}
   >
     <CircleButton>-</CircleButton>
-    <Text style={{ paddingTop: 3 }}>1</Text>
+    <TypographyParagraph style={{ paddingTop: 3 }}>
+      1
+    </TypographyParagraph>
     <CircleButton>+</CircleButton>
   </Row>
 )
@@ -756,13 +753,13 @@ export const DecorativeClouds = () => (
     <img
       data-label='decorative cloud'
       srcSet='decorative/cloud_topright@2x.png 2x'
-      alt=''
+      alt='Decorative Cloud'
       style={{ position: 'absolute', top: -12, right: -12 }}
     />
     <img
       data-label='decorative cloud'
       srcSet='decorative/cloud_topright@2x.png 2x'
-      alt=''
+      alt='Decorative Cloud'
       style={{
         position: 'absolute',
         rotate: '180deg',
@@ -773,7 +770,7 @@ export const DecorativeClouds = () => (
     <img
       data-label='decorative cloud'
       srcSet='decorative/cloud_topright@2x.png 2x'
-      alt=''
+      alt='Decorative Cloud'
       style={{
         position: 'absolute',
         rotate: '90deg',

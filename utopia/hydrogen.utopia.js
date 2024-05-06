@@ -2,8 +2,8 @@ import * as Utopia from 'utopia-api'
 import { Image, Money } from '@shopify/hydrogen'
 
 const ImageCropControl = Utopia.popupListControl([
-  { value: 'top', label: 'top' },
   { value: 'center', label: 'center' },
+  { value: 'top', label: 'top' },
   { value: 'bottom', label: 'bottom' },
   { value: 'left', label: 'left' },
   { value: 'right', label: 'right' },
@@ -115,8 +115,12 @@ const Components = {
     // https://shopify.dev/docs/api/hydrogen-react/2024-01/components/image
     Image: {
       component: Image,
+      icon: 'image',
       properties: {
-        aspectRatio: Utopia.stringControl(),
+        aspectRatio: {
+          control: 'string-input',
+          label: 'AspectRatio (w/h)',
+        },
         crop: ImageCropControl,
         data: ImageTypeControl,
         // loader is omitted, we don't have a control description for functions yet

@@ -7,19 +7,19 @@ import {
 
 export const AntdTextVariants = [
   {
-    label: 'Antd Text',
+    label: 'Text',
     imports:
       'import { TypographyText } from "/app/components/Components"',
     code: `<TypographyText>Sample Text</TypographyText>`,
   },
   {
-    label: 'Antd Italic Text',
+    label: 'Text (italic)',
     imports:
       'import { TypographyText } from "/app/components/Components"',
     code: `<TypographyText italic>Sample Text</TypographyText>`,
   },
   {
-    label: 'Antd Bold Text',
+    label: 'Text (bold)',
     imports:
       'import { TypographyText } from "/app/components/Components"',
     code: `<TypographyText strong>Sample Text</TypographyText>`,
@@ -28,31 +28,31 @@ export const AntdTextVariants = [
 
 export const AntdTitleVariants = [
   {
-    label: 'Antd Title Level 1',
+    label: 'Title (Level 1)',
     imports:
       'import { TypographyTitle } from "/app/components/Components"',
     code: `<TypographyTitle level={1}>Sample Text</TypographyTitle>`,
   },
   {
-    label: 'Antd Title Level 2',
+    label: 'Title (Level 2)',
     imports:
       'import { TypographyTitle } from "/app/components/Components"',
     code: `<TypographyTitle level={2}>Sample Text</TypographyTitle>`,
   },
   {
-    label: 'Antd Title Level 3',
+    label: 'Title (Level 3)',
     imports:
       'import { TypographyTitle } from "/app/components/Components"',
     code: `<TypographyTitle level={3}>Sample Text</TypographyTitle>`,
   },
   {
-    label: 'Antd Title Level 4',
+    label: 'Title (Level 4)',
     imports:
       'import { TypographyTitle } from "/app/components/Components"',
     code: `<TypographyTitle level={4}>Sample Text</TypographyTitle>`,
   },
   {
-    label: 'Antd Title Level 5',
+    label: 'Title (Level 5)',
     imports:
       'import { TypographyTitle } from "/app/components/Components"',
     code: `<TypographyTitle level={5}>Sample Text</TypographyTitle>`,
@@ -61,19 +61,19 @@ export const AntdTitleVariants = [
 
 export const AntdParagraphVariants = [
   {
-    label: 'Antd Paragraph',
+    label: 'Paragraph',
     imports:
       'import { TypographyParagraph } from "/app/components/Components"',
     code: `<TypographyParagraph>Sample Text</TypographyParagraph>`,
   },
   {
-    label: 'Antd Italic Paragraph',
+    label: 'Paragraph (italic)',
     imports:
       'import { TypographyParagraph } from "/app/components/Components"',
     code: `<TypographyParagraph italic>Sample Text</TypographyParagraph>`,
   },
   {
-    label: 'Antd Bold Paragraph',
+    label: 'Paragraph (bold)',
     imports:
       'import { TypographyParagraph } from "/app/components/Components"',
     code: `<TypographyParagraph strong>Sample Text</TypographyParagraph>`,
@@ -124,6 +124,9 @@ const AntdTypoAnnotations = {
   inspector: ['typography'],
 }
 
+/**
+ * @type {{[modulePath: string]: {[componentName:string]: import("utopia-api").ComponentToRegister}}}
+ */
 const Components = {
   '/app/components/Components': {
     TypographyText: {
@@ -136,6 +139,7 @@ const Components = {
         },
       },
       component: TypographyText,
+      icon: 'text',
       variants: AntdTextVariants,
     },
     TypographyTitle: {
@@ -145,17 +149,21 @@ const Components = {
         ...AntdTypoBaseProps,
       },
       component: TypographyTitle,
+      icon: 'title',
       variants: AntdTitleVariants,
     },
     TypographyParagraph: {
+      ...AntdTypoAnnotations,
       properties: {
-        ...AntdTypoBaseProps,
+        deemphasized: Utopia.checkboxControl(),
         strong: {
           control: 'checkbox',
           label: 'bold',
         },
+        ...AntdTypoBaseProps,
       },
       component: TypographyParagraph,
+      icon: 'paragraph',
       variants: AntdParagraphVariants,
     },
   },

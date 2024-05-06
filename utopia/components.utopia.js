@@ -13,6 +13,7 @@ import {
   Stars,
   TrippyButton,
   TwoFeatureCallout,
+  DecorativeClouds,
 } from '../app/components/Components'
 import { Illustration } from '../app/routes/_index'
 import { Footer } from '../app/components/Footer'
@@ -170,6 +171,13 @@ const Components = {
           name='M Puzo'
         />`,
       },
+    },
+    DecorativeClouds: {
+      component: DecorativeClouds,
+      properties: {},
+      focus: 'never',
+      icon: 'image',
+      emphasis: 'emphasized',
     },
     Illustration: {
       component: Illustration,

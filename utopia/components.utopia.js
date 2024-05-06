@@ -96,7 +96,7 @@ const SectionVariants = [
 </Section>`,
   },
   {
-    label: 'Hero Section (With Content)',
+    label: 'Hero Section',
     imports: `
       import { Money } from "@shopify/hydrogen"
       import { Section, DecorativeClouds, ColorOptionsColumn, Placeholder, Column, Row, HalfAndHalf, TypographyTitle, TrippyButton, Spacer } from "/app/components/Components"
@@ -176,7 +176,7 @@ const SectionVariants = [
   </Section>`,
   },
   {
-    label: 'Testimonial Section (With Content)',
+    label: 'Testimonial Section',
     imports: `
     import { Section, DecorativeClouds, ColorOptionsColumn, Placeholder, Column, Row, HalfAndHalf, TypographyTitle, TrippyButton, Spacer, TypographyParagraph } from "/app/components/Components"
     import { TestimonialCard } from "/app/routes/_index"
@@ -263,7 +263,7 @@ const SectionVariants = [
   </Section>`,
   },
   {
-    label: 'Featured Products Section (With Content)',
+    label: 'Featured Products Section',
     imports: `
     import { Section, Column } from "/app/components/Components"
     import { RecommendedProducts } from "/app/components/RecommendedProducts"
@@ -272,6 +272,148 @@ const SectionVariants = [
     <Section>
     <Column centerH>
       <RecommendedProducts />
+    </Column>
+  </Section>
+  `,
+  },
+  {
+    label: 'Featured Collections Section',
+    imports: `
+    import { Image } from '@shopify/hydrogen'
+    import { ProductFeatureRow, QuoteWithRating, TwoFeatureCallout, Section, DecorativeClouds, ColorOptionsColumn, Placeholder, Column, Row, HalfAndHalf, TypographyTitle, TrippyButton, Spacer } from "/app/components/Components"
+    `,
+    code: `
+    <Section style={{ padding: '5em 9em' }}>
+    <Column>
+      <DecorativeClouds />
+
+      {featuredCollections.map(
+        (collection, index) => {
+          const shouldFlip = index % 2
+
+          return (
+            <ProductFeatureRow
+              key={collection.id}
+              inverted={shouldFlip}
+              background={collection.color}
+              image={
+                <div
+                  style={{
+                    contain: 'layout',
+                  }}
+                >
+                  <Image
+                    style={{ height: 'auto' }}
+                    data={collection.featuredImage}
+                    aspectRatio='1 / 1'
+                  />
+                  <QuoteWithRating
+                    quote={
+                      collection.featuredTestimonial
+                        .title
+                    }
+                    rating={
+                      collection.featuredTestimonial
+                        .rating
+                    }
+                    backgroundColor='var(--dark-blue)'
+                    style={{
+                      position: 'relative',
+                      left: 100,
+                    }}
+                  />
+                </div>
+              }
+              content={
+                <Column
+                  style={{ padding: '2em 2em' }}
+                >
+                  <h2
+                    style={{
+                      color: 'var(--color-light)',
+                      fontSize: 40,
+                      paddingTop: '1em',
+                      lineHeight: '1.2em',
+                    }}
+                  >
+                    {collection.featureTitle}
+                  </h2>
+                  <a
+                    style={{
+                      marginTop: '1em',
+                      color: 'white',
+                    }}
+                    href='/'
+                  >
+                    View {collection.title} Collection
+                  </a>
+                  <TwoFeatureCallout
+                    style={{ marginTop: '1.4em' }}
+                    left={
+                      <Column padded>
+                        <Image
+                          style={{
+                            width: 55,
+                            height: 55,
+                          }}
+                          data={
+                            collection
+                              .relevantProductFeatures[0]
+                              .image
+                          }
+                        />
+                        <h4>
+                          {
+                            collection
+                              .relevantProductFeatures[0]
+                              .title
+                          }
+                        </h4>
+                        <p>
+                          {
+                            collection
+                              .relevantProductFeatures[0]
+                              .description
+                          }
+                        </p>
+                      </Column>
+                    }
+                    right={
+                      <Column padded>
+                        <Image
+                          style={{
+                            width: 55,
+                            height: 55,
+                          }}
+                          data={
+                            collection
+                              .relevantProductFeatures[1]
+                              .image
+                          }
+                        />
+                        <h4>
+                          {
+                            collection
+                              .relevantProductFeatures[1]
+                              .title
+                          }
+                        </h4>
+                        <p>
+                          {
+                            collection
+                              .relevantProductFeatures[1]
+                              .description
+                          }
+                        </p>
+                      </Column>
+                    }
+                  />
+                </Column>
+              }
+            />
+          )
+        },
+      )}
     </Column>
   </Section>
   `,
@@ -558,14 +700,100 @@ const Components = {
       children: 'not-supported',
       variants: [
         {
-          label: 'ProductFeatureRow',
-          imports: `import { ProductFeatureRow, Placeholder } from "/app/components/Components"`,
+          label: 'ProductFeatureRow (Empty)',
+          imports: `
+          import { ProductFeatureRow } from "/app/components/Components"
+          import { Placeholder } from "utopia-api"
+          `,
           code: `<ProductFeatureRow
             style={{ gap: 10 }}
             inverted={false}
             image={<Placeholder />}
             content={<Placeholder />}
           />`,
+        },
+        {
+          label: 'ProductFeatureRow',
+          imports: `
+          import { ProductFeatureRow, Column, TwoFeatureCallout, Image, QuoteWithRating } from "/app/components/Components"
+          import { Placeholder } from "utopia-api"
+          `,
+          code: `
+          <ProductFeatureRow
+            image={
+              <div style={{ contain: 'layout' }}>
+                <Placeholder style={{}} />
+                <QuoteWithRating
+                  quote='Testimonial Quote'
+                  rating={5}
+                  backgroundColor='var(--dark-blue)'
+                  style={{
+                    position: 'relative',
+                    left: 100,
+                  }}
+                />
+              </div>
+            }
+            content={
+              <Column
+                style={{ padding: '2em 2em' }}
+              >
+                <h2
+                  style={{
+                    color: 'var(--color-light)',
+                    fontSize: 40,
+                    paddingTop: '1em',
+                    lineHeight: '1.2em',
+                  }}
+                >
+                  Collection Tagline
+                </h2>
+                <a
+                  style={{
+                    marginTop: '1em',
+                    color: 'white',
+                  }}
+                  href='/'
+                >
+                  Collection Name
+                </a>
+                <TwoFeatureCallout
+                  style={{ marginTop: '1.4em' }}
+                  left={
+                    <Column padded>
+                      <Image
+                        style={{
+                          width: 55,
+                          height: 55,
+                        }}
+                        data={{
+                          url: 'https://cdn.shopify.com/s/files/1/0598/5959/9382/files/battery_ab4fb1b1-24e6-457e-8f0f-6443b0318ffe.png',
+                        }}
+                      />
+                      <h4>Callout Name</h4>
+                      <p>Callout Description</p>
+                    </Column>
+                  }
+                  right={
+                    <Column padded>
+                      <Image
+                        style={{
+                          width: 55,
+                          height: 55,
+                        }}
+                        data={{
+                          url: 'https://cdn.shopify.com/s/files/1/0598/5959/9382/files/battery_ab4fb1b1-24e6-457e-8f0f-6443b0318ffe.png',
+                        }}
+                      />
+                      <h4>Callout Name</h4>
+                      <p>Callout Description</p>
+                    </Column>
+                  }
+                />
+              </Column>
+            }
+          />
+        `,
         },
       ],
     },

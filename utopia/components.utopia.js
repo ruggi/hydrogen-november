@@ -14,7 +14,7 @@ import {
   TrippyButton,
   TwoFeatureCallout,
 } from '../app/components/Components'
-import { WomanSeeking } from '../app/routes/_index'
+import { Illustration } from '../app/routes/_index'
 import { Footer } from '../app/components/Footer'
 import { Header } from '../app/components/Header'
 import {
@@ -171,11 +171,11 @@ const Components = {
         />`,
       },
     },
-    WomanSeeking: {
-      component: WomanSeeking,
+    Illustration: {
+      component: Illustration,
       properties: {},
       focus: 'never',
-      icon: 'component',
+      icon: 'image',
       emphasis: 'emphasized',
     },
   },

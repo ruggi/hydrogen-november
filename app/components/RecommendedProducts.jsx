@@ -14,29 +14,19 @@ export function RecommendedProducts({ products }) {
       <TypographyTitle level={2}>
         Featured Products
       </TypographyTitle>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Await resolve={products}>
-          {({ products }) => {
-            return (
-              <RecommendedProductsGrid>
-                {products.nodes.map((product, i) => (
-                  <ProductCard
-                    key={product.id}
-                    id={product.id}
-                    handle={product.handle}
-                    image={product.images.nodes[0]}
-                    title={product.title}
-                    price={
-                      product.priceRange.minVariantPrice
-                    }
-                    backgroundColorIndex={i}
-                  />
-                ))}
-              </RecommendedProductsGrid>
-            )
-          }}
-        </Await>
-      </Suspense>
+      <RecommendedProductsGrid>
+        {products.map((product, i) => (
+          <ProductCard
+            key={product.id}
+            id={product.id}
+            handle={product.handle}
+            image={product.images.nodes[0]}
+            title={product.title}
+            price={product.priceRange.minVariantPrice}
+            backgroundColorIndex={i}
+          />
+        ))}
+      </RecommendedProductsGrid>
       <br />
     </div>
   )

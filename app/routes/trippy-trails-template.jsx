@@ -81,7 +81,7 @@ export async function loader({ params, context }) {
 
   return defer({
     testimonials: processTestimonials(testimonials),
-    recommendedProducts,
+    recommendedProducts: recommendedProducts.products.nodes,
     featuredCollections: processFeaturedCollections(
       featuredCollections,
     ),

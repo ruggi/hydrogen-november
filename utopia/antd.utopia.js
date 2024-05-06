@@ -139,7 +139,7 @@ const Components = {
         },
       },
       component: TypographyText,
-      icon: 'text',
+      // icon: 'text',
       variants: AntdTextVariants,
     },
     TypographyTitle: {
@@ -149,7 +149,7 @@ const Components = {
         ...AntdTypoBaseProps,
       },
       component: TypographyTitle,
-      icon: 'title',
+      // icon: 'title',
       variants: AntdTitleVariants,
     },
     TypographyParagraph: {
@@ -162,7 +162,7 @@ const Components = {
         ...AntdTypoBaseProps,
       },
       component: TypographyParagraph,
-      icon: 'paragraph',
+      // icon: 'paragraph',
       variants: AntdParagraphVariants,
     },
   },

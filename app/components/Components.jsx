@@ -452,7 +452,7 @@ export const TrippyButton = ({
           src='shoppingbag_black_small@2x.png'
           width={24}
           height={24}
-          alt=''
+          alt='Illustration (shopping bag)'
         />
       </Row>
     )}
@@ -553,12 +553,12 @@ export const DuplicatedImageWithBackground = ({
         scale: '0.8',
       }}
       srcSet={image + ' 2x'}
-      alt=''
+      alt='Background'
     />
     <img
       style={{ position: 'absolute', top: 10, left: 100 }}
       srcSet={image + ' 2x'}
-      alt=''
+      alt='Background'
     />
   </div>
 )
@@ -706,10 +706,10 @@ export const ColorOptionsColumn = () => (
 
 export const BadgesColumn = () => (
   <Column gap={10}>
-    <img alt='' srcSet='badge_01@2x.png 2x' />
-    <img alt='' srcSet='badge_02@2x.png 2x' />
-    <img alt='' srcSet='badge_03@2x.png 2x' />
-    <img alt='' srcSet='badge_04@2x.png 2x' />
+    <img alt='Badge 1' srcSet='badge_01@2x.png 2x' />
+    <img alt='Badge 2' srcSet='badge_02@2x.png 2x' />
+    <img alt='Badge 3' srcSet='badge_03@2x.png 2x' />
+    <img alt='Badge 4' srcSet='badge_04@2x.png 2x' />
   </Column>
 )
 
@@ -754,13 +754,13 @@ export const DecorativeClouds = () => (
     <img
       data-label='decorative cloud'
       srcSet='decorative/cloud_topright@2x.png 2x'
-      alt=''
+      alt='Decorative Cloud'
       style={{ position: 'absolute', top: -12, right: -12 }}
     />
     <img
       data-label='decorative cloud'
       srcSet='decorative/cloud_topright@2x.png 2x'
-      alt=''
+      alt='Decorative Cloud'
       style={{
         position: 'absolute',
         rotate: '180deg',
@@ -771,7 +771,7 @@ export const DecorativeClouds = () => (
     <img
       data-label='decorative cloud'
       srcSet='decorative/cloud_topright@2x.png 2x'
-      alt=''
+      alt='Decorative Cloud'
       style={{
         position: 'absolute',
         rotate: '90deg',

@@ -119,7 +119,7 @@ export default function LandingPage() {
                   <DecorativeClouds />
                 </div>
                 <img
-                  alt=''
+                  alt='Hero Image'
                   srcSet='merchandise/bag-hero@2x.png 2x'
                 />
               </Column>
@@ -150,7 +150,7 @@ export default function LandingPage() {
                 transform: 'scale(.75)',
               }}
               src='decorative/underline_01@2x.png'
-              alt='decorative swirl'
+              alt='Decorative Swirl'
             />
             <span>one bag to fit them all</span>
           </TypographyTitle>
@@ -222,7 +222,7 @@ export default function LandingPage() {
                     <Column padded>
                       <img
                         srcSet='illustration/feature-image-purple-02@2x.png 2x'
-                        alt='purple 1'
+                        alt='Illustration (purple)'
                         width={55}
                         height={55}
                       />
@@ -239,7 +239,7 @@ export default function LandingPage() {
                         srcSet='illustration/feature-image-purple-01@2x.png 2x'
                         width={55}
                         height={55}
-                        alt='purple  1'
+                        alt='Illustration (purple)'
                       />
                       <h4>Stationery Pockets</h4>
                       <p>
@@ -303,7 +303,7 @@ export default function LandingPage() {
                     <Column padded>
                       <img
                         srcSet='illustration/feature-image-orange-02@2x.png 2x'
-                        alt='purple 1'
+                        alt='Illustration'
                         width={55}
                         height={55}
                       />
@@ -320,7 +320,7 @@ export default function LandingPage() {
                         srcSet='illustration/feature-image-orange-01@2x.png 2x'
                         width={55}
                         height={55}
-                        alt='purple  1'
+                        alt='Illustration'
                       />
                       <h4>Accessories Space</h4>
                       <p>
@@ -383,7 +383,7 @@ export default function LandingPage() {
                     <Column padded>
                       <img
                         srcSet='illustration/feature-image-green-01@2x.png 2x'
-                        alt='purple 1'
+                        alt='Illustration'
                         width={55}
                         height={55}
                       />
@@ -400,7 +400,7 @@ export default function LandingPage() {
                         srcSet='illustration/feature-image-green-02@2x.png 2x'
                         width={55}
                         height={55}
-                        alt='purple  1'
+                        alt='Illustration'
                       />
                       <h4>Hold Hiking Gear</h4>
                       <p>

@@ -30,9 +30,10 @@ export function processFeaturedCollections(
   featuredCollections,
 ) {
   return featuredCollections.collections.nodes.map(
-    (collection) => {
+    (collection, index) => {
       return {
         id: collection.id,
+        inverted: index % 2 !== 0,
         handle: collection.handle,
         title: collection.title,
         color: collection.color.value,
@@ -95,7 +96,7 @@ export default function LandingPage() {
     <div>
       <Column>
         <Section minHeight>
-          <TypographyTitle level={1}>Hi!</TypographyTitle>
+          <TypographyTitle level={1}>Titl!</TypographyTitle>
         </Section>
       </Column>
     </div>

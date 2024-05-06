@@ -8,15 +8,50 @@ import {
   Placeholder,
 } from '../components/Components'
 
-export function processTestimonials(testimonials) {
-  return testimonials.nodes.map((testimonial) => ({
+function processTestimonial(testimonial) {
+  return {
     id: testimonial.id,
     rating: testimonial.rating.value,
     summary: testimonial.summary.value,
     reviewerName: testimonial.reviewerName.value,
     countryEmoji: testimonial.countryEmoji.value,
     title: testimonial.title.value,
-  }))
+  }
+}
+
+export function processTestimonials(testimonials) {
+  return testimonials.nodes.map(processTestimonial)
+}
+
+export function processFeaturedCollections(
+  featuredCollections,
+) {
+  return featuredCollections.collections.nodes.map(
+    (collection) => {
+      return {
+        id: collection.id,
+        handle: collection.handle,
+        title: collection.title,
+        color: collection.color.value,
+        featuredImage:
+          collection.featuredImage.reference.image,
+        featureTitle: collection.featureTitle.value,
+        featuredTestimonial: processTestimonial(
+          collection.featuredTestimonial.reference,
+        ),
+        relevantProductFeatures:
+          collection.relevantProductFeatures.references.nodes.map(
+            (feature) => {
+              return {
+                title: feature.title.value,
+                description: feature.description.value,
+                image: feature.image.reference.image,
+              }
+            },
+          ),
+      }
+    },
+  )
 }
 
 export async function loader({ params, context }) {
@@ -43,8 +78,9 @@ export async function loader({ params, context }) {
   return defer({
     testimonials: processTestimonials(testimonials),
     recommendedProducts,
-    featuredCollections:
-      featuredCollections.collections.nodes,
+    featuredCollections: processFeaturedCollections(
+      featuredCollections,
+    ),
   })
 }
 

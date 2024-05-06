@@ -186,7 +186,7 @@ export default function LandingPage() {
               <ProductFeatureRow
                 key={collection.id}
                 inverted={shouldFlip}
-                background={collection.color.value}
+                background={collection.color}
                 image={
                   <div
                     style={{
@@ -195,20 +195,16 @@ export default function LandingPage() {
                   >
                     <Image
                       style={{ height: 'auto' }}
-                      data={
-                        collection.featuredImage.reference
-                          .image
-                      }
+                      data={collection.featuredImage}
                       aspectRatio='1 / 1'
                     />
                     <QuoteWithRating
                       quote={
-                        collection.featuredTestimonial
-                          .reference.title.value
+                        collection.featuredTestimonial.title
                       }
                       rating={
                         collection.featuredTestimonial
-                          .reference.rating.value
+                          .rating
                       }
                       backgroundColor='var(--dark-blue)'
                       style={{
@@ -228,7 +224,7 @@ export default function LandingPage() {
                         lineHeight: '1.2em',
                       }}
                     >
-                      {collection.featureTitle.value}
+                      {collection.featureTitle}
                     </h2>
                     <a
                       style={{
@@ -250,25 +246,22 @@ export default function LandingPage() {
                             }}
                             data={
                               collection
-                                .relevantProductFeatures
-                                .references.nodes[0].image
-                                .reference.image
+                                .relevantProductFeatures[0]
+                                .image
                             }
                           />
                           <h4>
                             {
                               collection
-                                .relevantProductFeatures
-                                .references.nodes[0].title
-                                .value
+                                .relevantProductFeatures[0]
+                                .title
                             }
                           </h4>
                           <p>
                             {
                               collection
-                                .relevantProductFeatures
-                                .references.nodes[0]
-                                .description.value
+                                .relevantProductFeatures[0]
+                                .description
                             }
                           </p>
                         </Column>
@@ -282,25 +275,22 @@ export default function LandingPage() {
                             }}
                             data={
                               collection
-                                .relevantProductFeatures
-                                .references.nodes[1].image
-                                .reference.image
+                                .relevantProductFeatures[1]
+                                .image
                             }
                           />
                           <h4>
                             {
                               collection
-                                .relevantProductFeatures
-                                .references.nodes[1].title
-                                .value
+                                .relevantProductFeatures[1]
+                                .title
                             }
                           </h4>
                           <p>
                             {
                               collection
-                                .relevantProductFeatures
-                                .references.nodes[1]
-                                .description.value
+                                .relevantProductFeatures[1]
+                                .description
                             }
                           </p>
                         </Column>

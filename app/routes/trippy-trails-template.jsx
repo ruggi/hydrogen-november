@@ -27,9 +27,10 @@ export async function loader({ params, context }) {
     },
   )
 
-  const recommendedProducts = context.storefront.query(
-    RECOMMENDED_PRODUCTS_QUERY,
-  )
+  const recommendedProducts =
+    await context.storefront.query(
+      RECOMMENDED_PRODUCTS_QUERY,
+    )
 
   const featuredCollections =
     await context.storefront.query(

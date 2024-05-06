@@ -437,6 +437,7 @@ export const TrippyButton = ({
       fontFamily: 'Amiko',
       fontSize: 18,
       fontWeight: 'bold',
+      lineHeight: 'normal',
       ...style,
       cursor: 'pointer',
     }}

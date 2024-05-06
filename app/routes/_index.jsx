@@ -81,7 +81,7 @@ export default function LandingPage() {
   return (
     <Column>
       <Spacer height='4em' />
-      <Section padded>
+      <Section horizontalPadding='medium'>
         <HalfAndHalf
           left={
             <Column gap='1em'>
@@ -139,10 +139,10 @@ export default function LandingPage() {
           }
         />
       </Section>
-      <Section padded>
+      <Section horizontalPadding='medium'>
         <Spacer height={220} />
       </Section>
-      <Section padded>
+      <Section horizontalPadding='medium'>
         <Column centerH>
           <TypographyTitle level={5}>
             And in comfort binds them

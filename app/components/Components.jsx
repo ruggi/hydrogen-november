@@ -213,13 +213,13 @@ export const getHorizontalPaddingForSize = (size) => {
     case 'none':
       return '0em'
     case 'small':
-      return '1em'
-    case 'medium':
       return '2em'
-    case 'large':
-      return '5em'
-    case 'xl':
+    case 'medium':
       return '8em'
+    case 'large':
+      return '10em'
+    case 'xl':
+      return '20em'
     default:
       return '0em'
   }
@@ -231,13 +231,13 @@ export const getVerticalPaddingForSize = (size) => {
     case 'none':
       return '0em'
     case 'small':
-      return '1em'
-    case 'medium':
       return '2em'
-    case 'large':
-      return '5em'
-    case 'xl':
+    case 'medium':
       return '8em'
+    case 'large':
+      return '10em'
+    case 'xl':
+      return '20em'
     default:
       return '0em'
   }

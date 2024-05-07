@@ -55,8 +55,7 @@
     "featuredRoutes": [
       "/",
       "/blogs/news",
-      "/blogs/news/making-liquid",
-      "/page-checker-sweatshirt"
+      "/blogs/news/making-liquid"
     ],
     "pageTemplates": [
       {

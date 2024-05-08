@@ -9,8 +9,13 @@ export function CartMain({layout, cart}) {
   const linesCount = Boolean(cart?.lines?.nodes?.length || 0);
   const withDiscount =
     cart &&
-    Boolean(cart.discountCodes.filter((code) => code.applicable).length);
-  const className = `cart-main ${withDiscount ? 'with-discount' : ''}`;
+    Boolean(
+      cart.discountCodes?.filter((code) => code.applicable)
+        .length,
+    )
+  const className = `cart-main ${
+    withDiscount ? 'with-discount' : ''
+  }`
 
   return (
     <div className={className}>

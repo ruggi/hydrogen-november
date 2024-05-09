@@ -20,7 +20,6 @@ import { RecommendedProducts } from '../components/RecommendedProducts'
 import { loader as loaderTemplate } from './trippy-trails-template'
 import { connectToMetaObjects as connectToMetaObjectsTemplate } from '../helpers/connect-metaobject'
 import { Image, Money } from '@shopify/hydrogen'
-import { Placeholder } from 'utopia-api'
 
 export const loader = loaderTemplate
 

@@ -4,7 +4,6 @@ import {
   DuplicatedImageWithBackground,
   Grid,
   HalfAndHalf,
-  Placeholder,
   QuoteWithRating,
   Row,
   Section,
@@ -37,14 +36,15 @@ import { TestimonialCard } from '../app/routes/_index'
 
 const PlaceholderContent = {
   component: 'Placeholder',
-  moduleName: '/app/components/Components',
+  moduleName: 'utopia-api',
   variants: [],
 }
 
 const RowWithPlaceholdersVariant = {
   label: 'Row with Placeholders',
   imports:
-    'import { Row, Placeholder } from "/app/components/Components"',
+    `import { Row } from "/app/components/Components"
+     import { Placeholder } from "utopia-api"`,
   code: `<Row style={{ gap: 10 }} padded >
 <Placeholder />
 <Placeholder />
@@ -65,7 +65,8 @@ const SectionVariants = [
   {
     label: 'Section with Placeholder',
     imports:
-      'import { Section, Placeholder } from "/app/components/Components"',
+      `import { Section } from "/app/components/Components"
+      import { Placeholder } from "utopia-api"`,
     code: `<Section padded minHeight>
     <Placeholder />
 </Section>`,
@@ -79,7 +80,8 @@ const SectionVariants = [
   {
     label: 'Section with Row',
     imports:
-      'import { Section, Row, Placeholder } from "/app/components/Components"',
+      `import { Section, Row } from "/app/components/Components"
+      import { Placeholder } from "utopia-api"`,
     code: `<Section padded minHeight>
     <Row>
       <Placeholder />
@@ -90,7 +92,8 @@ const SectionVariants = [
   {
     label: 'Section with Column',
     imports:
-      'import { Section, Placeholder, Column } from "/app/components/Components"',
+      `import { Section, Column } from "/app/components/Components"
+      import { Placeholder } from "utopia-api"`,
     code: `<Section padded minHeight>
     <Placeholder />
 </Section>`,
@@ -99,7 +102,8 @@ const SectionVariants = [
     label: 'Hero Section',
     imports: `
       import { Money } from "@shopify/hydrogen"
-      import { Section, DecorativeClouds, ColorOptionsColumn, Placeholder, Column, Row, HalfAndHalf, TypographyTitle, TrippyButton, Spacer } from "/app/components/Components"
+      import { Section, DecorativeClouds, ColorOptionsColumn, Column, Row, HalfAndHalf, TypographyTitle, TrippyButton, Spacer } from "/app/components/Components"
+      import { Placeholder } from "utopia-api"
       import { Illustration } from "/app/routes/_index"
       `,
     code: `<Section
@@ -178,7 +182,8 @@ const SectionVariants = [
   {
     label: 'Testimonial Section',
     imports: `
-    import { Section, DecorativeClouds, ColorOptionsColumn, Placeholder, Column, Row, HalfAndHalf, TypographyTitle, TrippyButton, Spacer, TypographyParagraph } from "/app/components/Components"
+    import { Section, DecorativeClouds, ColorOptionsColumn, Column, Row, HalfAndHalf, TypographyTitle, TrippyButton, Spacer, TypographyParagraph } from "/app/components/Components"
+    import { Placeholder } from "utopia-api"
     import { TestimonialCard } from "/app/routes/_index"
     `,
     code: `<Section
@@ -280,7 +285,8 @@ const SectionVariants = [
     label: 'Featured Collections Section',
     imports: `
     import { Image } from '@shopify/hydrogen'
-    import { ProductFeatureRow, QuoteWithRating, TwoFeatureCallout, Section, DecorativeClouds, ColorOptionsColumn, Placeholder, Column, Row, HalfAndHalf, TypographyTitle, TrippyButton, Spacer } from "/app/components/Components"
+    import { ProductFeatureRow, QuoteWithRating, TwoFeatureCallout, Section, DecorativeClouds, ColorOptionsColumn, Column, Row, HalfAndHalf, TypographyTitle, TrippyButton, Spacer } from "/app/components/Components"
+    import { Placeholder } from "utopia-api"
     `,
     code: `
     <Section style={{ padding: '5em 9em' }}>
@@ -423,7 +429,8 @@ const SectionVariants = [
 const ColumnWithPlaceholdersVariant = {
   label: 'Column with Placeholders',
   imports:
-    "import { Column, Placeholder } from '/app/components/Components'",
+    `import { Column } from '/app/components/Components'
+     import { Placeholder } from 'utopia-api'`,
   code: `<Column style={{ gap: 10 }} padded >
 <Placeholder />
 <Placeholder />
@@ -638,7 +645,7 @@ const Components = {
       children: 'not-supported',
       variants: {
         label: 'QuoteWithRating',
-        imports: `import { QuoteWithRating, Placeholder } from "/app/components/Components"`,
+        imports: `import { QuoteWithRating } from "/app/components/Components"`,
         code: `<QuoteWithRating
             quote={'I love this!'}
             rating={5}
@@ -667,7 +674,9 @@ const Components = {
       children: 'not-supported',
       variants: {
         label: 'TwoFeatureCallout',
-        imports: `import { TwoFeatureCallout, Placeholder } from "/app/components/Components"`,
+        imports: `
+          import { TwoFeatureCallout } from "/app/components/Components"
+          import { Placeholder } from "utopia-api"`,
         code: `<TwoFeatureCallout
             style={{ gap: 10 }}
             left={<Placeholder />}
@@ -821,7 +830,9 @@ const Components = {
       children: 'not-supported',
       variants: {
         label: 'HalfAndHalf',
-        imports: `import { HalfAndHalf, Placeholder } from "/app/components/Components"`,
+        imports: `
+          import { HalfAndHalf } from "/app/components/Components"
+          import { Placeholder } from "utopia-api"`,
         code: `<HalfAndHalf
             style={{ gap: 10 }}
             left={<Placeholder />}
@@ -874,7 +885,7 @@ const Components = {
       ],
     },
     Placeholder: {
-      component: Placeholder,
+      component: Utopia.Placeholder,
       icon: 'dashedframe',
       properties: {
         margin: Utopia.numberControl(),

@@ -884,18 +884,6 @@ const Components = {
         },
       ],
     },
-    Placeholder: {
-      component: Utopia.Placeholder,
-      icon: 'dashedframe',
-      properties: {
-        margin: Utopia.numberControl(),
-        expand: Utopia.checkboxControl(),
-        fixed: Utopia.checkboxControl(),
-      },
-      focus: 'never',
-      children: 'not-supported',
-      inspector: [],
-    },
     Grid: {
       component: Grid,
       properties: {
@@ -1034,6 +1022,20 @@ const Components = {
       },
     },
   },
+  'utopia-api': {
+    Placeholder: {
+      component: Utopia.Placeholder,
+      icon: 'dashedframe',
+      properties: {
+        margin: Utopia.numberControl(),
+        expand: Utopia.checkboxControl(),
+        fixed: Utopia.checkboxControl(),
+      },
+      focus: 'never',
+      children: 'not-supported',
+      inspector: [],
+    },
+  }
 }
 
 export default Components

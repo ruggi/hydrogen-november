@@ -42,8 +42,7 @@ const PlaceholderContent = {
 
 const RowWithPlaceholdersVariant = {
   label: 'Row with Placeholders',
-  imports:
-    `import { Row } from "/app/components/Components"
+  imports: `import { Row } from "/app/components/Components"
      import { Placeholder } from "utopia-api"`,
   code: `<Row style={{ gap: 10 }} padded >
 <Placeholder />
@@ -64,8 +63,7 @@ const RowVariants = [
 const SectionVariants = [
   {
     label: 'Section with Placeholder',
-    imports:
-      `import { Section } from "/app/components/Components"
+    imports: `import { Section } from "/app/components/Components"
       import { Placeholder } from "utopia-api"`,
     code: `<Section padded minHeight>
     <Placeholder />
@@ -79,8 +77,7 @@ const SectionVariants = [
   },
   {
     label: 'Section with Row',
-    imports:
-      `import { Section, Row } from "/app/components/Components"
+    imports: `import { Section, Row } from "/app/components/Components"
       import { Placeholder } from "utopia-api"`,
     code: `<Section padded minHeight>
     <Row>
@@ -91,8 +88,7 @@ const SectionVariants = [
   },
   {
     label: 'Section with Column',
-    imports:
-      `import { Section, Column } from "/app/components/Components"
+    imports: `import { Section, Column } from "/app/components/Components"
       import { Placeholder } from "utopia-api"`,
     code: `<Section padded minHeight>
     <Placeholder />
@@ -428,8 +424,7 @@ const SectionVariants = [
 
 const ColumnWithPlaceholdersVariant = {
   label: 'Column with Placeholders',
-  imports:
-    `import { Column } from '/app/components/Components'
+  imports: `import { Column } from '/app/components/Components'
      import { Placeholder } from 'utopia-api'`,
   code: `<Column style={{ gap: 10 }} padded >
 <Placeholder />
@@ -459,17 +454,17 @@ const DefaultContent = [
     variants: ColumnWithPlaceholdersVariant,
   },
   {
-    component: 'Title',
+    component: 'TypographyTitle',
     moduleName: '/app/components/Components',
     variants: AntdTitleVariants,
   },
   {
-    component: 'Paragraph',
+    component: 'TypographyParagraph',
     moduleName: '/app/components/Components',
     variants: AntdParagraphVariants,
   },
   {
-    component: 'Text',
+    component: 'TypographyText',
     moduleName: '/app/components/Components',
     variants: AntdTextVariants,
   },
@@ -1035,7 +1030,7 @@ const Components = {
       children: 'not-supported',
       inspector: [],
     },
-  }
+  },
 }
 
 export default Components

@@ -121,7 +121,7 @@ const AntdTypoAnnotations = {
     preferredContents: 'text',
   },
   focus: 'never',
-  inspector: ['typography'],
+  inspector: { sections: ['typography'] },
 }
 
 /**

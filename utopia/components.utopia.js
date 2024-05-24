@@ -490,7 +490,7 @@ const Components = {
         name: Utopia.stringControl(),
       },
       focus: 'never',
-      inspector: [],
+      inspector: 'hidden',
       variants: {
         label: 'TestimonialCard',
         imports: `import { TestimonialCard } from '/app/routes/_index';`,
@@ -516,7 +516,7 @@ const Components = {
       component: RecommendedProducts,
       properties: {},
       focus: 'always',
-      inspector: [],
+      inspector: 'hidden',
     },
   },
   '/app/components/Header': {
@@ -538,7 +538,7 @@ const Components = {
   '/app/components/Layout': {
     Layout: {
       component: Layout,
-      inspector: [],
+      inspector: 'hidden',
       properties: {},
       variants: [],
       focus: 'never',
@@ -619,7 +619,7 @@ const Components = {
         backgroundColor: Utopia.colorControl(),
       },
       focus: 'never',
-      inspector: [],
+      inspector: 'hidden',
       children: 'not-supported',
       variants: {
         label: 'DuplicatedImageWithBackground',
@@ -863,7 +863,7 @@ const Components = {
         preferredContents: 'text',
       },
       focus: 'never',
-      inspector: ['typography'],
+      inspector: { sections: ['typography'] },
       variants: [
         {
           label: 'TrippyButton',
@@ -946,7 +946,7 @@ const Components = {
     },
     Row: {
       component: Row,
-      inspector: ['visual', 'typography'],
+      inspector: { sections: ['visual', 'typography'] },
       properties: {
         padded: Utopia.checkboxControl(),
         centerH: Utopia.checkboxControl(),
@@ -993,7 +993,7 @@ const Components = {
         height: Utopia.stringControl(),
       },
       focus: 'never',
-      inspector: [],
+      inspector: 'hidden',
       children: 'not-supported',
       variants: {
         label: 'Spacer',
@@ -1028,7 +1028,7 @@ const Components = {
       },
       focus: 'never',
       children: 'not-supported',
-      inspector: [],
+      inspector: 'hidden',
     },
   },
 }

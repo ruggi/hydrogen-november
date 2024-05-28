@@ -33,6 +33,7 @@ export var storyboard = (
       }}
       getLoadContext={contextGetter}
       commentId='bjt'
+      data-can-condense
     />
   </Storyboard>
 )

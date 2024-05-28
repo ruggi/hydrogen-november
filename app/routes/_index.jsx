@@ -76,7 +76,7 @@ export default function LandingPage() {
   const { featuredCollections } = useLoaderData()
 
   return (
-    <div>
+    <div data-can-condense>
       <Column>
         <Spacer height='4em' />
         <Section
@@ -177,22 +177,16 @@ export default function LandingPage() {
         <Section style={{ padding: '5em 9em' }}>
           <Column>
             <DecorativeClouds />
-
             {featuredCollections.map(
               (collection, index) => {
                 const shouldFlip = index % 2
-
                 return (
                   <ProductFeatureRow
                     key={collection.id}
                     inverted={shouldFlip}
                     background={collection.color}
                     image={
-                      <div
-                        style={{
-                          contain: 'layout',
-                        }}
-                      >
+                      <div style={{ contain: 'layout' }}>
                         <Image
                           style={{ height: 'auto' }}
                           data={collection.featuredImage}

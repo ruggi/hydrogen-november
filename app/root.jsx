@@ -115,9 +115,9 @@ export default function App() {
   const data = useLoaderData()
 
   return (
-    <Root>
-      <Layout {...data}>
-        <Outlet />
+    <Root data-can-condense>
+      <Layout {...data} data-can-condense>
+        <Outlet data-can-condense />
       </Layout>
     </Root>
   )
@@ -141,7 +141,6 @@ function Root({ children }) {
           href='https://fonts.googleapis.com/css2?family=Amiko:wght@400;600;700&display=swap'
           rel='stylesheet'
         />
-
         <meta charSet='utf-8' />
         <meta
           name='viewport'

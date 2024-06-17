@@ -59,7 +59,7 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
           id: '',
           resourceId: null,
           tags: [],
-          title: 'Promotions',
+          title: 'PROMOS',
           type: 'HTTP',
           url: '/promotions',
           items: [],

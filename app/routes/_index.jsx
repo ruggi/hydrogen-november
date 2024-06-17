@@ -87,7 +87,7 @@ export default function LandingPage() {
             left={
               <Column style={{ gap: 24 }}>
                 <TypographyTitle level={1}>
-                  We produce pretty [cool] bags for lifestyle
+                  We produce pretty nice bags for lifestyle
                 </TypographyTitle>
                 <TrippyButton
                   price={
